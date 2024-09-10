@@ -1,0 +1,521 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <linux/unistd.h>
+#include <sys/syscall.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sched.h>
+#include <signal.h>
+#include <setjmp.h>
+#include <errno.h>
+#include <assert.h>
+#include <time.h>
+#include "gt_include.h"
+#define NUM_CREDITS_PER_MS 2.0
+#define PRINTFROM_CPU 0
+/**********************************************************************/
+/* runqueue operations */
+static void __add_to_runqueue(runqueue_t *runq, uthread_struct_t *u_elm);
+static void __rem_from_runqueue(runqueue_t *runq, uthread_struct_t *u_elm);
+
+void print_credit_in_pq(){
+	for(int i = 0; i < 2; i++){
+		fprintf(stderr, "______________PRINTING INFO ON CPU %d AT PQ FILE!!!_____________________________\n", i);
+		kthread_context_t *k_ctx = kthread_cpu_map[i];
+		uthread_struct_t *u_obj;
+
+		uthread_head_t *uthread_head = (k_ctx->krunqueue.active_credit_tracker);
+		fprintf(stderr, "active q: %d[", k_ctx->krunqueue.active_runq->uthread_tot);
+		TAILQ_FOREACH(u_obj, uthread_head, uthread_creditq) {
+			   fprintf(stderr, "A%d(c=%d), ", u_obj->uthread_tid,u_obj->credit);
+            
+		}
+		fprintf(stderr, "] \n");
+
+		uthread_head = (k_ctx->krunqueue.expired_credit_tracker);
+		fprintf(stderr, "expired q: %d[", k_ctx->krunqueue.expires_runq->uthread_tot);
+		TAILQ_FOREACH(u_obj, uthread_head, uthread_creditq) {
+			   fprintf(stderr, "E%d(c=%d), ", u_obj->uthread_tid,u_obj->credit);
+            
+		}
+		fprintf(stderr, "] \n");
+	}
+}
+/**********************************************************************/
+/* runqueue operations */
+static inline void  __add_to_runqueue(runqueue_t *runq, uthread_struct_t *u_elem)
+{
+	unsigned int uprio, ugroup;
+	uthread_head_t *uhead;
+
+	/* Find a position in the runq based on priority and group.
+	 * Update the masks. */
+	uprio = u_elem->uthread_priority;
+	ugroup = u_elem->uthread_gid;
+
+	/* Insert at the tail */
+	uhead = &runq->prio_array[uprio].group[ugroup];
+	TAILQ_INSERT_TAIL(uhead, u_elem, uthread_runq);
+
+	/* Update information */
+	if(!IS_BIT_SET(runq->prio_array[uprio].group_mask, ugroup))
+		SET_BIT(runq->prio_array[uprio].group_mask, ugroup);
+
+	runq->uthread_tot++;
+
+	runq->uthread_prio_tot[uprio]++;
+	if(!IS_BIT_SET(runq->uthread_mask, uprio))
+		SET_BIT(runq->uthread_mask, uprio);
+
+	runq->uthread_group_tot[ugroup]++;
+	if(!IS_BIT_SET(runq->uthread_group_mask[ugroup], uprio))
+		SET_BIT(runq->uthread_group_mask[ugroup], uprio);
+
+	return;
+}
+
+static inline void __rem_from_runqueue(runqueue_t *runq, uthread_struct_t *u_elem)
+{
+	unsigned int uprio, ugroup;
+	uthread_head_t *uhead;
+
+	/* Find a position in the runq based on priority and group.
+	 * Update the masks. */
+	uprio = u_elem->uthread_priority;
+	ugroup = u_elem->uthread_gid;
+
+	/* Insert at the tail */
+	uhead = &runq->prio_array[uprio].group[ugroup];
+	TAILQ_REMOVE(uhead, u_elem, uthread_runq);
+
+	/* Update information */
+	if(TAILQ_EMPTY(uhead))
+		RESET_BIT(runq->prio_array[uprio].group_mask, ugroup);
+
+	runq->uthread_tot--;
+
+	if(!(--(runq->uthread_prio_tot[uprio])))
+		RESET_BIT(runq->uthread_mask, uprio);
+
+	if(!(--(runq->uthread_group_tot[ugroup])))
+	{
+		assert(TAILQ_EMPTY(uhead));
+		RESET_BIT(runq->uthread_group_mask[ugroup], uprio);
+	}
+
+	return;
+}
+
+
+/**********************************************************************/
+/* Exported runqueue operations */
+extern void init_runqueue(runqueue_t *runq)
+{
+	uthread_head_t *uhead;
+	int i, j;
+	/* Everything else is global, so already initialized to 0(correct init value) */
+	for(i=0; i<MAX_UTHREAD_PRIORITY; i++)
+	{
+		for(j=0; j<MAX_UTHREAD_GROUPS; j++)
+		{
+			uhead = &((runq)->prio_array[i].group[j]);
+			TAILQ_INIT(uhead);
+		}
+	}
+	return;
+}
+
+extern void add_to_runqueue(runqueue_t *runq, gt_spinlock_t *runq_lock, uthread_struct_t *u_elem)
+{
+	gt_spin_lock(runq_lock);
+	runq_lock->holder = 0x02;
+	__add_to_runqueue(runq, u_elem);
+	gt_spin_unlock(runq_lock);
+	return;
+}
+
+extern void rem_from_runqueue(runqueue_t *runq, gt_spinlock_t *runq_lock, uthread_struct_t *u_elem)
+{
+	gt_spin_lock(runq_lock);
+	runq_lock->holder = 0x03;
+	__rem_from_runqueue(runq, u_elem);
+	gt_spin_unlock(runq_lock);
+	return;
+}
+
+
+extern void switch_runqueue(runqueue_t *from_runq, gt_spinlock_t *from_runqlock, 
+		runqueue_t *to_runq, gt_spinlock_t *to_runqlock, uthread_struct_t *u_elem)
+{
+	rem_from_runqueue(from_runq, from_runqlock, u_elem);
+	add_to_runqueue(to_runq, to_runqlock, u_elem);
+	return;
+}
+
+
+/**********************************************************************/
+
+extern void kthread_init_runqueue(kthread_runqueue_t *kthread_runq)
+{
+	kthread_runq->active_runq = &(kthread_runq->runqueues[0]);
+	kthread_runq->expires_runq = &(kthread_runq->runqueues[1]);
+	kthread_runq->active_credit_tracker = &(kthread_runq->credit_queues[0]);
+	kthread_runq->expired_credit_tracker = &(kthread_runq->credit_queues[1]);
+	gt_spinlock_init(&(kthread_runq->kthread_runqlock));
+	init_runqueue(kthread_runq->active_runq);
+	init_runqueue(kthread_runq->expires_runq);
+
+	TAILQ_INIT(&(kthread_runq->zombie_uthreads));
+	TAILQ_INIT((kthread_runq->active_credit_tracker));
+	TAILQ_INIT((kthread_runq->expired_credit_tracker));
+	return;
+}
+
+static void print_runq_stats(runqueue_t *runq, int runq_str)
+{
+	int inx;
+	fprintf(stderr,"******************************************************\n");
+	fprintf(stderr,"Run queue(%d) state : \n", runq_str);
+	fprintf(stderr,"******************************************************\n");
+	fprintf(stderr,"uthreads details - (tot:%d , mask:%x)\n", runq->uthread_tot, runq->uthread_mask);
+	fprintf(stderr,"******************************************************\n");
+	fprintf(stderr,"uthread priority details : \n");
+	for(inx=0; inx<MAX_UTHREAD_PRIORITY; inx++)
+		fprintf(stderr,"uthread priority (%d) - (tot:%d)\n", inx, runq->uthread_prio_tot[inx]);
+	fprintf(stderr,"******************************************************\n");
+	fprintf(stderr,"uthread group details : \n");
+	for(inx=0; inx<MAX_UTHREAD_GROUPS; inx++)
+		fprintf(stderr,"uthread group (%d) - (tot:%d , mask:%x)\n", inx, runq->uthread_group_tot[inx], runq->uthread_group_mask[inx]);
+	fprintf(stderr,"******************************************************\n");
+	return;
+}
+
+extern uthread_struct_t *sched_find_best_uthread(kthread_runqueue_t *kthread_runq)
+{
+	/* [1] Tries to find the highest priority RUNNABLE uthread in active-runq.
+	 * [2] Found - Jump to [FOUND]
+	 * [3] Switches runqueues (active/expires)
+	 * [4] Repeat [1] through [2]
+	 * [NOT FOUND] Return NULL(no more jobs)
+	 * [FOUND] Remove uthread from pq and return it. */
+
+	runqueue_t *runq;
+	prio_struct_t *prioq;
+	uthread_head_t *u_head;
+	uthread_struct_t *u_obj;
+	unsigned int uprio, ugroup;
+
+	gt_spin_lock(&(kthread_runq->kthread_runqlock));
+	kthread_runq->kthread_runqlock.holder = 0x04;
+	runq = kthread_runq->active_runq;
+
+	if(!(runq->uthread_mask))
+	{ /* No jobs in active. switch runqueue */
+		assert(!runq->uthread_tot);
+		kthread_runq->active_runq = kthread_runq->expires_runq;
+		kthread_runq->expires_runq = runq;
+
+		runq = kthread_runq->expires_runq;
+		gt_spin_unlock(&(kthread_runq->kthread_runqlock));
+		// check if switched queue is empty, if empty, return null
+		if(!runq->uthread_mask)
+		{
+			assert(!runq->uthread_tot);
+			return NULL;
+		}
+	}
+	gt_spin_lock(&(kthread_runq->kthread_runqlock));
+	kthread_runq->kthread_runqlock.holder = 0x04;
+	/* Find the highest priority bucket */
+	uprio = LOWEST_BIT_SET(runq->uthread_mask);
+	prioq = &(runq->prio_array[uprio]);
+
+	assert(prioq->group_mask);
+	ugroup = LOWEST_BIT_SET(prioq->group_mask);
+
+	u_head = &(prioq->group[ugroup]);
+	u_obj = TAILQ_FIRST(u_head);
+	__rem_from_runqueue(runq, u_obj);
+
+	gt_spin_unlock(&(kthread_runq->kthread_runqlock));
+#if 0
+	fprintf(stderr,"cpu(%d) : sched best uthread(id:%d, group:%d)\n", u_obj->cpu_id, u_obj->uthread_tid, u_obj->uthread_gid);
+#endif
+	return(u_obj);
+}
+
+
+extern uthread_struct_t *credit_find_best_uthread(kthread_runqueue_t *kthread_runq)
+{
+	runqueue_t *runq;
+	runqueue_t *expiresq;
+	prio_struct_t *prioq;
+	uthread_head_t *u_head;
+	uthread_struct_t *u_obj;
+	uthread_struct_t *result;
+	
+	gt_spin_lock(&(kthread_runq->kthread_runqlock));
+	runq = kthread_runq->active_runq;
+	kthread_runq->kthread_runqlock.holder = 0x04;
+
+	if(!(runq->uthread_mask))
+	{ /* No jobs in active. switch runqueue */
+		assert(!runq->uthread_tot);
+		
+		// switch active and expired runqueue
+		runq = kthread_runq->active_runq;
+
+		kthread_runq->active_runq = kthread_runq->expires_runq;
+		kthread_runq->expires_runq = runq;
+
+		u_head = (kthread_runq->expired_credit_tracker);
+		
+        {
+			TAILQ_FOREACH(u_obj, u_head, uthread_creditq) {
+				u_obj->credit = u_obj->init_credit; // Assuming `priority` is a field in uthread_struct_t
+			}
+			// if(kthread_apic_id()  == 1){
+			// 	fprintf(stderr, "Switched ALL EXPIRED QUEUE STUFF TO RUNQ\n");
+			// 	fprintf(stderr, "hbefore switching runq\n");
+			// 	print_credit_in_pq();
+			// }
+			uthread_head_t* temp = kthread_runq->active_credit_tracker;
+			kthread_runq->active_credit_tracker = kthread_runq->expired_credit_tracker;
+			kthread_runq->expired_credit_tracker = temp;
+
+			// if(kthread_apic_id()  == 1){
+			// 	fprintf(stderr, "hafter switching runq\n");
+			// 	print_credit_in_pq(); 
+			// }
+		}
+		runq = kthread_runq->active_runq;
+		u_head = kthread_runq->active_credit_tracker;
+		// if ther is still no job in active, return null
+		if(!runq->uthread_mask)
+		{
+			assert(TAILQ_EMPTY(u_head));
+			assert(!runq->uthread_tot);
+			gt_spin_unlock(&(kthread_runq->kthread_runqlock));
+			return NULL;
+		}
+		
+	}
+	else{
+		u_head = kthread_runq->expired_credit_tracker;
+		// if here are jobs in expired credit tracker, move all positive credit jobs to active credit tracker.
+		uthread_struct_t *next;
+		if(!TAILQ_EMPTY(u_head)){
+			// if(kthread_apic_id()  == PRINTFROM_CPU){
+			// 	fprintf(stderr, "\n\nMOVING FROM EXPIRED TO ACTIVE CREDIT TRACKER********************************\n");
+			// 	print_credit_in_pq();
+			// 	fprintf(stderr, "\n\nMOVING FROM EXPIRED TO ACTIVE CREDIT TRACKER#######################################\n");
+			// }
+			for (u_obj = TAILQ_FIRST(u_head); u_obj != NULL; u_obj = next) {
+				
+				next = TAILQ_NEXT(u_obj, uthread_creditq); // Store next element before removal
+				// if(kthread_apic_id()  == PRINTFROM_CPU){
+				// 	fprintf(stderr, "adding %d credits to utrhead %d\n",(int)((KTHREAD_VTALRM_USEC/1000.0)*NUM_CREDITS_PER_MS), u_obj->uthread_tid );
+				// }
+				int to_add = (int)((KTHREAD_VTALRM_USEC/1000.0)*NUM_CREDITS_PER_MS);
+				if(u_obj->credit + to_add > u_obj->init_credit){
+					u_obj->credit = u_obj->init_credit; // reset credit to max credit if credit is more than max credit
+				}
+				else{
+                    u_obj->credit += to_add;
+                }
+				if (u_obj->credit > 0) {
+					TAILQ_INSERT_TAIL(kthread_runq->active_credit_tracker, u_obj, uthread_creditq);
+					if(u_obj == u_head->tqh_first){
+						u_head->tqh_first = TAILQ_NEXT(u_head->tqh_first, uthread_creditq);
+                        if (u_head->tqh_first == NULL)
+                            u_head->tqh_last = NULL;
+					}
+					else{
+						// swicth in credit queue
+						TAILQ_REMOVE(kthread_runq->expired_credit_tracker, u_obj, uthread_creditq);
+					}
+					// swich in main queue
+					__rem_from_runqueue(kthread_runq->expires_runq, u_obj);
+					__add_to_runqueue( kthread_runq->active_runq, u_obj);
+
+				};
+			}
+			// if(kthread_apic_id()  == PRINTFROM_CPU){
+			// 	fprintf(stderr, "hafter checkingand moving from epired to active runq\n");
+			// 	print_credit_in_pq();
+			// 	fprintf(stderr, "hafter checkingand moving from epired to active runq------------\n");
+			// }
+		}
+	
+	}
+	// find out uthread with highest credit
+	int most_credit = 0;
+
+
+	u_head = (kthread_runq->active_credit_tracker);
+	TAILQ_FOREACH(u_obj, u_head, uthread_creditq) {
+		if(u_obj->credit > most_credit){
+			most_credit = u_obj->credit;
+			result = u_obj;
+		}
+	}
+	runq = kthread_runq->active_runq;
+	// if result is not NULL, remove it from credit tracker and runqueue
+	u_head = (kthread_runq->active_credit_tracker);
+	if(result){
+		TAILQ_REMOVE(u_head, result, uthread_creditq);
+		__rem_from_runqueue(runq, result);
+	}
+
+	gt_spin_unlock(&(kthread_runq->kthread_runqlock));
+
+	return(result);
+}
+
+
+/* XXX: More work to be done !!! */
+extern gt_spinlock_t uthread_group_penalty_lock;
+extern unsigned int uthread_group_penalty;
+
+extern uthread_struct_t *sched_find_best_uthread_group(kthread_runqueue_t *kthread_runq)
+{
+	/* [1] Tries to find a RUNNABLE uthread in active-runq from u_gid.
+	 * [2] Found - Jump to [FOUND]
+	 * [3] Tries to find a thread from a group with least threads in runq (XXX: NOT DONE)
+	 * - [Tries to find the highest priority RUNNABLE thread (XXX: DONE)]
+	 * [4] Found - Jump to [FOUND]
+	 * [5] Switches runqueues (active/expires)
+	 * [6] Repeat [1] through [4]
+	 * [NOT FOUND] Return NULL(no more jobs)
+	 * [FOUND] Remove uthread from pq and return it. */
+	runqueue_t *runq;
+	prio_struct_t *prioq;
+	uthread_head_t *u_head;
+	uthread_struct_t *u_obj;
+	unsigned int uprio, ugroup, mask;
+	uthread_group_t u_gid;
+
+#ifndef COSCHED
+	return sched_find_best_uthread(kthread_runq);
+#endif
+
+	/* XXX: Read u_gid from global uthread-select-criterion */
+	u_gid = 0;
+	runq = kthread_runq->active_runq;
+
+	if(!runq->uthread_mask)
+	{ /* No jobs in active. switch runqueue */
+		assert(!runq->uthread_tot);
+		kthread_runq->active_runq = kthread_runq->expires_runq;
+		kthread_runq->expires_runq = runq;
+
+		runq = kthread_runq->expires_runq;
+		if(!runq->uthread_mask)
+		{
+			assert(!runq->uthread_tot);
+			return NULL;
+		}
+	}
+
+
+	if(!(mask = runq->uthread_group_mask[u_gid]))
+	{ /* No uthreads in the desired group */
+		assert(!runq->uthread_group_tot[u_gid]);
+		return (sched_find_best_uthread(kthread_runq));
+	}
+
+	/* Find the highest priority bucket for u_gid */
+	uprio = LOWEST_BIT_SET(mask);
+
+	/* Take out a uthread from the bucket. Return it. */
+	u_head = &(runq->prio_array[uprio].group[u_gid]);
+	u_obj = TAILQ_FIRST(u_head);
+	rem_from_runqueue(runq, &(kthread_runq->kthread_runqlock), u_obj);
+
+	return(u_obj);
+}
+
+#if 0
+/*****************************************************************************************/
+/* Main Test Function */
+
+runqueue_t active_runqueue, expires_runqueue;
+
+#define MAX_UTHREADS 1000
+uthread_struct_t u_objs[MAX_UTHREADS];
+
+static void fill_runq(runqueue_t *runq)
+{
+	uthread_struct_t *u_obj;
+	int inx;
+	/* create and insert */
+	for(inx=0; inx<MAX_UTHREADS; inx++)
+	{
+		u_obj = &u_objs[inx];
+		u_obj->uthread_tid = inx;
+		u_obj->uthread_gid = (inx % MAX_UTHREAD_GROUPS);
+		u_obj->uthread_priority = (inx % MAX_UTHREAD_PRIORITY);
+		__add_to_runqueue(runq, u_obj);
+		fprintf(stderr,"Uthread (id:%d , prio:%d) inserted\n", u_obj->uthread_tid, u_obj->uthread_priority);
+	}
+
+	return;
+}
+
+static void change_runq(runqueue_t *from_runq, runqueue_t *to_runq)
+{
+	uthread_struct_t *u_obj;
+	int inx;
+	/* Remove and delete */
+	for(inx=0; inx<MAX_UTHREADS; inx++)
+	{
+		u_obj = &u_objs[inx];
+		switch_runqueue(from_runq, to_runq, u_obj);
+		fprintf(stderr,"Uthread (id:%d , prio:%d) moved\n", u_obj->uthread_tid, u_obj->uthread_priority);
+	}
+
+	return;
+}
+
+
+static void empty_runq(runqueue_t *runq)
+{
+	uthread_struct_t *u_obj;
+	int inx;
+	/* Remove and delete */
+	for(inx=0; inx<MAX_UTHREADS; inx++)
+	{
+		u_obj = &u_objs[inx];
+		__rem_from_runqueue(runq, u_obj);
+		fprintf(stderr,"Uthread (id:%d , prio:%d) removed\n", u_obj->uthread_tid, u_obj->uthread_priority);
+	}
+
+	return;
+}
+
+int main()
+{
+	runqueue_t *active_runq, *expires_runq;
+	uthread_struct_t *u_obj;
+	int inx;
+
+	active_runq = &active_runqueue;
+	expires_runq = &expires_runqueue;
+
+	init_runqueue(active_runq);
+	init_runqueue(expires_runq);
+
+	fill_runq(active_runq);
+	print_runq_stats(active_runq, "ACTIVE");
+	print_runq_stats(expires_runq, "EXPIRES");
+	change_runq(active_runq, expires_runq);
+	print_runq_stats(active_runq, "ACTIVE");
+	print_runq_stats(expires_runq, "EXPIRES");
+	empty_runq(expires_runq);
+	print_runq_stats(active_runq, "ACTIVE");
+	print_runq_stats(expires_runq, "EXPIRES");
+
+	return 0;
+}
+
+#endif

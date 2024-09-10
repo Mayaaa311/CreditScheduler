@@ -1,0 +1,28 @@
+ .............utrhead_create_called.................
+Target uthread (id:0) : cpu(1)
+ .............utrhead_create_called.................
+Target uthread (id:1) : cpu(0)
+.!!!!!!!!!!.... UTHREAD JOB RUNNING NOW.!!!!!!!!..., in kthread 1
+ .............utrhead_create_called.................
+Target uthread (id:2) : cpu(1)
+currently executing uthread 0
+ .............utrhead_create_called.................
+Target uthread (id:3) : cpu(0)
+
+
+!!!!!!!!!credit_scheduler invoked !!!!!!!!!!! in kthread 0
+______________PRINTING INFO ON CPU 0_____________________________
+active q: 2[Au1(c=10), Au3(c=10), ] 
+expired q: 0[] 
+______________PRINTING INFO ON CPU 1_____________________________
+active q: 1[Au2(c=10), ] 
+expired q: 0[] 
+.!!!!!!!!!!.... UTHREAD JOB RUNNING NOW.!!!!!!!!..., in kthread 0
+currently executing uthread 1
+
+
+!!!!!!!!!credit_scheduler invoked !!!!!!!!!!! in kthread 0
+______________PRINTING INFO ON CPU 0_____________________________
+Thread 0ran for 11.329341 ms, deducted 113.000000 credits. Remaining credits THIS IS PRINETD HER!: -103
+active q: 1[Au3(c=10), .!!!!!!!!!!.... UTHREAD JOB RUNNING NOW.!!!!!!!!..., in kthread 1
+] 
