@@ -38,6 +38,7 @@ typedef struct uthread_struct
 	stack_t uthread_stack; /* 12 bytes : user-level thread stack */
 	TAILQ_ENTRY(uthread_struct) uthread_runq;
 	TAILQ_ENTRY(uthread_struct) uthread_creditq;
+	TAILQ_ENTRY(uthread_struct) uthread_lbq;
 	struct timespec start_time;
 } uthread_struct_t;
 

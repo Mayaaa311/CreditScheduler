@@ -1,5 +1,1584 @@
- .............utrhead_create_called.................
-Target uthread (id:0) : cpu(1)
- .............utrhead_create_called.................
-Target uthread (id:1) : cpu(2)
-currently executing uthread 0
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 1 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 1 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+mat size :32
+credit:25, credit_idx: 0
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 1 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 0 is put to kthread 1 runq, kthread active q: (1), kthread expired q: (0)
+mat size :32
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 1 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+credit:25, credit_idx: 0
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 1 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 1 is put to kthread 2 runq, kthread active q: (1), kthread expired q: (0)
+mat size :32
+Thread 1 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (1)
+no uthread in kthread 1 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+credit:25, credit_idx: 0
+into 16 /nThread 1 in kthread 2 is done, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 1 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 1 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 2 is put to kthread 3 runq, kthread active q: (1), kthread expired q: (0)
+mat size :32
+Thread 2 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 1 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+credit:25, credit_idx: 0
+into 16 /nThread 2 in kthread 3 is done, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 1 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 3 in kthread 0 is put to run, kthread active q: (0), kthread expired q: (1)
+Thread 3 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :32
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+into 16 /nThread 3 in kthread 1 is done, kthread active q: (0), kthread expired q: (0)
+credit:25, credit_idx: 0
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 4 is put to kthread 1 runq, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 1 to be run, kthread active q: (0), kthread expired q: (0)
+mat size :32
+credit:25, credit_idx: 0
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 5 is put to kthread 2 runq, kthread active q: (1), kthread expired q: (0)
+Thread 4 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+mat size :32
+credit:25, credit_idx: 0
+into 16 /nLOAD BALANCING COMPLETED
+Thread 6 is put to kthread 3 runq, kthread active q: (1), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 4 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+Thread 5 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (1)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+mat size :32
+credit:25, credit_idx: 0
+Thread 6 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+into 16 /nThread 5 in kthread 1 is done, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 7 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :32
+into 16 /nThread 6 in kthread 2 is done, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+LOAD BALANCING COMPLETED
+credit:50, credit_idx: 1
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 7 in kthread 0 is put to run, kthread active q: (0), kthread expired q: (1)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 8 is put to kthread 1 runq, kthread active q: (1), kthread expired q: (1)
+mat size :32
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+into 16 /nThread 7 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+credit:50, credit_idx: 1
+LOAD BALANCING COMPLETED
+Thread 9 is put to kthread 2 runq, kthread active q: (1), kthread expired q: (0)
+Thread 8 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+mat size :32
+credit:50, credit_idx: 1
+into 16 /nThread 8 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 9 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (1)
+Thread 10 is put to kthread 3 runq, kthread active q: (1), kthread expired q: (0)
+mat size :32
+Thread 10 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+into 16 /nThread 9 in kthread 1 is done, kthread active q: (0), kthread expired q: (0)
+credit:50, credit_idx: 1
+Thread 11 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+into 16 /nThread 10 in kthread 3 is done, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+LOAD BALANCING COMPLETED
+Thread 11 in kthread 0 is put to run, kthread active q: (0), kthread expired q: (1)
+mat size :32
+credit:50, credit_idx: 1
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+into 16 /nThread 11 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+Thread 12 is put to kthread 1 runq, kthread active q: (1), kthread expired q: (1)
+mat size :32
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 12 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (1)
+credit:50, credit_idx: 1
+Thread 13 is put to kthread 2 runq, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+into 16 /nThread 12 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+mat size :32
+credit:50, credit_idx: 1
+LOAD BALANCING COMPLETED
+Thread 14 is put to kthread 3 runq, kthread active q: (1), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 13 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (1)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+mat size :32
+credit:50, credit_idx: 1
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+into 16 /nThread 13 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 15 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :32
+Thread 14 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+Thread 15 in kthread 0 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+credit:75, credit_idx: 2
+into 16 /nThread 14 in kthread 2 is done, kthread active q: (0), kthread expired q: (0)
+into 16 /nThread 15 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 16 is put to kthread 1 runq, kthread active q: (1), kthread expired q: (1)
+mat size :32
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 16 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+credit:75, credit_idx: 2
+LOAD BALANCING COMPLETED
+Thread 17 is put to kthread 2 runq, kthread active q: (1), kthread expired q: (0)
+into 16 /nThread 16 in kthread 1 is done, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+mat size :32
+credit:75, credit_idx: 2
+LOAD BALANCING COMPLETED
+Thread 17 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+Thread 18 is put to kthread 3 runq, kthread active q: (1), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+into 16 /nThread 17 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+mat size :32
+credit:75, credit_idx: 2
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 18 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 19 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :32
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+into 16 /nThread 18 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+credit:75, credit_idx: 2
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 19 in kthread 0 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 20 is put to kthread 1 runq, kthread active q: (1), kthread expired q: (1)
+mat size :32
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+into 16 /nThread 19 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+credit:75, credit_idx: 2
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 21 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (1)
+Thread 20 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 21 is put to kthread 2 runq, kthread active q: (1), kthread expired q: (0)
+into 16 /nThread 21 in kthread 2 is done, kthread active q: (0), kthread expired q: (0)
+into 16 /nThread 20 in kthread 1 is done, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+mat size :32
+credit:75, credit_idx: 2
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 1 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 22 is put to kthread 3 runq, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 22 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+mat size :32
+credit:75, credit_idx: 2
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+into 16 /nThread 22 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 23 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :32
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 23 in kthread 0 is put to run, kthread active q: (0), kthread expired q: (1)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+credit:100, credit_idx: 3
+Thread 24 is put to kthread 1 runq, kthread active q: (1), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+into 16 /nThread 23 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+mat size :32
+credit:100, credit_idx: 3
+LOAD BALANCING COMPLETED
+Thread 25 is put to kthread 2 runq, kthread active q: (1), kthread expired q: (0)
+Thread 24 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (1)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+mat size :32
+credit:100, credit_idx: 3
+into 16 /nThread 24 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 26 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 26 is put to kthread 3 runq, kthread active q: (1), kthread expired q: (0)
+mat size :32
+Thread 25 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (1)
+into 16 /nLOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+credit:100, credit_idx: 3
+Thread 27 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+into 16 /nThread 25 in kthread 1 is done, kthread active q: (0), kthread expired q: (0)
+Thread 26 in kthread 3 is done, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+mat size :32
+credit:100, credit_idx: 3
+LOAD BALANCING COMPLETED
+Thread 28 is put to kthread 1 runq, kthread active q: (1), kthread expired q: (1)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 27 in kthread 0 is put to run, kthread active q: (0), kthread expired q: (1)
+mat size :32
+credit:100, credit_idx: 3
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+LOAD BALANCING COMPLETED
+Thread 29 is put to kthread 2 runq, kthread active q: (1), kthread expired q: (0)
+into 16 /nThread 27 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+mat size :32
+credit:100, credit_idx: 3
+Thread 28 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (1)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 30 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 30 is put to kthread 3 runq, kthread active q: (1), kthread expired q: (0)
+mat size :32
+into 16 /nThread 28 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+into 16 /nThread 30 in kthread 3 is done, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+credit:100, credit_idx: 3
+Thread 29 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 31 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :64
+into 16 /nThread 29 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+credit:25, credit_idx: 0
+Thread 31 in kthread 0 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 32 is put to kthread 1 runq, kthread active q: (1), kthread expired q: (1)
+mat size :64
+into 16 /nThread 31 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+credit:25, credit_idx: 0
+Thread 32 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 33 is put to kthread 2 runq, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+mat size :64
+credit:25, credit_idx: 0
+into 16 /nThread 32 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 33 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (1)
+Thread 34 is put to kthread 3 runq, kthread active q: (1), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+mat size :64
+credit:25, credit_idx: 0
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+into 16 /nThread 35 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :64
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 34 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+Thread 33 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+credit:25, credit_idx: 0
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 35 in kthread 0 is put to run, kthread active q: (0), kthread expired q: (1)
+Thread 36 is put to kthread 1 runq, kthread active q: (1), kthread expired q: (1)
+mat size :64
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+into 16 /nThread 34 in kthread 2 is done, kthread active q: (0), kthread expired q: (0)
+credit:25, credit_idx: 0
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+into 16 /nThread 35 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 37 is put to kthread 2 runq, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 36 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (1)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+mat size :64
+credit:25, credit_idx: 0
+LOAD BALANCING COMPLETED
+Thread 38 is put to kthread 3 runq, kthread active q: (1), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+into 16 /nno uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+mat size :64
+credit:25, credit_idx: 0
+Thread 38 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+Thread 36 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+Thread 39 in kthread 0 is put to run, kthread active q: (0), kthread expired q: (1)
+Thread 39 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :64
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+credit:50, credit_idx: 1
+Thread 40 is put to kthread 1 runq, kthread active q: (2), kthread expired q: (1)
+into 16 /nThread 38 in kthread 2 is done, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+mat size :64
+credit:50, credit_idx: 1
+LOAD BALANCING COMPLETED
+Thread 41 is put to kthread 2 runq, kthread active q: (1), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+into 16 /nThread 39 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+Thread 40 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (1)
+mat size :64
+credit:50, credit_idx: 1
+LOAD BALANCING COMPLETED
+Thread 42 is put to kthread 3 runq, kthread active q: (1), kthread expired q: (0)
+Thread 37 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (1)
+into 16 /nThread 40 in kthread 2 is done, kthread active q: (1), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+mat size :64
+credit:50, credit_idx: 1
+Thread 41 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (1)
+Thread 42 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+into 16 /nThread 37 in kthread 1 is done, kthread active q: (0), kthread expired q: (0)
+Thread 43 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :64
+LOAD BALANCING COMPLETED
+Thread 43 in kthread 0 is put to run, kthread active q: (0), kthread expired q: (1)
+into 16 /nThread 41 in kthread 2 is done, kthread active q: (0), kthread expired q: (0)
+credit:50, credit_idx: 1
+into 16 /nThread 42 in kthread 3 is done, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 44 is put to kthread 1 runq, kthread active q: (1), kthread expired q: (1)
+mat size :64
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+into 16 /nThread 43 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+credit:50, credit_idx: 1
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 44 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 45 is put to kthread 2 runq, kthread active q: (1), kthread expired q: (0)
+mat size :64
+Thread 45 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (1)
+into 16 /nLOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+credit:50, credit_idx: 1
+Thread 44 in kthread 1 is done, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+LOAD BALANCING COMPLETED
+Thread 46 is put to kthread 3 runq, kthread active q: (1), kthread expired q: (0)
+into 16 /nThread 45 in kthread 2 is done, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 1 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+mat size :64
+credit:50, credit_idx: 1
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 46 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 47 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :64
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+into 16 /ncredit:75, credit_idx: 2
+Thread 48 is put to kthread 1 runq, kthread active q: (2), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 46 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+Thread 47 in kthread 0 is put to run, kthread active q: (0), kthread expired q: (1)
+mat size :64
+credit:75, credit_idx: 2
+LOAD BALANCING COMPLETED
+Thread 49 is put to kthread 2 runq, kthread active q: (1), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 48 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (1)
+into 16 /nmat size :64
+credit:75, credit_idx: 2
+LOAD BALANCING COMPLETED
+Thread 50 is put to kthread 3 runq, kthread active q: (1), kthread expired q: (0)
+Thread 47 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+into 16 /nThread 48 in kthread 2 is done, kthread active q: (0), kthread expired q: (0)
+mat size :64
+credit:75, credit_idx: 2
+Thread 49 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (1)
+Thread 50 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 51 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :64
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+credit:75, credit_idx: 2
+into 16 /nThread 49 in kthread 1 is done, kthread active q: (2), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+into 16 /nThread 50 in kthread 3 is done, kthread active q: (0), kthread expired q: (0)
+Thread 52 is put to kthread 1 runq, kthread active q: (2), kthread expired q: (1)
+mat size :64
+Thread 51 in kthread 0 is put to run, kthread active q: (1), kthread expired q: (2)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+credit:75, credit_idx: 2
+into 16 /nLOAD BALANCING COMPLETED
+Thread 53 is put to kthread 2 runq, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 51 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+Thread 52 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (1)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+mat size :64
+credit:75, credit_idx: 2
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 53 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (1)
+Thread 54 is put to kthread 3 runq, kthread active q: (1), kthread expired q: (0)
+mat size :64
+into 16 /nThread 52 in kthread 1 is done, kthread active q: (0), kthread expired q: (0)
+Thread 54 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+credit:75, credit_idx: 2
+Thread 55 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+into 16 /nmat size :64
+credit:100, credit_idx: 3
+no uthread in kthread 1 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 53 in kthread 2 is done, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+into 16 /nThread 56 is put to kthread 1 runq, kthread active q: (1), kthread expired q: (0)
+mat size :64
+Thread 56 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (1)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 54 in kthread 3 is done, kthread active q: (0), kthread expired q: (0)
+credit:100, credit_idx: 3
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 57 is put to kthread 2 runq, kthread active q: (1), kthread expired q: (0)
+mat size :64
+into 16 /nThread 56 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+Thread 57 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+credit:100, credit_idx: 3
+Thread 55 in kthread 0 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+into 16 /nThread 57 in kthread 2 is done, kthread active q: (0), kthread expired q: (0)
+Thread 58 is put to kthread 3 runq, kthread active q: (1), kthread expired q: (0)
+mat size :64
+Thread 58 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+into 16 /nThread 55 in kthread 1 is done, kthread active q: (0), kthread expired q: (0)
+credit:100, credit_idx: 3
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+into 16 /nThread 58 in kthread 3 is done, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 59 in kthread 0 is put to run, kthread active q: (0), kthread expired q: (1)
+Thread 59 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :64
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+credit:100, credit_idx: 3
+Thread 60 is put to kthread 1 runq, kthread active q: (1), kthread expired q: (1)
+into 16 /nThread 59 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+mat size :64
+credit:100, credit_idx: 3
+Thread 60 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+Thread 61 is put to kthread 2 runq, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+mat size :64
+credit:100, credit_idx: 3
+into 16 /nLOAD BALANCING COMPLETED
+Thread 62 is put to kthread 3 runq, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 60 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+Thread 61 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (1)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+mat size :64
+credit:100, credit_idx: 3
+LOAD BALANCING COMPLETED
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 63 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :128
+into 16 /nThread 61 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 62 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+credit:25, credit_idx: 0
+Thread 64 is put to kthread 1 runq, kthread active q: (1), kthread expired q: (1)
+Thread 63 in kthread 0 is put to run, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+into 16 /nThread 62 in kthread 2 is done, kthread active q: (0), kthread expired q: (0)
+mat size :128
+credit:25, credit_idx: 0
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+into 16 /nThread 63 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 65 is put to kthread 2 runq, kthread active q: (1), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 64 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (1)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+mat size :128
+credit:25, credit_idx: 0
+LOAD BALANCING COMPLETED
+Thread 66 is put to kthread 3 runq, kthread active q: (1), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+mat size :128
+credit:25, credit_idx: 0
+Thread 66 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 67 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :128
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+credit:25, credit_idx: 0
+Thread 68 is put to kthread 1 runq, kthread active q: (2), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+mat size :128
+credit:25, credit_idx: 0
+LOAD BALANCING COMPLETED
+Thread 65 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (1)
+Thread 69 is put to kthread 2 runq, kthread active q: (2), kthread expired q: (1)
+mat size :128
+credit:25, credit_idx: 0
+Thread 70 is put to kthread 3 runq, kthread active q: (1), kthread expired q: (1)
+mat size :128
+credit:25, credit_idx: 0
+Thread 71 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :128
+into 16 /nThread 64 in kthread 1 is done, kthread active q: (1), kthread expired q: (0)
+credit:50, credit_idx: 1
+Thread 72 is put to kthread 1 runq, kthread active q: (1), kthread expired q: (1)
+Thread 67 in kthread 0 is put to run, kthread active q: (0), kthread expired q: (1)
+mat size :128
+credit:50, credit_idx: 1
+Thread 73 is put to kthread 2 runq, kthread active q: (3), kthread expired q: (1)
+mat size :128
+credit:50, credit_idx: 1
+Thread 74 is put to kthread 3 runq, kthread active q: (2), kthread expired q: (1)
+mat size :128
+credit:50, credit_idx: 1
+Thread 75 is put to kthread 0 runq, kthread active q: (3), kthread expired q: (0)
+mat size :128
+into 16 /nThread 66 in kthread 2 is done, kthread active q: (3), kthread expired q: (0)
+credit:50, credit_idx: 1
+Thread 76 is put to kthread 1 runq, kthread active q: (2), kthread expired q: (1)
+Thread 73 in kthread 2 is put to run, kthread active q: (2), kthread expired q: (3)
+mat size :128
+credit:50, credit_idx: 1
+Thread 77 is put to kthread 2 runq, kthread active q: (3), kthread expired q: (1)
+mat size :128
+credit:50, credit_idx: 1
+Thread 78 is put to kthread 3 runq, kthread active q: (3), kthread expired q: (1)
+mat size :128
+credit:50, credit_idx: 1
+into 16 /nThread 65 in kthread 3 is done, kthread active q: (3), kthread expired q: (0)
+Thread 79 is put to kthread 0 runq, kthread active q: (4), kthread expired q: (0)
+mat size :128
+Thread 74 in kthread 3 is put to run, kthread active q: (2), kthread expired q: (3)
+credit:75, credit_idx: 2
+Thread 80 is put to kthread 1 runq, kthread active q: (3), kthread expired q: (1)
+mat size :128
+credit:75, credit_idx: 2
+Thread 81 is put to kthread 2 runq, kthread active q: (4), kthread expired q: (1)
+mat size :128
+credit:75, credit_idx: 2
+into 16 /nThread 67 in kthread 1 is done, kthread active q: (3), kthread expired q: (0)
+Thread 82 is put to kthread 3 runq, kthread active q: (3), kthread expired q: (1)
+mat size :128
+Thread 80 in kthread 1 is put to run, kthread active q: (2), kthread expired q: (3)
+credit:75, credit_idx: 2
+Thread 83 is put to kthread 0 runq, kthread active q: (5), kthread expired q: (0)
+mat size :128
+credit:75, credit_idx: 2
+Thread 84 is put to kthread 1 runq, kthread active q: (3), kthread expired q: (1)
+mat size :128
+credit:75, credit_idx: 2
+Thread 85 is put to kthread 2 runq, kthread active q: (5), kthread expired q: (1)
+mat size :128
+credit:75, credit_idx: 2
+Thread 86 is put to kthread 3 runq, kthread active q: (4), kthread expired q: (1)
+into 16 /nThread 73 in kthread 2 is done, kthread active q: (5), kthread expired q: (0)
+mat size :128
+credit:75, credit_idx: 2
+Thread 81 in kthread 2 is put to run, kthread active q: (4), kthread expired q: (5)
+Thread 87 is put to kthread 0 runq, kthread active q: (6), kthread expired q: (0)
+mat size :128
+credit:100, credit_idx: 3
+Thread 88 is put to kthread 1 runq, kthread active q: (4), kthread expired q: (1)
+mat size :128
+credit:100, credit_idx: 3
+Thread 89 is put to kthread 2 runq, kthread active q: (5), kthread expired q: (1)
+into 16 /nThread 74 in kthread 3 is done, kthread active q: (4), kthread expired q: (0)
+mat size :128
+credit:100, credit_idx: 3
+Thread 82 in kthread 3 is put to run, kthread active q: (3), kthread expired q: (4)
+Thread 90 is put to kthread 3 runq, kthread active q: (4), kthread expired q: (1)
+mat size :128
+credit:100, credit_idx: 3
+Thread 91 is put to kthread 0 runq, kthread active q: (7), kthread expired q: (0)
+mat size :128
+credit:100, credit_idx: 3
+Thread 92 is put to kthread 1 runq, kthread active q: (5), kthread expired q: (1)
+mat size :128
+into 16 /nThread 80 in kthread 1 is done, kthread active q: (5), kthread expired q: (0)
+credit:100, credit_idx: 3
+Thread 93 is put to kthread 2 runq, kthread active q: (6), kthread expired q: (1)
+Thread 88 in kthread 1 is put to run, kthread active q: (4), kthread expired q: (5)
+mat size :128
+credit:100, credit_idx: 3
+Thread 94 is put to kthread 3 runq, kthread active q: (5), kthread expired q: (1)
+mat size :128
+credit:100, credit_idx: 3
+Thread 95 is put to kthread 0 runq, kthread active q: (8), kthread expired q: (0)
+mat size :256
+credit:25, credit_idx: 0
+Thread 96 is put to kthread 1 runq, kthread active q: (5), kthread expired q: (1)
+mat size :256
+credit:25, credit_idx: 0
+into 16 /nThread 81 in kthread 2 is done, kthread active q: (7), kthread expired q: (0)
+Thread 97 is put to kthread 2 runq, kthread active q: (7), kthread expired q: (1)
+mat size :256
+Thread 89 in kthread 2 is put to run, kthread active q: (6), kthread expired q: (7)
+credit:25, credit_idx: 0
+Thread 98 is put to kthread 3 runq, kthread active q: (6), kthread expired q: (1)
+mat size :256
+credit:25, credit_idx: 0
+Thread 99 is put to kthread 0 runq, kthread active q: (9), kthread expired q: (0)
+mat size :256
+credit:25, credit_idx: 0
+into 16 /nThread 82 in kthread 3 is done, kthread active q: (6), kthread expired q: (0)
+Thread 100 is put to kthread 1 runq, kthread active q: (6), kthread expired q: (1)
+mat size :256
+Thread 90 in kthread 3 is put to run, kthread active q: (5), kthread expired q: (6)
+credit:25, credit_idx: 0
+Thread 101 is put to kthread 2 runq, kthread active q: (7), kthread expired q: (1)
+mat size :256
+credit:25, credit_idx: 0
+Thread 102 is put to kthread 3 runq, kthread active q: (6), kthread expired q: (1)
+mat size :256
+credit:25, credit_idx: 0
+into 16 /nThread 88 in kthread 1 is done, kthread active q: (6), kthread expired q: (0)
+Thread 103 is put to kthread 0 runq, kthread active q: (10), kthread expired q: (0)
+mat size :256
+Thread 92 in kthread 1 is put to run, kthread active q: (5), kthread expired q: (6)
+credit:50, credit_idx: 1
+Thread 104 is put to kthread 1 runq, kthread active q: (6), kthread expired q: (1)
+mat size :256
+credit:50, credit_idx: 1
+Thread 105 is put to kthread 2 runq, kthread active q: (8), kthread expired q: (1)
+mat size :256
+credit:50, credit_idx: 1
+Thread 106 is put to kthread 3 runq, kthread active q: (7), kthread expired q: (1)
+mat size :256
+credit:50, credit_idx: 1
+Thread 107 is put to kthread 0 runq, kthread active q: (11), kthread expired q: (0)
+mat size :256
+into 16 /nThread 89 in kthread 2 is done, kthread active q: (8), kthread expired q: (0)
+credit:50, credit_idx: 1
+Thread 93 in kthread 2 is put to run, kthread active q: (7), kthread expired q: (8)
+Thread 108 is put to kthread 1 runq, kthread active q: (7), kthread expired q: (1)
+mat size :256
+credit:50, credit_idx: 1
+Thread 109 is put to kthread 2 runq, kthread active q: (8), kthread expired q: (1)
+mat size :256
+credit:50, credit_idx: 1
+Thread 110 is put to kthread 3 runq, kthread active q: (8), kthread expired q: (1)
+mat size :256
+credit:50, credit_idx: 1
+into 16 /nThread 111 is put to kthread 0 runq, kthread active q: (12), kthread expired q: (0)
+mat size :256
+Thread 90 in kthread 3 is done, kthread active q: (8), kthread expired q: (0)
+Thread 94 in kthread 3 is put to run, kthread active q: (7), kthread expired q: (8)
+credit:75, credit_idx: 2
+Thread 112 is put to kthread 1 runq, kthread active q: (8), kthread expired q: (1)
+mat size :256
+credit:75, credit_idx: 2
+Thread 113 is put to kthread 2 runq, kthread active q: (9), kthread expired q: (1)
+into 16 /nThread 92 in kthread 1 is done, kthread active q: (8), kthread expired q: (0)
+mat size :256
+credit:75, credit_idx: 2
+Thread 84 in kthread 1 is put to run, kthread active q: (7), kthread expired q: (8)
+Thread 114 is put to kthread 3 runq, kthread active q: (8), kthread expired q: (1)
+mat size :256
+credit:75, credit_idx: 2
+Thread 115 is put to kthread 0 runq, kthread active q: (13), kthread expired q: (0)
+mat size :256
+credit:75, credit_idx: 2
+Thread 116 is put to kthread 1 runq, kthread active q: (8), kthread expired q: (1)
+mat size :256
+credit:75, credit_idx: 2
+Thread 117 is put to kthread 2 runq, kthread active q: (10), kthread expired q: (1)
+mat size :256
+credit:75, credit_idx: 2
+Thread 118 is put to kthread 3 runq, kthread active q: (9), kthread expired q: (1)
+mat size :256
+credit:75, credit_idx: 2
+Thread 119 is put to kthread 0 runq, kthread active q: (14), kthread expired q: (0)
+mat size :256
+credit:100, credit_idx: 3
+into 16 /nThread 93 in kthread 2 is done, kthread active q: (10), kthread expired q: (0)
+Thread 120 is put to kthread 1 runq, kthread active q: (9), kthread expired q: (1)
+mat size :256
+Thread 85 in kthread 2 is put to run, kthread active q: (9), kthread expired q: (10)
+credit:100, credit_idx: 3
+Thread 121 is put to kthread 2 runq, kthread active q: (10), kthread expired q: (1)
+mat size :256
+credit:100, credit_idx: 3
+into 16 /nThread 94 in kthread 3 is done, kthread active q: (10), kthread expired q: (0)
+Thread 122 is put to kthread 3 runq, kthread active q: (10), kthread expired q: (1)
+mat size :256
+Thread 122 in kthread 3 is put to run, kthread active q: (9), kthread expired q: (10)
+credit:100, credit_idx: 3
+Thread 123 is put to kthread 0 runq, kthread active q: (15), kthread expired q: (0)
+mat size :256
+credit:100, credit_idx: 3
+Thread 124 is put to kthread 1 runq, kthread active q: (10), kthread expired q: (1)
+mat size :256
+credit:100, credit_idx: 3
+into 16 /nThread 84 in kthread 1 is done, kthread active q: (10), kthread expired q: (0)
+Thread 125 is put to kthread 2 runq, kthread active q: (11), kthread expired q: (1)
+mat size :256
+Thread 120 in kthread 1 is put to run, kthread active q: (9), kthread expired q: (10)
+credit:100, credit_idx: 3
+Thread 126 is put to kthread 3 runq, kthread active q: (10), kthread expired q: (1)
+mat size :256
+credit:100, credit_idx: 3
+Thread 127 is put to kthread 0 runq, kthread active q: (16), kthread expired q: (0)
+Thread 91 in kthread 0 is put to run, kthread active q: (15), kthread expired q: (16)
+into 16 /nThread 85 in kthread 2 is done, kthread active q: (11), kthread expired q: (0)
+Thread 121 in kthread 2 is put to run, kthread active q: (10), kthread expired q: (11)
+into 16 /nThread 91 in kthread 0 is done, kthread active q: (15), kthread expired q: (0)
+Thread 95 in kthread 0 is put to run, kthread active q: (14), kthread expired q: (15)
+into 16 /nThread 95 in kthread 0 is done, kthread active q: (14), kthread expired q: (0)
+Thread 123 in kthread 0 is put to run, kthread active q: (13), kthread expired q: (14)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 121 in kthread 2 moved to expired, kthread active q: (10), kthread expired q: (1)
+Thread 125 in kthread 2 is put to run, kthread active q: (9), kthread expired q: (11)
+Thread 122 in kthread 3 moved to expired, kthread active q: (10), kthread expired q: (1)
+Thread 120 in kthread 1 moved to expired, kthread active q: (9), kthread expired q: (1)
+Thread 124 in kthread 1 is put to run, kthread active q: (8), kthread expired q: (10)
+Thread 126 in kthread 3 is put to run, kthread active q: (9), kthread expired q: (11)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 123 in kthread 0 moved to expired, kthread active q: (13), kthread expired q: (1)
+Thread 127 in kthread 0 is put to run, kthread active q: (12), kthread expired q: (14)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 124 in kthread 1 moved to expired, kthread active q: (8), kthread expired q: (2)
+Thread 112 in kthread 1 is put to run, kthread active q: (7), kthread expired q: (10)
+Thread 126 in kthread 3 moved to expired, kthread active q: (9), kthread expired q: (2)
+Thread 86 in kthread 3 is put to run, kthread active q: (8), kthread expired q: (11)
+Thread 125 in kthread 2 moved to expired, kthread active q: (9), kthread expired q: (2)
+Thread 113 in kthread 2 is put to run, kthread active q: (8), kthread expired q: (11)
+into 16 /nThread 86 in kthread 3 is done, kthread active q: (8), kthread expired q: (2)
+Thread 114 in kthread 3 is put to run, kthread active q: (7), kthread expired q: (10)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 127 in kthread 0 moved to expired, kthread active q: (12), kthread expired q: (2)
+Thread 112 in kthread 1 moved to expired, kthread active q: (7), kthread expired q: (3)
+Thread 113 in kthread 2 moved to expired, kthread active q: (8), kthread expired q: (3)
+Thread 117 in kthread 2 is put to run, kthread active q: (8), kthread expired q: (11)
+Thread 83 in kthread 0 is put to run, kthread active q: (11), kthread expired q: (14)
+Thread 116 in kthread 1 is put to run, kthread active q: (7), kthread expired q: (10)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 116 in kthread 1 moved to expired, kthread active q: (7), kthread expired q: (3)
+Thread 72 in kthread 1 is put to run, kthread active q: (7), kthread expired q: (10)
+Thread 114 in kthread 3 moved to expired, kthread active q: (7), kthread expired q: (3)
+Thread 83 in kthread 0 moved to expired, kthread active q: (11), kthread expired q: (3)
+Thread 87 in kthread 0 is put to run, kthread active q: (12), kthread expired q: (14)
+Thread 118 in kthread 3 is put to run, kthread active q: (6), kthread expired q: (10)
+into 16 /nThread 72 in kthread 1 is done, kthread active q: (7), kthread expired q: (2)
+Thread 76 in kthread 1 is put to run, kthread active q: (7), kthread expired q: (9)
+into 16 /nThread 87 in kthread 0 is done, kthread active q: (12), kthread expired q: (1)
+Thread 115 in kthread 0 is put to run, kthread active q: (11), kthread expired q: (13)
+into 16 /nThread 76 in kthread 1 is done, kthread active q: (7), kthread expired q: (1)
+Thread 104 in kthread 1 is put to run, kthread active q: (6), kthread expired q: (8)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 115 in kthread 0 moved to expired, kthread active q: (11), kthread expired q: (2)
+Thread 119 in kthread 0 is put to run, kthread active q: (12), kthread expired q: (13)
+Thread 117 in kthread 2 moved to expired, kthread active q: (8), kthread expired q: (3)
+Thread 77 in kthread 2 is put to run, kthread active q: (7), kthread expired q: (11)
+Thread 118 in kthread 3 moved to expired, kthread active q: (6), kthread expired q: (4)
+Thread 78 in kthread 3 is put to run, kthread active q: (6), kthread expired q: (10)
+into 16 /nThread 78 in kthread 3 is done, kthread active q: (6), kthread expired q: (3)
+into 16 /nThread 77 in kthread 2 is done, kthread active q: (7), kthread expired q: (3)
+Thread 106 in kthread 3 is put to run, kthread active q: (6), kthread expired q: (9)
+into 4 /ninto 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 105 in kthread 2 is put to run, kthread active q: (7), kthread expired q: (10)
+into this weird se
+Thread 119 in kthread 0 moved to expired, kthread active q: (12), kthread expired q: (1)
+Thread 75 in kthread 0 is put to run, kthread active q: (12), kthread expired q: (13)
+Thread 104 in kthread 1 moved to expired, kthread active q: (6), kthread expired q: (2)
+into 4 /ninto this weird se
+Thread 108 in kthread 1 is put to run, kthread active q: (6), kthread expired q: (8)
+into 16 /nThread 75 in kthread 0 is done, kthread active q: (12), kthread expired q: (0)
+Thread 79 in kthread 0 is put to run, kthread active q: (11), kthread expired q: (12)
+into 16 /nThread 79 in kthread 0 is done, kthread active q: (11), kthread expired q: (0)
+Thread 107 in kthread 0 is put to run, kthread active q: (10), kthread expired q: (11)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 106 in kthread 3 moved to expired, kthread active q: (6), kthread expired q: (3)
+Thread 110 in kthread 3 is put to run, kthread active q: (5), kthread expired q: (9)
+Thread 108 in kthread 1 moved to expired, kthread active q: (6), kthread expired q: (2)
+Thread 96 in kthread 1 is put to run, kthread active q: (5), kthread expired q: (8)
+Thread 105 in kthread 2 moved to expired, kthread active q: (7), kthread expired q: (3)
+Thread 109 in kthread 2 is put to run, kthread active q: (7), kthread expired q: (10)
+into 4 /ninto this weird se
+into 4 /ninto 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 107 in kthread 0 moved to expired, kthread active q: (10), kthread expired q: (1)
+Thread 111 in kthread 0 is put to run, kthread active q: (9), kthread expired q: (11)
+into this weird se
+Thread 96 in kthread 1 moved to expired, kthread active q: (5), kthread expired q: (3)
+Thread 110 in kthread 3 moved to expired, kthread active q: (5), kthread expired q: (4)
+Thread 70 in kthread 3 is put to run, kthread active q: (5), kthread expired q: (9)
+Thread 109 in kthread 2 moved to expired, kthread active q: (7), kthread expired q: (3)
+Thread 68 in kthread 1 is put to run, kthread active q: (6), kthread expired q: (10)
+Thread 100 in kthread 1 is put to run, kthread active q: (4), kthread expired q: (8)
+into 16 /nThread 70 in kthread 3 is done, kthread active q: (5), kthread expired q: (3)
+Thread 98 in kthread 3 is put to run, kthread active q: (4), kthread expired q: (8)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 111 in kthread 0 moved to expired, kthread active q: (9), kthread expired q: (2)
+Thread 100 in kthread 1 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 116 in kthread 1 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 68 in kthread 1 moved to expired, kthread active q: (6), kthread expired q: (4)
+Thread 69 in kthread 2 is put to run, kthread active q: (6), kthread expired q: (10)
+Thread 0 in kthread 1 is put to run, kthread active q: (8), kthread expired q: (11)
+into 16 /nThread 0 in kthread 0 is done, kthread active q: (8), kthread expired q: (2)
+Thread 71 in kthread 0 is put to run, kthread active q: (8), kthread expired q: (10)
+into 16 /nThread 69 in kthread 2 is done, kthread active q: (6), kthread expired q: (3)
+into 4 /ninto 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 97 in kthread 2 is put to run, kthread active q: (5), kthread expired q: (9)
+into this weird se
+Thread 98 in kthread 3 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 116 in kthread 1 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 104 in kthread 1 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 71 in kthread 0 moved to expired, kthread active q: (8), kthread expired q: (2)
+Thread 99 in kthread 0 is put to run, kthread active q: (8), kthread expired q: (10)
+into 4 /ninto this weird se
+Thread 102 in kthread 3 is put to run, kthread active q: (5), kthread expired q: (8)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 104 in kthread 1 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 96 in kthread 1 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 99 in kthread 0 moved to expired, kthread active q: (8), kthread expired q: (2)
+Thread 103 in kthread 0 is put to run, kthread active q: (7), kthread expired q: (10)
+Thread 97 in kthread 2 moved to expired, kthread active q: (5), kthread expired q: (4)
+Thread 101 in kthread 2 is put to run, kthread active q: (5), kthread expired q: (9)
+Thread 102 in kthread 3 moved to expired, kthread active q: (5), kthread expired q: (3)
+Thread 126 in kthread 3 is put to run, kthread active q: (4), kthread expired q: (8)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 96 in kthread 1 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 100 in kthread 1 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 126 in kthread 3 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 110 in kthread 3 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 103 in kthread 0 moved to expired, kthread active q: (7), kthread expired q: (3)
+Thread 83 in kthread 0 is put to run, kthread active q: (7), kthread expired q: (10)
+Thread 101 in kthread 2 moved to expired, kthread active q: (5), kthread expired q: (4)
+Thread 121 in kthread 2 is put to run, kthread active q: (4), kthread expired q: (9)
+into 16 /nThread 83 in kthread 0 is done, kthread active q: (7), kthread expired q: (2)
+Thread 71 in kthread 0 is put to run, kthread active q: (7), kthread expired q: (9)
+into 16 /nThread 71 in kthread 0 is done, kthread active q: (7), kthread expired q: (1)
+Thread 111 in kthread 0 is put to run, kthread active q: (7), kthread expired q: (8)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 111 in kthread 0 moved to expired, kthread active q: (7), kthread expired q: (1)
+Thread 123 in kthread 0 is put to run, kthread active q: (6), kthread expired q: (8)
+Thread 110 in kthread 3 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 118 in kthread 3 is put to run, kthread active q: (2), kthread expired q: (8)
+Thread 100 in kthread 1 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 116 in kthread 1 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 121 in kthread 2 moved to expired, kthread active q: (4), kthread expired q: (5)
+Thread 113 in kthread 2 is put to run, kthread active q: (3), kthread expired q: (9)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 113 in kthread 2 moved to expired, kthread active q: (3), kthread expired q: (6)
+Thread 105 in kthread 2 is put to run, kthread active q: (5), kthread expired q: (9)
+Thread 123 in kthread 0 moved to expired, kthread active q: (6), kthread expired q: (2)
+Thread 111 in kthread 0 is put to run, kthread active q: (6), kthread expired q: (8)
+Thread 116 in kthread 1 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 104 in kthread 1 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 118 in kthread 3 moved to expired, kthread active q: (2), kthread expired q: (6)
+Thread 102 in kthread 3 is put to run, kthread active q: (5), kthread expired q: (8)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 111 in kthread 0 moved to expired, kthread active q: (6), kthread expired q: (2)
+Thread 119 in kthread 0 is put to run, kthread active q: (5), kthread expired q: (8)
+Thread 104 in kthread 1 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 108 in kthread 1 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 102 in kthread 3 moved to expired, kthread active q: (5), kthread expired q: (3)
+Thread 126 in kthread 3 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 105 in kthread 2 moved to expired, kthread active q: (5), kthread expired q: (4)
+Thread 117 in kthread 2 is put to run, kthread active q: (5), kthread expired q: (9)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 108 in kthread 1 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 96 in kthread 1 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 119 in kthread 0 moved to expired, kthread active q: (5), kthread expired q: (3)
+Thread 99 in kthread 0 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 117 in kthread 2 moved to expired, kthread active q: (5), kthread expired q: (4)
+Thread 126 in kthread 3 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 110 in kthread 3 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 121 in kthread 2 is put to run, kthread active q: (5), kthread expired q: (9)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 96 in kthread 1 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 100 in kthread 1 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 99 in kthread 0 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 115 in kthread 0 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 110 in kthread 3 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 106 in kthread 3 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 121 in kthread 2 moved to expired, kthread active q: (5), kthread expired q: (4)
+Thread 113 in kthread 2 is put to run, kthread active q: (5), kthread expired q: (9)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 113 in kthread 2 moved to expired, kthread active q: (5), kthread expired q: (4)
+Thread 97 in kthread 2 is put to run, kthread active q: (4), kthread expired q: (9)
+Thread 115 in kthread 0 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 123 in kthread 0 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 106 in kthread 3 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 100 in kthread 1 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 116 in kthread 1 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 102 in kthread 3 is put to run, kthread active q: (4), kthread expired q: (8)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 123 in kthread 0 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 111 in kthread 0 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 97 in kthread 2 moved to expired, kthread active q: (4), kthread expired q: (5)
+Thread 117 in kthread 2 is put to run, kthread active q: (5), kthread expired q: (9)
+Thread 116 in kthread 1 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 108 in kthread 1 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 102 in kthread 3 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 98 in kthread 3 is put to run, kthread active q: (4), kthread expired q: (8)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 111 in kthread 0 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 119 in kthread 0 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 98 in kthread 3 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 110 in kthread 3 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 108 in kthread 1 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 104 in kthread 1 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 117 in kthread 2 moved to expired, kthread active q: (5), kthread expired q: (4)
+Thread 113 in kthread 2 is put to run, kthread active q: (6), kthread expired q: (9)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 104 in kthread 1 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 100 in kthread 1 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 113 in kthread 2 moved to expired, kthread active q: (6), kthread expired q: (3)
+Thread 105 in kthread 2 is put to run, kthread active q: (5), kthread expired q: (9)
+Thread 110 in kthread 3 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 106 in kthread 3 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 119 in kthread 0 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 99 in kthread 0 is put to run, kthread active q: (5), kthread expired q: (8)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 99 in kthread 0 moved to expired, kthread active q: (5), kthread expired q: (3)
+Thread 115 in kthread 0 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 105 in kthread 2 moved to expired, kthread active q: (5), kthread expired q: (4)
+Thread 109 in kthread 2 is put to run, kthread active q: (5), kthread expired q: (9)
+Thread 106 in kthread 3 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 102 in kthread 3 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 100 in kthread 1 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 116 in kthread 1 is put to run, kthread active q: (4), kthread expired q: (8)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 109 in kthread 2 moved to expired, kthread active q: (5), kthread expired q: (4)
+Thread 113 in kthread 2 is put to run, kthread active q: (6), kthread expired q: (9)
+Thread 115 in kthread 0 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 123 in kthread 0 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 116 in kthread 1 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 108 in kthread 1 is put to run, kthread active q: (5), kthread expired q: (8)
+Thread 102 in kthread 3 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 98 in kthread 3 is put to run, kthread active q: (4), kthread expired q: (8)
+into 16 /nThread 108 in kthread 1 is done, kthread active q: (5), kthread expired q: (2)
+Thread 112 in kthread 1 is put to run, kthread active q: (4), kthread expired q: (7)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 112 in kthread 1 moved to expired, kthread active q: (4), kthread expired q: (3)
+Thread 112 in kthread 1 is put to run, kthread active q: (5), kthread expired q: (7)
+Thread 123 in kthread 0 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 99 in kthread 0 is put to run, kthread active q: (5), kthread expired q: (8)
+Thread 98 in kthread 3 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 114 in kthread 3 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 113 in kthread 2 moved to expired, kthread active q: (6), kthread expired q: (3)
+Thread 117 in kthread 2 is put to run, kthread active q: (5), kthread expired q: (9)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 99 in kthread 0 moved to expired, kthread active q: (5), kthread expired q: (3)
+Thread 119 in kthread 0 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 112 in kthread 1 moved to expired, kthread active q: (5), kthread expired q: (2)
+Thread 100 in kthread 1 is put to run, kthread active q: (5), kthread expired q: (7)
+Thread 114 in kthread 3 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 106 in kthread 3 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 117 in kthread 2 moved to expired, kthread active q: (5), kthread expired q: (4)
+Thread 105 in kthread 2 is put to run, kthread active q: (5), kthread expired q: (9)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 105 in kthread 2 moved to expired, kthread active q: (5), kthread expired q: (4)
+Thread 109 in kthread 2 is put to run, kthread active q: (5), kthread expired q: (9)
+Thread 106 in kthread 3 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 102 in kthread 3 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 100 in kthread 1 moved to expired, kthread active q: (5), kthread expired q: (2)
+Thread 119 in kthread 0 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 115 in kthread 0 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 120 in kthread 1 is put to run, kthread active q: (4), kthread expired q: (7)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto 4 /ninto this weird se
+Thread 120 in kthread 1 moved to expired, kthread active q: (4), kthread expired q: (3)
+Thread 116 in kthread 1 is put to run, kthread active q: (3), kthread expired q: (7)
+Thread 115 in kthread 0 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 127 in kthread 0 is put to run, kthread active q: (3), kthread expired q: (8)
+into this weird se
+Thread 109 in kthread 2 moved to expired, kthread active q: (5), kthread expired q: (4)
+Thread 121 in kthread 2 is put to run, kthread active q: (4), kthread expired q: (9)
+Thread 102 in kthread 3 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 122 in kthread 3 is put to run, kthread active q: (3), kthread expired q: (8)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 116 in kthread 1 moved to expired, kthread active q: (3), kthread expired q: (4)
+Thread 112 in kthread 1 is put to run, kthread active q: (3), kthread expired q: (7)
+Thread 127 in kthread 0 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 99 in kthread 0 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 122 in kthread 3 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 114 in kthread 3 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 121 in kthread 2 moved to expired, kthread active q: (4), kthread expired q: (5)
+Thread 117 in kthread 2 is put to run, kthread active q: (4), kthread expired q: (9)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 117 in kthread 2 moved to expired, kthread active q: (4), kthread expired q: (5)
+Thread 112 in kthread 1 moved to expired, kthread active q: (3), kthread expired q: (4)
+Thread 100 in kthread 1 is put to run, kthread active q: (3), kthread expired q: (7)
+Thread 99 in kthread 0 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 107 in kthread 0 is put to run, kthread active q: (2), kthread expired q: (8)
+Thread 114 in kthread 3 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 106 in kthread 3 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 105 in kthread 2 is put to run, kthread active q: (4), kthread expired q: (9)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 107 in kthread 0 moved to expired, kthread active q: (2), kthread expired q: (6)
+Thread 115 in kthread 0 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 106 in kthread 3 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 118 in kthread 3 is put to run, kthread active q: (2), kthread expired q: (8)
+Thread 105 in kthread 2 moved to expired, kthread active q: (4), kthread expired q: (5)
+Thread 68 in kthread 1 is put to run, kthread active q: (3), kthread expired q: (9)
+Thread 100 in kthread 1 moved to expired, kthread active q: (3), kthread expired q: (4)
+Thread 120 in kthread 1 is put to run, kthread active q: (3), kthread expired q: (7)
+into 16 /nThread 68 in kthread 2 is done, kthread active q: (3), kthread expired q: (5)
+Thread 109 in kthread 2 is put to run, kthread active q: (3), kthread expired q: (8)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 120 in kthread 1 moved to expired, kthread active q: (3), kthread expired q: (4)
+Thread 96 in kthread 1 is put to run, kthread active q: (2), kthread expired q: (7)
+Thread 115 in kthread 0 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 119 in kthread 0 is put to run, kthread active q: (2), kthread expired q: (8)
+Thread 118 in kthread 3 moved to expired, kthread active q: (2), kthread expired q: (6)
+Thread 102 in kthread 3 is put to run, kthread active q: (2), kthread expired q: (8)
+Thread 109 in kthread 2 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 117 in kthread 2 is put to run, kthread active q: (4), kthread expired q: (8)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 119 in kthread 0 moved to expired, kthread active q: (2), kthread expired q: (6)
+Thread 127 in kthread 0 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 117 in kthread 2 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 105 in kthread 2 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 102 in kthread 3 moved to expired, kthread active q: (2), kthread expired q: (6)
+Thread 122 in kthread 3 is put to run, kthread active q: (2), kthread expired q: (8)
+Thread 96 in kthread 1 moved to expired, kthread active q: (2), kthread expired q: (5)
+Thread 116 in kthread 1 is put to run, kthread active q: (2), kthread expired q: (7)
+into 4 /ninto 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into this weird se
+Thread 116 in kthread 1 moved to expired, kthread active q: (2), kthread expired q: (5)
+Thread 127 in kthread 0 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 99 in kthread 0 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 105 in kthread 2 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 121 in kthread 2 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 122 in kthread 3 moved to expired, kthread active q: (2), kthread expired q: (6)
+Thread 114 in kthread 3 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 112 in kthread 1 is put to run, kthread active q: (3), kthread expired q: (7)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 112 in kthread 1 moved to expired, kthread active q: (3), kthread expired q: (4)
+Thread 100 in kthread 1 is put to run, kthread active q: (3), kthread expired q: (7)
+Thread 114 in kthread 3 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 99 in kthread 0 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 107 in kthread 0 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 121 in kthread 2 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 109 in kthread 2 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 106 in kthread 3 is put to run, kthread active q: (2), kthread expired q: (8)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 100 in kthread 1 moved to expired, kthread active q: (3), kthread expired q: (4)
+Thread 120 in kthread 1 is put to run, kthread active q: (2), kthread expired q: (7)
+Thread 107 in kthread 0 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 119 in kthread 0 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 109 in kthread 2 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 117 in kthread 2 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 106 in kthread 3 moved to expired, kthread active q: (2), kthread expired q: (6)
+Thread 118 in kthread 3 is put to run, kthread active q: (3), kthread expired q: (8)
+into 16 /nThread 117 in kthread 2 is done, kthread active q: (3), kthread expired q: (4)
+Thread 105 in kthread 2 is put to run, kthread active q: (3), kthread expired q: (7)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 120 in kthread 1 moved to expired, kthread active q: (2), kthread expired q: (5)
+Thread 112 in kthread 1 is put to run, kthread active q: (4), kthread expired q: (7)
+Thread 105 in kthread 2 moved to expired, kthread active q: (3), kthread expired q: (4)
+Thread 113 in kthread 2 is put to run, kthread active q: (5), kthread expired q: (7)
+Thread 119 in kthread 0 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 127 in kthread 0 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 118 in kthread 3 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 102 in kthread 3 is put to run, kthread active q: (4), kthread expired q: (8)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 127 in kthread 0 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 99 in kthread 0 is put to run, kthread active q: (3), kthread expired q: (8)
+Thread 102 in kthread 3 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 114 in kthread 3 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 112 in kthread 1 moved to expired, kthread active q: (4), kthread expired q: (3)
+Thread 96 in kthread 1 is put to run, kthread active q: (3), kthread expired q: (7)
+Thread 113 in kthread 2 moved to expired, kthread active q: (5), kthread expired q: (2)
+Thread 121 in kthread 2 is put to run, kthread active q: (4), kthread expired q: (7)
+into 4 /ninto this weird se
+into 4 /ninto 4 /ninto this weird se
+into 4 /nThread 96 in kthread 1 moved to expired, kthread active q: (3), kthread expired q: (4)
+Thread 100 in kthread 1 is put to run, kthread active q: (3), kthread expired q: (7)
+into this weird se
+Thread 99 in kthread 0 moved to expired, kthread active q: (3), kthread expired q: (5)
+Thread 121 in kthread 2 moved to expired, kthread active q: (4), kthread expired q: (3)
+Thread 105 in kthread 2 is put to run, kthread active q: (4), kthread expired q: (7)
+into this weird se
+Thread 114 in kthread 3 moved to expired, kthread active q: (4), kthread expired q: (4)
+Thread 123 in kthread 0 is put to run, kthread active q: (4), kthread expired q: (8)
+Thread 106 in kthread 3 is put to run, kthread active q: (4), kthread expired q: (8)
+into 16 /nThread 105 in kthread 2 is done, kthread active q: (4), kthread expired q: (2)
+into 16 /nThread 100 in kthread 1 is done, kthread active q: (3), kthread expired q: (3)
+into 16 /nThread 123 in kthread 0 is done, kthread active q: (4), kthread expired q: (3)
+Thread 109 in kthread 2 is put to run, kthread active q: (3), kthread expired q: (6)
+Thread 120 in kthread 1 is put to run, kthread active q: (3), kthread expired q: (6)
+Thread 107 in kthread 0 is put to run, kthread active q: (5), kthread expired q: (7)
+into 16 /nThread 106 in kthread 3 is done, kthread active q: (4), kthread expired q: (3)
+Thread 118 in kthread 3 is put to run, kthread active q: (5), kthread expired q: (7)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 120 in kthread 1 moved to expired, kthread active q: (3), kthread expired q: (3)
+Thread 112 in kthread 1 is put to run, kthread active q: (3), kthread expired q: (6)
+Thread 118 in kthread 3 moved to expired, kthread active q: (5), kthread expired q: (2)
+Thread 98 in kthread 3 is put to run, kthread active q: (4), kthread expired q: (7)
+Thread 107 in kthread 0 moved to expired, kthread active q: (5), kthread expired q: (2)
+Thread 119 in kthread 0 is put to run, kthread active q: (4), kthread expired q: (7)
+Thread 109 in kthread 2 moved to expired, kthread active q: (3), kthread expired q: (3)
+Thread 101 in kthread 2 is put to run, kthread active q: (3), kthread expired q: (6)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 119 in kthread 0 moved to expired, kthread active q: (4), kthread expired q: (3)
+Thread 115 in kthread 0 is put to run, kthread active q: (3), kthread expired q: (7)
+Thread 98 in kthread 3 moved to expired, kthread active q: (4), kthread expired q: (3)
+Thread 122 in kthread 3 is put to run, kthread active q: (3), kthread expired q: (7)
+Thread 112 in kthread 1 moved to expired, kthread active q: (3), kthread expired q: (3)
+Thread 101 in kthread 2 moved to expired, kthread active q: (3), kthread expired q: (3)
+Thread 116 in kthread 1 is put to run, kthread active q: (2), kthread expired q: (6)
+Thread 125 in kthread 2 is put to run, kthread active q: (2), kthread expired q: (6)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 122 in kthread 3 moved to expired, kthread active q: (3), kthread expired q: (4)
+Thread 102 in kthread 3 is put to run, kthread active q: (2), kthread expired q: (7)
+Thread 116 in kthread 1 moved to expired, kthread active q: (2), kthread expired q: (4)
+Thread 124 in kthread 1 is put to run, kthread active q: (1), kthread expired q: (6)
+Thread 115 in kthread 0 moved to expired, kthread active q: (3), kthread expired q: (4)
+Thread 103 in kthread 0 is put to run, kthread active q: (2), kthread expired q: (7)
+Thread 125 in kthread 2 moved to expired, kthread active q: (2), kthread expired q: (4)
+Thread 97 in kthread 2 is put to run, kthread active q: (1), kthread expired q: (6)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 103 in kthread 0 moved to expired, kthread active q: (2), kthread expired q: (5)
+Thread 111 in kthread 0 is put to run, kthread active q: (2), kthread expired q: (7)
+Thread 97 in kthread 2 moved to expired, kthread active q: (1), kthread expired q: (5)
+Thread 113 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (6)
+Thread 102 in kthread 3 moved to expired, kthread active q: (2), kthread expired q: (5)
+Thread 110 in kthread 3 is put to run, kthread active q: (2), kthread expired q: (7)
+Thread 124 in kthread 1 moved to expired, kthread active q: (1), kthread expired q: (5)
+Thread 104 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (6)
+into 16 /nThread 113 in kthread 2 is done, kthread active q: (0), kthread expired q: (5)
+LOAD BALANCING COMPLETED
+Thread 126 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (6)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 104 in kthread 1 moved to expired, kthread active q: (1), kthread expired q: (6)
+Thread 111 in kthread 0 moved to expired, kthread active q: (1), kthread expired q: (5)
+Thread 127 in kthread 0 is put to run, kthread active q: (0), kthread expired q: (6)
+Thread 126 in kthread 3 moved to expired, kthread active q: (0), kthread expired q: (6)
+LOAD BALANCING COMPLETED
+Thread 110 in kthread 3 moved to expired, kthread active q: (1), kthread expired q: (5)
+LOAD BALANCING COMPLETED
+Thread 112 in kthread 1 is put to run, kthread active q: (2), kthread expired q: (7)
+Thread 118 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (7)
+Thread 122 in kthread 3 is put to run, kthread active q: (4), kthread expired q: (5)
+into 4 /ninto this weird se
+into 4 /ninto 4 /ninto this weird se
+into 4 /ninto this weird se
+into this weird se
+Thread 127 in kthread 0 moved to expired, kthread active q: (1), kthread expired q: (6)
+Thread 118 in kthread 3 moved to expired, kthread active q: (0), kthread expired q: (7)
+LOAD BALANCING COMPLETED
+Thread 112 in kthread 1 moved to expired, kthread active q: (1), kthread expired q: (5)
+Thread 107 in kthread 0 is put to run, kthread active q: (1), kthread expired q: (7)
+Thread 114 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (8)
+Thread 110 in kthread 3 is put to run, kthread active q: (2), kthread expired q: (7)
+into 16 /nThread 122 in kthread 3 is done, kthread active q: (1), kthread expired q: (0)
+Thread 98 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 110 in kthread 3 moved to expired, kthread active q: (2), kthread expired q: (5)
+Thread 96 in kthread 1 is put to run, kthread active q: (2), kthread expired q: (7)
+Thread 114 in kthread 3 moved to expired, kthread active q: (0), kthread expired q: (8)
+LOAD BALANCING COMPLETED
+Thread 107 in kthread 0 moved to expired, kthread active q: (2), kthread expired q: (6)
+Thread 115 in kthread 0 is put to run, kthread active q: (2), kthread expired q: (7)
+Thread 98 in kthread 3 moved to expired, kthread active q: (0), kthread expired q: (1)
+Thread 116 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (2)
+Thread 120 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (9)
+into 16 /nThread 116 in kthread 3 is done, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+Thread 98 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+into 16 /nThread 120 in kthread 2 is done, kthread active q: (1), kthread expired q: (8)
+Thread 102 in kthread 3 is put to run, kthread active q: (2), kthread expired q: (9)
+into 16 /nThread 98 in kthread 3 is done, kthread active q: (0), kthread expired q: (0)
+LOAD BALANCING COMPLETED
+Thread 114 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (1)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 102 in kthread 3 moved to expired, kthread active q: (1), kthread expired q: (7)
+Thread 126 in kthread 3 is put to run, kthread active q: (2), kthread expired q: (8)
+Thread 96 in kthread 1 moved to expired, kthread active q: (1), kthread expired q: (5)
+Thread 115 in kthread 0 moved to expired, kthread active q: (1), kthread expired q: (5)
+Thread 119 in kthread 0 is put to run, kthread active q: (0), kthread expired q: (6)
+Thread 114 in kthread 3 moved to expired, kthread active q: (0), kthread expired q: (1)
+LOAD BALANCING COMPLETED
+Thread 110 in kthread 3 is put to run, kthread active q: (3), kthread expired q: (6)
+Thread 101 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (2)
+into 16 /nThread 119 in kthread 0 is done, kthread active q: (2), kthread expired q: (5)
+Thread 99 in kthread 0 is put to run, kthread active q: (3), kthread expired q: (7)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 110 in kthread 3 moved to expired, kthread active q: (1), kthread expired q: (3)
+Thread 124 in kthread 1 is put to run, kthread active q: (1), kthread expired q: (4)
+Thread 101 in kthread 2 moved to expired, kthread active q: (0), kthread expired q: (2)
+LOAD BALANCING COMPLETED
+into 16 /nThread 99 in kthread 0 is done, kthread active q: (2), kthread expired q: (3)
+Thread 126 in kthread 3 moved to expired, kthread active q: (1), kthread expired q: (6)
+Thread 109 in kthread 2 is put to run, kthread active q: (4), kthread expired q: (7)
+Thread 112 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (3)
+Thread 127 in kthread 0 is put to run, kthread active q: (3), kthread expired q: (5)
+into 16 /nThread 112 in kthread 3 is done, kthread active q: (0), kthread expired q: (2)
+LOAD BALANCING COMPLETED
+Thread 102 in kthread 3 is put to run, kthread active q: (1), kthread expired q: (4)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 124 in kthread 1 moved to expired, kthread active q: (2), kthread expired q: (3)
+Thread 104 in kthread 1 is put to run, kthread active q: (1), kthread expired q: (5)
+Thread 127 in kthread 0 moved to expired, kthread active q: (2), kthread expired q: (2)
+Thread 111 in kthread 0 is put to run, kthread active q: (2), kthread expired q: (4)
+Thread 109 in kthread 2 moved to expired, kthread active q: (2), kthread expired q: (3)
+Thread 125 in kthread 2 is put to run, kthread active q: (2), kthread expired q: (5)
+into 16 /nThread 102 in kthread 3 is done, kthread active q: (1), kthread expired q: (2)
+Thread 114 in kthread 3 is put to run, kthread active q: (1), kthread expired q: (3)
+*** stack smashing detected ***: terminated
