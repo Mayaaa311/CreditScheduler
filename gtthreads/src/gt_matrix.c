@@ -105,8 +105,8 @@ static void * uthread_mulmat(void *p)
 			}
 // printf("I GOT HEafdsfdRE!!!");
 	// gettimeofday(&tv2,NULL);
-	fprintf(stderr, "\nThread(id:%d, group:%d) finished (TIME : %lu s and %lu us)",
-			ptr->tid, ptr->gid, (tv2.tv_sec - tv1.tv_sec), (tv2.tv_usec - tv1.tv_usec));
+	// fprintf(stderr, "\nThread(id:%d, group:%d) finished (TIME : %lu s and %lu us)",
+	// 		ptr->tid, ptr->gid, (tv2.tv_sec - tv1.tv_sec), (tv2.tv_usec - tv1.tv_usec));
 	// print_matrix(ptr->_C);
 
 #undef ptr

@@ -26,20 +26,22 @@ void print_credit_in_pq(){
 		uthread_struct_t *u_obj;
 		gt_spin_lock(&(k_ctx->krunqueue.kthread_runqlock));
 		uthread_head_t *uthread_head = (k_ctx->krunqueue.active_credit_tracker);
-		fprintf(stderr, "active q: %d[", k_ctx->krunqueue.active_runq->uthread_tot);
+		fprintf(stderr, "active q: %d[", k_ctx->krunqueue.num_in_active);
+		int ct = 0;
 		TAILQ_FOREACH(u_obj, uthread_head, uthread_creditq) {
 			   fprintf(stderr, "A%d(c=%d), ", u_obj->uthread_tid,u_obj->credit);
-            
+			   ct ++;
 		}
-		fprintf(stderr, "] \n");
+		fprintf(stderr, "]%d \n", ct);
 
 		uthread_head = (k_ctx->krunqueue.expired_credit_tracker);
-		fprintf(stderr, "expired q: %d[", k_ctx->krunqueue.expires_runq->uthread_tot);
+		int ct1 = 0;
+		fprintf(stderr, "expired q: %d[", k_ctx->krunqueue.tot - k_ctx->krunqueue.num_in_active);
 		TAILQ_FOREACH(u_obj, uthread_head, uthread_creditq) {
 			   fprintf(stderr, "E%d(c=%d), ", u_obj->uthread_tid,u_obj->credit);
-            
+            ct1++;
 		}
-		fprintf(stderr, "] \n");
+		fprintf(stderr, "]%d \n",ct1);
 		gt_spin_unlock(&(k_ctx->krunqueue.kthread_runqlock));
 	}
 
@@ -264,46 +266,45 @@ extern uthread_struct_t *credit_find_best_uthread(kthread_runqueue_t *kthread_ru
 	runq = kthread_runq->active_runq;
 	kthread_runq->kthread_runqlock.holder = 0x04;
 
-	if(!found_active)
+	if(TAILQ_EMPTY(kthread_runq->active_credit_tracker))
 	{ /* No jobs in active. switch runqueue */
-		assert(!runq->uthread_tot);
-		
-		// switch active and expired runqueue
-		runq = kthread_runq->active_runq;
-
-		kthread_runq->active_runq = kthread_runq->expires_runq;
-		kthread_runq->expires_runq = runq;
-
-		u_head = (kthread_runq->expired_credit_tracker);
-		
-        {
-			TAILQ_FOREACH(u_obj, u_head, uthread_creditq) {
-				u_obj->credit = u_obj->init_credit; // Assuming `priority` is a field in uthread_struct_t
-			}
-			// if(kthread_apic_id()  == 1){
-			// 	fprintf(stderr, "Switched ALL EXPIRED QUEUE STUFF TO RUNQ\n");
-			// 	fprintf(stderr, "hbefore switching runq\n");
-			// 	print_credit_in_pq();
-			// }
-			uthread_head_t* temp = kthread_runq->active_credit_tracker;
-			kthread_runq->active_credit_tracker = kthread_runq->expired_credit_tracker;
-			kthread_runq->expired_credit_tracker = temp;
-
-			// if(kthread_apic_id()  == 1){
-			// 	fprintf(stderr, "hafter switching runq\n");
-			// 	print_credit_in_pq(); 
-			// }
-		}
-		runq = kthread_runq->active_runq;
-		u_head = kthread_runq->active_credit_tracker;
-		// if ther is still no job in active, return null
-		if(!runq->uthread_mask)
-		{
-			assert(TAILQ_EMPTY(u_head));
+		if(TAILQ_EMPTY(kthread_runq->expired_credit_tracker)){
 			assert(!runq->uthread_tot);
 			gt_spin_unlock(&(kthread_runq->kthread_runqlock));
 			return NULL;
 		}
+		// switch active and expired runqueue
+		// runq = kthread_runq->active_runq;
+
+		// kthread_runq->active_runq = kthread_runq->expires_runq;
+		// kthread_runq->expires_runq = runq;
+
+		u_head = (kthread_runq->expired_credit_tracker);
+		
+        {
+			int ctr = 0;
+			TAILQ_FOREACH(u_obj, u_head, uthread_creditq) {
+				u_obj->credit = u_obj->init_credit; // Assuming `priority` is a field in uthread_struct_t
+				ctr++;
+			}
+
+			uthread_head_t* temp = kthread_runq->active_credit_tracker;
+			kthread_runq->active_credit_tracker = kthread_runq->expired_credit_tracker;
+			kthread_runq->expired_credit_tracker = temp;
+			kthread_runq->num_in_active = ctr;
+
+		}
+
+		u_head = kthread_runq->active_credit_tracker;
+		// if ther is still no job in active, return null
+
+		// if(kthread_runq->num_in_active == 0)
+		// {
+		// 	assert(TAILQ_EMPTY(u_head));
+		// 	assert(!runq->uthread_tot);
+		// 	gt_spin_unlock(&(kthread_runq->kthread_runqlock));
+		// 	return NULL;
+		// }
 		
 	}
 	else{
@@ -311,43 +312,29 @@ extern uthread_struct_t *credit_find_best_uthread(kthread_runqueue_t *kthread_ru
 		// if here are jobs in expired credit tracker, move all positive credit jobs to active credit tracker.
 		uthread_struct_t *next;
 		if(!TAILQ_EMPTY(u_head)){
+
 			// if(kthread_apic_id()  == PRINTFROM_CPU){
 			// 	fprintf(stderr, "\n\nMOVING FROM EXPIRED TO ACTIVE CREDIT TRACKER********************************\n");
 			// 	print_credit_in_pq();
 			// 	fprintf(stderr, "\n\nMOVING FROM EXPIRED TO ACTIVE CREDIT TRACKER#######################################\n");
 			// }
-			for (u_obj = TAILQ_FIRST(u_head); u_obj != NULL; u_obj = next) {
-				
-				next = TAILQ_NEXT(u_obj, uthread_creditq); // Store next element before removal
-				// if(kthread_apic_id()  == PRINTFROM_CPU){
-				// 	fprintf(stderr, "adding %d credits to utrhead %d\n",(int)((KTHREAD_VTALRM_USEC/1000.0)*NUM_CREDITS_PER_MS), u_obj->uthread_tid );
-				// }
-				int to_add = (int)((KTHREAD_VTALRM_USEC/1000.0)*NUM_CREDITS_PER_MS);
-				if(u_obj->credit + to_add > u_obj->init_credit){
-					u_obj->credit = u_obj->init_credit; // reset credit to max credit if credit is more than max credit
-				}
-				else{
-                    u_obj->credit += to_add;
-                }
-				if (u_obj->credit > 0) {
-					TAILQ_INSERT_TAIL(kthread_runq->active_credit_tracker, u_obj, uthread_creditq);
-					kthread_runq->num_in_active++;
-					if(u_obj == u_head->tqh_first){
-						u_head->tqh_first = TAILQ_NEXT(u_head->tqh_first, uthread_creditq);
-                        if (u_head->tqh_first == NULL)
-                            u_head->tqh_last = NULL;
-					}
-					else{
-						// swicth in credit queue
-						TAILQ_REMOVE(kthread_runq->expired_credit_tracker, u_obj, uthread_creditq);
-					}
-					// swich in main queue
-					// __add_to_runqueue( kthread_runq->active_runq, u_obj);
-					// __rem_from_runqueue(kthread_runq->expires_runq, u_obj);
-					// __add_to_runqueue( kthread_runq->active_runq, u_obj);
+for (u_obj = TAILQ_FIRST(u_head); u_obj != NULL; u_obj = next) {
+    next = TAILQ_NEXT(u_obj, uthread_creditq); // Store next element before removal
 
-				};
-			}
+    int to_add = (int)((KTHREAD_VTALRM_USEC / 1000.0) * NUM_CREDITS_PER_MS);
+    if (u_obj->credit + to_add > u_obj->init_credit) {
+        u_obj->credit = u_obj->init_credit; // Reset credit to max credit if it exceeds max
+    } else {
+        u_obj->credit += to_add;
+    }
+
+    if (u_obj->credit > 0) {
+        // Move u_obj to active queue from expired queue
+        TAILQ_REMOVE(kthread_runq->expired_credit_tracker, u_obj, uthread_creditq);
+        TAILQ_INSERT_TAIL(kthread_runq->active_credit_tracker, u_obj, uthread_creditq);
+        kthread_runq->num_in_active++;
+    }
+}
 			// if(kthread_apic_id()  == PRINTFROM_CPU){
 			// 	fprintf(stderr, "hafter checkingand moving from epired to active runq\n");
 			// 	print_credit_in_pq();
@@ -373,11 +360,12 @@ extern uthread_struct_t *credit_find_best_uthread(kthread_runqueue_t *kthread_ru
 	if(result){
 		TAILQ_REMOVE(u_head, result, uthread_creditq);
 		kthread_runq->num_in_active--;
-		__rem_from_runqueue(runq, result);
+		// __rem_from_runqueue(runq, result);
 	}
 
 	gt_spin_unlock(&(kthread_runq->kthread_runqlock));
-
+	// if(kthread_apic_id()  == PRINTFROM_CPU)
+	// 	print_credit_in_pq();
 	return(result);
 }
 

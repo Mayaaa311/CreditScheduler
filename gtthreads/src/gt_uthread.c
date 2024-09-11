@@ -50,7 +50,7 @@ for(int i = 0; i < 4; i++){
 		gt_spin_lock(&(k_ctx->krunqueue.kthread_runqlock));
 		uthread_head_t *uthread_head = (k_ctx->krunqueue.active_credit_tracker);
 		if(k_ctx->krunqueue.active_runq->uthread_tot != 0){
-			fprintf(stderr, "active q: %d[", k_ctx->krunqueue.active_runq->uthread_tot);
+			fprintf(stderr, "active q: %d[", k_ctx->krunqueue.num_in_active);
 			TAILQ_FOREACH(u_obj, uthread_head, uthread_creditq) {
 				fprintf(stderr, "A%d(c=%d), ", u_obj->uthread_tid,u_obj->credit);
 				
@@ -60,7 +60,7 @@ for(int i = 0; i < 4; i++){
 
 		uthread_head = (k_ctx->krunqueue.expired_credit_tracker);
 		if(k_ctx->krunqueue.expires_runq->uthread_tot != 0){
-			fprintf(stderr, "expired q: %d[", k_ctx->krunqueue.expires_runq->uthread_tot);
+			fprintf(stderr, "expired q: %d[", k_ctx->krunqueue.tot - k_ctx->krunqueue.num_in_active);
 			TAILQ_FOREACH(u_obj, uthread_head, uthread_creditq) {
 				fprintf(stderr, "E%d(c=%d), ", u_obj->uthread_tid,u_obj->credit);
 				
@@ -153,12 +153,12 @@ void uthread_stop_timer(uthread_struct_t *u_obj) {
 	double credits_used = (int)((double)(elapsed_ms * 10.0));
     u_obj->credit -= (int)(credits_used);
 	
-	if(u_obj->uthread_state == UTHREAD_RUNNING) 
-    fprintf(stderr, "Thread %d ran for %f ms on k %d, status: running, deducted %f. Remaining: %d\n",
-           u_obj->uthread_tid,elapsed_ms, u_obj->cpu_id,credits_used, u_obj->credit);
-	else if(u_obj->uthread_state == UTHREAD_DONE || u_obj->uthread_state == UTHREAD_CANCELLED)
-	    fprintf(stderr, "Thread %dran for %f ms on k %d, status: done, deducted %f. Remaining: %d\n",
-           u_obj->uthread_tid,elapsed_ms,  u_obj->cpu_id,credits_used, u_obj->credit);
+	// if(u_obj->uthread_state == UTHREAD_RUNNING) 
+    // fprintf(stderr, "Thread %d ran for %f ms on k %d, status: running, deducted %f. Remaining: %d\n",
+    //        u_obj->uthread_tid,elapsed_ms, u_obj->cpu_id,credits_used, u_obj->credit);
+	// else if(u_obj->uthread_state == UTHREAD_DONE || u_obj->uthread_state == UTHREAD_CANCELLED)
+	//     fprintf(stderr, "Thread %dran for %f ms on k %d, status: done, deducted %f. Remaining: %d\n",
+    //        u_obj->uthread_tid,elapsed_ms,  u_obj->cpu_id,credits_used, u_obj->credit);
 	uthread_start_timer(u_obj);
 }
 int id = 0;
@@ -190,24 +190,26 @@ extern void credit_scheduler(uthread_struct_t * (*credit_find_best_uthread)(kthr
 	// 		if credit is still over 0, return current thread to keep running, start timer when keep running
 	// 		 if credit is less than 0, run state as runnable and move it to expired runq, move from active credit tracker to exired credit tracker
 	// 		find next thread to run and start tiemr for it
-	u_obj = kthread_runq->cur_uthread;
-	if((u_obj))
+	if(u_obj = kthread_runq->cur_uthread)
 	{
 		fprintf(stderr,"into %d /n",u_obj->uthread_state);
 		// check if the current one is cancelled or done, if so, put it into zombie queue and remove from credit queue */
 		if(u_obj->uthread_state & (UTHREAD_DONE | UTHREAD_CANCELLED))
 		{
-			fprintf(stderr, "Thread %d in kthread %d is done, kthread active q: (%d), kthread expired q: (%d)\n", 
-			    u_obj->uthread_tid, kthread_apic_id(), kthread_runq->active_runq->uthread_tot , kthread_runq->expires_runq->uthread_tot);
 			kthread_runq->cur_uthread = NULL;
 			/* XXX: Inserting uthread into zombie queue is causing improper
 			 * cleanup/exit of uthread (core dump) */
 			uthread_head_t * kthread_zhead = &(kthread_runq->zombie_uthreads);
 			uthread_head_t * credit_head = (kthread_runq->active_credit_tracker);
+
 			gt_spin_lock(&(kthread_runq->kthread_runqlock));
 			kthread_runq->kthread_runqlock.holder = 0x01;
 			TAILQ_INSERT_TAIL(kthread_zhead, u_obj, uthread_runq);
 			gt_spin_unlock(&(kthread_runq->kthread_runqlock));
+
+			kthread_runq->tot --;
+			fprintf(stderr, "Thread %d in kthread %d is done, kthread active q: (%d), kthread expired q: (%d)\n", 
+			    u_obj->uthread_tid, kthread_apic_id(), kthread_runq->num_in_active , kthread_runq->tot-kthread_runq->num_in_active);
 
 			{
 				ksched_shared_info_t *ksched_info = &ksched_shared_info;	
@@ -233,7 +235,7 @@ extern void credit_scheduler(uthread_struct_t * (*credit_find_best_uthread)(kthr
 				kthread_runq->cur_uthread = NULL;
 				u_obj->uthread_state = UTHREAD_RUNNABLE;
 
-				add_to_runqueue(kthread_runq->expires_runq, &(kthread_runq->kthread_runqlock), u_obj);
+				// add_to_runqueue(kthread_runq->expires_runq, &(kthread_runq->kthread_runqlock), u_obj);
 			
 				// move current obj to expied credit tracker
 				gt_spin_lock(&(kthread_runq->kthread_runqlock));
@@ -241,7 +243,7 @@ extern void credit_scheduler(uthread_struct_t * (*credit_find_best_uthread)(kthr
 				gt_spin_unlock(&(kthread_runq->kthread_runqlock));
 
 				fprintf(stderr, "Thread %d in kthread %d moved to expired, kthread active q: (%d), kthread expired q: (%d)\n", 
-					u_obj->uthread_tid, u_obj->cpu_id, kthread_runq->active_runq->uthread_tot , kthread_runq->expires_runq->uthread_tot);
+					u_obj->uthread_tid, u_obj->cpu_id, kthread_runq->num_in_active , kthread_runq->tot-kthread_runq->num_in_active);
 
 				// if(kthread_apic_id() == PRINTFROM_CPU){
 				// 	fprintf(stderr, "after put to runnable and move to expired queue: %d", kthread_runq->expires_runq->uthread_tot);
@@ -259,7 +261,7 @@ extern void credit_scheduler(uthread_struct_t * (*credit_find_best_uthread)(kthr
 	if(!(u_obj = credit_find_best_uthread(kthread_runq)))
 	{
 		fprintf(stderr, "no uthread in kthread %d to be run, kthread active q: (%d), kthread expired q: (%d)\n", 
-		 kthread_apic_id(), kthread_runq->active_runq->uthread_tot , kthread_runq->expires_runq->uthread_tot);
+		 kthread_apic_id(),  kthread_runq->num_in_active , kthread_runq->tot);
 
 		// fprintf(stderr, "No next best thread to get, total %d\n",ksched_shared_info.kthread_cur_uthreads);
 		/* Done executing all uthreads. Return to main */
@@ -276,7 +278,7 @@ extern void credit_scheduler(uthread_struct_t * (*credit_find_best_uthread)(kthr
 		return;
 	}
 	fprintf(stderr, "Thread %d in kthread %d is put to run, kthread active q: (%d), kthread expired q: (%d)\n", 
-	u_obj->uthread_tid, u_obj->cpu_id, kthread_runq->active_runq->uthread_tot , kthread_runq->expires_runq->uthread_tot);
+	u_obj->uthread_tid, u_obj->cpu_id,  kthread_runq->num_in_active , kthread_runq->tot);
 
 	kthread_runq->cur_uthread = u_obj;
 	if((u_obj->uthread_state == UTHREAD_INIT) && (uthread_init(u_obj)))
@@ -392,7 +394,7 @@ extern void uthread_schedule(uthread_struct_t * (*kthread_best_sched_uthread)(kt
  * into a regular stack for uthread (by using SS_DISABLE). */
 static void uthread_context_func(int signo)
 {
-	usleep(5000);
+	// usleep(5000);
 	uthread_struct_t *cur_uthread;
 	kthread_runqueue_t *kthread_runq;
 
@@ -481,7 +483,7 @@ extern int uthread_create(uthread_t *u_tid, int (*u_func)(void *), void *u_arg, 
  
 	*u_tid = u_new->uthread_tid;
 	/* Queue the uthread for target-cpu. Let target-cpu take care of initialization. */
-	add_to_runqueue(kthread_runq->active_runq, &(kthread_runq->kthread_runqlock), u_new);
+	// add_to_runqueue(kthread_runq->active_runq, &(kthread_runq->kthread_runqlock), u_new);
 	gt_spinlock_t *runq_lock = &(kthread_runq->kthread_runqlock);
 	gt_spin_lock(runq_lock);
 	runq_lock->holder = 0x02;
@@ -489,14 +491,17 @@ extern int uthread_create(uthread_t *u_tid, int (*u_func)(void *), void *u_arg, 
 	// fprintf(stderr, "current runq: %d\n", kthread_runq->active_runq->uthread_tot);
 	if(TAILQ_EMPTY((kthread_runq->active_credit_tracker)))
 		TAILQ_INIT((kthread_runq->active_credit_tracker));
+	if(TAILQ_EMPTY((kthread_runq->expired_credit_tracker)))
+		TAILQ_INIT((kthread_runq->expired_credit_tracker));
 	TAILQ_INSERT_TAIL((kthread_runq->active_credit_tracker), u_new, uthread_creditq);
+
 	kthread_runq->num_in_active++;
 	kthread_runq->tot++;
 	
 	gt_spin_unlock(runq_lock);
 
 	fprintf(stderr, "Thread %d is put to kthread %d runq, kthread active q: (%d), kthread expired q: (%d)\n", 
-	u_new->uthread_tid, u_new->cpu_id, kthread_runq->active_runq->uthread_tot , kthread_runq->expires_runq->uthread_tot);
+	u_new->uthread_tid, u_new->cpu_id,  kthread_runq->num_in_active , kthread_runq->tot-kthread_runq->num_in_active);
 	/* WARNING : DONOT USE u_new WITHOUT A LOCK, ONCE IT IS ENQUEUED. */
 
 	/* Resume with the old thread (with all signals enabled) */
