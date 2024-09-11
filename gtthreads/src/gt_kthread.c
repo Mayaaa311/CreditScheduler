@@ -125,11 +125,9 @@ static void kthread_init(kthread_context_t *k_ctx)
 
 	sched_setaffinity(k_ctx->tid, sizeof(cpu_set_t), &cpu_affinity_mask);
 
-	#ifdef GT_YIELD
-		gt_yield();
-	#else
-		sched_yield();
-	#endif
+
+	sched_yield();
+
 
 	/* Scheduled on target cpu */
 	k_ctx->cpu_apic_id = kthread_apic_id();
@@ -260,6 +258,7 @@ static inline void KTHREAD_PRINT_SCHED_DEBUGINFO(kthread_context_t *k_ctx, char 
 	return;
 }
 
+
 extern kthread_runqueue_t *ksched_find_target(uthread_struct_t *u_obj)
 {
 	ksched_shared_info_t *ksched_info;
@@ -282,9 +281,10 @@ extern kthread_runqueue_t *ksched_find_target(uthread_struct_t *u_obj)
 
 	u_obj->cpu_id = kthread_cpu_map[target_cpu]->cpuid;
 	u_obj->last_cpu_id = kthread_cpu_map[target_cpu]->cpuid;
-	
-	fprintf(stderr, "Target uthread (id:%d) : cpu(%d)\n", u_obj->uthread_tid, kthread_cpu_map[target_cpu]->cpuid);
 
+#if 0
+	printf("Target uthread (id:%d, group:%d) : cpu(%d)\n", u_obj->uthread_tid, u_obj->uthread_gid, kthread_cpu_map[target_cpu]->cpuid);
+#endif
 
 	return(&(kthread_cpu_map[target_cpu]->krunqueue));
 }
@@ -439,7 +439,7 @@ extern void gtthread_app_init(unsigned int lb_flag, unsigned int prio_flag)
 
 	/* Num of logical processors (cpus/cores) */
 	// num_cpus = (int)sysconf(_SC_NPROCESSORS_CONF);
-	num_cpus = 10; // for testing
+	num_cpus = 4; // for testing
 #if 0
 	fprintf(stderr, "Number of cores : %d\n", num_cores);
 #endif
@@ -465,11 +465,9 @@ extern void gtthread_app_init(unsigned int lb_flag, unsigned int prio_flag)
 		/* yield till other kthreads initialize */
 		int init_done;
 yield_again:
-		#ifdef GT_YIELD
-			gt_yield();
-		#else
-			sched_yield();
-		#endif
+
+		sched_yield();
+
 		init_done = 0;
 		for(inx=0; inx<GT_MAX_KTHREADS; inx++)
 		{

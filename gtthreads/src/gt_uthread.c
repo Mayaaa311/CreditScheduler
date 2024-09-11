@@ -43,34 +43,31 @@ extern int uthread_create(uthread_t *u_tid, int (*u_func)(void *), void *u_arg, 
 /**********************************************************************/
 /* uthread scheduling */
 void print_credit(int in_out){
-	for(int i = 0; i < 2; i++){
-		if(in_out == 0)
-			fprintf(stderr, "______________ENTERING PRINTING INFO ON CPU %d_____________________________\n", i);
-		else if(in_out == 1)
-			fprintf(stderr, "______________EXIT PRINTING INFO ON CPU %d_____________________________\n", i);
-		else{
-			fprintf(stderr, "______________EXITAPP PRINTING INFO ON CPU %d_____________________________\n", i);
-		}
+for(int i = 0; i < 4; i++){
+		fprintf(stderr, "______________PRINTING INFO ON CPU %d AT PQ FILE!!!_____________________________\n", i);
 		kthread_context_t *k_ctx = kthread_cpu_map[i];
 		uthread_struct_t *u_obj;
-
+		gt_spin_lock(&(k_ctx->krunqueue.kthread_runqlock));
 		uthread_head_t *uthread_head = (k_ctx->krunqueue.active_credit_tracker);
-		fprintf(stderr, "active q: %d[", k_ctx->krunqueue.active_runq->uthread_tot);
-		TAILQ_FOREACH(u_obj, uthread_head, uthread_creditq) {
-			   fprintf(stderr, "Au%d(c=%d), ", u_obj->uthread_tid,u_obj->credit);
-            
+		if(k_ctx->krunqueue.active_runq->uthread_tot != 0){
+			fprintf(stderr, "active q: %d[", k_ctx->krunqueue.active_runq->uthread_tot);
+			TAILQ_FOREACH(u_obj, uthread_head, uthread_creditq) {
+				fprintf(stderr, "A%d(c=%d), ", u_obj->uthread_tid,u_obj->credit);
+				
+			}
+			fprintf(stderr, "] \n");
 		}
-		fprintf(stderr, "] \n");
 
 		uthread_head = (k_ctx->krunqueue.expired_credit_tracker);
-		fprintf(stderr, "expired q: %d[", k_ctx->krunqueue.expires_runq->uthread_tot);
-		TAILQ_FOREACH(u_obj, uthread_head, uthread_creditq) {
-			   fprintf(stderr, "Eu%d(c=%d), ", u_obj->uthread_tid, u_obj->credit);
-            
+		if(k_ctx->krunqueue.expires_runq->uthread_tot != 0){
+			fprintf(stderr, "expired q: %d[", k_ctx->krunqueue.expires_runq->uthread_tot);
+			TAILQ_FOREACH(u_obj, uthread_head, uthread_creditq) {
+				fprintf(stderr, "E%d(c=%d), ", u_obj->uthread_tid,u_obj->credit);
+				
+			}
+			fprintf(stderr, "] \n");
 		}
-		fprintf(stderr, "] \n");
-
-		// print_runq_stats(k_ctx->krunqueue.active_runq, i);
+		gt_spin_unlock(&(k_ctx->krunqueue.kthread_runqlock));
 	}
 }
 /* Assumes that the caller has disabled vtalrm and sigusr1 signals */
@@ -157,18 +154,19 @@ void uthread_stop_timer(uthread_struct_t *u_obj) {
     u_obj->credit -= (int)(credits_used);
 	
 	if(u_obj->uthread_state == UTHREAD_RUNNING) 
-    fprintf(stderr, "Thread %d ran for %f ms, status: running, deducted %f credits. Remaining credits THIS IS PRINETD HER!: %d\n",
-           u_obj->uthread_tid,elapsed_ms, credits_used, u_obj->credit);
+    fprintf(stderr, "Thread %d ran for %f ms on k %d, status: running, deducted %f. Remaining: %d\n",
+           u_obj->uthread_tid,elapsed_ms, u_obj->cpu_id,credits_used, u_obj->credit);
 	else if(u_obj->uthread_state == UTHREAD_DONE || u_obj->uthread_state == UTHREAD_CANCELLED)
-	    fprintf(stderr, "Thread %dran for %f ms, status: done, deducted %f credits. Remaining credits THIS IS PRINETD HER!: %d\n",
-           u_obj->uthread_tid,elapsed_ms, credits_used, u_obj->credit);
+	    fprintf(stderr, "Thread %dran for %f ms on k %d, status: done, deducted %f. Remaining: %d\n",
+           u_obj->uthread_tid,elapsed_ms,  u_obj->cpu_id,credits_used, u_obj->credit);
 	uthread_start_timer(u_obj);
 }
 int id = 0;
 extern void credit_scheduler(uthread_struct_t * (*credit_find_best_uthread)(kthread_runqueue_t *))
 {
+	// usleep(5000); // to avoid race condition
 	if(kthread_apic_id() == PRINTFROM_CPU){
-		print_credit(1);
+		// print_credit(1);
 	}
 	// usleep(1000); 
 	kthread_context_t *k_ctx;
@@ -195,9 +193,12 @@ extern void credit_scheduler(uthread_struct_t * (*credit_find_best_uthread)(kthr
 	u_obj = kthread_runq->cur_uthread;
 	if((u_obj))
 	{
+		fprintf(stderr,"into %d /n",u_obj->uthread_state);
 		// check if the current one is cancelled or done, if so, put it into zombie queue and remove from credit queue */
 		if(u_obj->uthread_state & (UTHREAD_DONE | UTHREAD_CANCELLED))
 		{
+			fprintf(stderr, "Thread %d in kthread %d is done, kthread active q: (%d), kthread expired q: (%d)\n", 
+			    u_obj->uthread_tid, kthread_apic_id(), kthread_runq->active_runq->uthread_tot , kthread_runq->expires_runq->uthread_tot);
 			kthread_runq->cur_uthread = NULL;
 			/* XXX: Inserting uthread into zombie queue is causing improper
 			 * cleanup/exit of uthread (core dump) */
@@ -218,7 +219,7 @@ extern void credit_scheduler(uthread_struct_t * (*credit_find_best_uthread)(kthr
 		// if current trhead is still runnable */
 		else
 		{
-
+			fprintf(stderr,"into this weird se/n");
 			uthread_stop_timer(u_obj);
 			// if credit is still over 0, return current thread to keep running, start timer when keep running
 			if(u_obj->credit > 0){
@@ -231,15 +232,21 @@ extern void credit_scheduler(uthread_struct_t * (*credit_find_best_uthread)(kthr
 				// 	fprintf(stderr, "Case: Credit less than 0, put to runnable and move to expired queue\n");
 				kthread_runq->cur_uthread = NULL;
 				u_obj->uthread_state = UTHREAD_RUNNABLE;
-				// add to expired queue
+
 				add_to_runqueue(kthread_runq->expires_runq, &(kthread_runq->kthread_runqlock), u_obj);
+			
 				// move current obj to expied credit tracker
 				gt_spin_lock(&(kthread_runq->kthread_runqlock));
 				TAILQ_INSERT_TAIL( (kthread_runq->expired_credit_tracker), u_obj, uthread_creditq);
-				// fprintf(stderr, "JUST MOVED CURRENTLY RUNNING THREAD %d (c = %d) TO EXPIRED Q, q's first: %d(c= %d)! n", 
-				// u_obj->uthread_tid, u_obj->credit, kthread_runq->expired_credit_tracker->tqh_first->uthread_tid, kthread_runq->expired_credit_tracker->tqh_first->credit);
 				gt_spin_unlock(&(kthread_runq->kthread_runqlock));
 
+				fprintf(stderr, "Thread %d in kthread %d moved to expired, kthread active q: (%d), kthread expired q: (%d)\n", 
+					u_obj->uthread_tid, u_obj->cpu_id, kthread_runq->active_runq->uthread_tot , kthread_runq->expires_runq->uthread_tot);
+
+				// if(kthread_apic_id() == PRINTFROM_CPU){
+				// 	fprintf(stderr, "after put to runnable and move to expired queue: %d", kthread_runq->expires_runq->uthread_tot);
+				// 	print_credit(0);
+				// }
 				/* XXX: Save the context (signal mask not saved) */
 				if(sigsetjmp(u_obj->uthread_env, 0))
 					return;
@@ -251,6 +258,8 @@ extern void credit_scheduler(uthread_struct_t * (*credit_find_best_uthread)(kthr
 	u_obj = NULL;
 	if(!(u_obj = credit_find_best_uthread(kthread_runq)))
 	{
+		fprintf(stderr, "no uthread in kthread %d to be run, kthread active q: (%d), kthread expired q: (%d)\n", 
+		 kthread_apic_id(), kthread_runq->active_runq->uthread_tot , kthread_runq->expires_runq->uthread_tot);
 
 		// fprintf(stderr, "No next best thread to get, total %d\n",ksched_shared_info.kthread_cur_uthreads);
 		/* Done executing all uthreads. Return to main */
@@ -266,6 +275,9 @@ extern void credit_scheduler(uthread_struct_t * (*credit_find_best_uthread)(kthr
 		siglongjmp(k_ctx->kthread_env, 1);
 		return;
 	}
+	fprintf(stderr, "Thread %d in kthread %d is put to run, kthread active q: (%d), kthread expired q: (%d)\n", 
+	u_obj->uthread_tid, u_obj->cpu_id, kthread_runq->active_runq->uthread_tot , kthread_runq->expires_runq->uthread_tot);
+
 	kthread_runq->cur_uthread = u_obj;
 	if((u_obj->uthread_state == UTHREAD_INIT) && (uthread_init(u_obj)))
 	{
@@ -280,9 +292,7 @@ extern void credit_scheduler(uthread_struct_t * (*credit_find_best_uthread)(kthr
 	/* Re-install the scheduling signal handlers */
 	kthread_install_sighandler(SIGVTALRM, k_ctx->kthread_sched_timer);
 	kthread_install_sighandler(SIGUSR1, k_ctx->kthread_sched_relay);
-	if(kthread_apic_id() == PRINTFROM_CPU){
-		print_credit(0);
-	}
+
 	/* Jump to the selected uthread context */
 	siglongjmp(u_obj->uthread_env, 1);
 	
@@ -381,6 +391,7 @@ extern void uthread_schedule(uthread_struct_t * (*kthread_best_sched_uthread)(kt
  * into a regular stack for uthread (by using SS_DISABLE). */
 static void uthread_context_func(int signo)
 {
+	usleep(10000);
 	uthread_struct_t *cur_uthread;
 	kthread_runqueue_t *kthread_runq;
 
@@ -402,7 +413,6 @@ static void uthread_context_func(int signo)
 	cur_uthread = kthread_runq->cur_uthread;
 	assert(cur_uthread->uthread_state == UTHREAD_RUNNING);
 	/* Execute the uthread task */
-	fprintf(stderr, "currently executing uthread %d\n", cur_uthread->uthread_tid);
 	cur_uthread->uthread_func(cur_uthread->uthread_arg);
 	uthread_stop_timer(cur_uthread);
 	cur_uthread->uthread_state = UTHREAD_DONE;
@@ -424,7 +434,6 @@ extern kthread_runqueue_t *ksched_find_target(uthread_struct_t *);
 
 extern int uthread_create(uthread_t *u_tid, int (*u_func)(void *), void *u_arg, uthread_group_t u_gid, int credit)
 {
-	fprintf(stderr, " .............utrhead_create_called.................\n");
 	kthread_runqueue_t *kthread_runq;
 	uthread_struct_t *u_new;
 
@@ -475,7 +484,7 @@ extern int uthread_create(uthread_t *u_tid, int (*u_func)(void *), void *u_arg, 
 	gt_spinlock_t *runq_lock = &(kthread_runq->kthread_runqlock);
 	gt_spin_lock(runq_lock);
 	runq_lock->holder = 0x02;
-
+	
 	// fprintf(stderr, "current runq: %d\n", kthread_runq->active_runq->uthread_tot);
 	if(TAILQ_EMPTY((kthread_runq->active_credit_tracker)))
 		TAILQ_INIT((kthread_runq->active_credit_tracker));
@@ -483,6 +492,8 @@ extern int uthread_create(uthread_t *u_tid, int (*u_func)(void *), void *u_arg, 
 	
 	gt_spin_unlock(runq_lock);
 
+	fprintf(stderr, "Thread %d is put to kthread %d runq, kthread active q: (%d), kthread expired q: (%d)\n", 
+	u_new->uthread_tid, u_new->cpu_id, kthread_runq->active_runq->uthread_tot , kthread_runq->expires_runq->uthread_tot);
 	/* WARNING : DONOT USE u_new WITHOUT A LOCK, ONCE IT IS ENQUEUED. */
 
 	/* Resume with the old thread (with all signals enabled) */

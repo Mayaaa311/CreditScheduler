@@ -15,9 +15,6 @@
 
 
 
-#define SIZE 250
-#define CREDIT 10
-
 // #define NUM_CPUS 2
 // #define NUM_GROUPS 20
 // #define PER_GROUP_COLS (SIZE/NUM_GROUPS)
@@ -34,8 +31,8 @@ unsigned int priority_schedule;
 
 typedef struct matrix
 {
-	int m[SIZE][SIZE];
-
+	int size;
+	int **m;
 	int rows;
 	int cols;
 	unsigned int reserved[2];
@@ -56,27 +53,26 @@ typedef struct __uthread_arg
 
 struct timeval tv1;
 
-static void generate_matrix(matrix_t *mat, int val)
-{
-
-	int i,j;
-	mat->rows = SIZE;
-	mat->cols = SIZE;
-	for(i = 0; i < mat->rows;i++)
-		for( j = 0; j < mat->cols; j++ )
-		{
-			mat->m[i][j] = val;
-		}
-	return;
+static void generate_matrix(matrix_t *mat, int size, int val) {
+    mat->rows = size;
+    mat->cols = size;
+	mat->size = size;
+    mat->m = (int **)malloc(size * sizeof(int *));
+    for (int i = 0; i < size; i++) {
+        mat->m[i] = (int *)malloc(size * sizeof(int));
+        for (int j = 0; j < size; j++) {
+            mat->m[i][j] = val;
+        }
+    }
 }
 
 static void print_matrix(matrix_t *mat)
 {
 	int i, j;
-
-	for(i=0;i<SIZE;i++)
+	printf("x %d", mat->size);
+	for(i=0;i<mat->size;i++)
 	{
-		for(j=0;j<SIZE;j++)
+		for(j=0;j<mat->size;j++)
 			fprintf(stderr, " %d ",mat->m[i][j]);
 		fprintf(stderr, "\n");
 	}
@@ -98,32 +94,32 @@ static void * uthread_mulmat(void *p)
 
 	// cpuid = kthread_cpu_map[kthread_apic_id()]->cpuid;
 	// fprintf(stderr, "\nThread(id:%d, group:%d, cpu:%d) started",ptr->tid, ptr->gid, cpuid);
-
-
+	// printf("I GOT HERE!!!");
+	// printf("matrix size: %d\n", ptr->size);
 	for(i = 0; i < ptr->size; i++)
 		for(j = 0; j < ptr->size; j++)
-			for(k = 0; k < ptr->size; k++)
+			for(k = 0; k < ptr->size; k++){
+				// printf("MULPSHAUIHDUI");
 				ptr->_C->m[i][j] += ptr->_A->m[i][k] * ptr->_B->m[k][j];
-
+				// printf("abababab");
+			}
+// printf("I GOT HEafdsfdRE!!!");
 	// gettimeofday(&tv2,NULL);
-	// fprintf(stderr, "\nThread(id:%d, group:%d) finished (TIME : %lu s and %lu us)",
-	// 		ptr->tid, ptr->gid, (tv2.tv_sec - tv1.tv_sec), (tv2.tv_usec - tv1.tv_usec));
+	fprintf(stderr, "\nThread(id:%d, group:%d) finished (TIME : %lu s and %lu us)",
+			ptr->tid, ptr->gid, (tv2.tv_sec - tv1.tv_sec), (tv2.tv_usec - tv1.tv_usec));
+	// print_matrix(ptr->_C);
 
 #undef ptr
 	return 0;
 }
 
-matrix_t A, B, C;
 
-static void init_matrices()
-{
-	generate_matrix(&A, 1);
-	generate_matrix(&B, 1);
-	generate_matrix(&C, 0);
 
-	return;
+static void init_matrices(matrix_t *A, matrix_t *B, matrix_t *C, int size) {
+    generate_matrix(A, size, 1);
+    generate_matrix(B, size, 1);
+    generate_matrix(C, size, 0);
 }
-
 
 void parse_args(int argc, char* argv[])
 {
@@ -169,38 +165,51 @@ int main(int argc, char *argv[])
 {
 	uthread_arg_t *uarg;
 	int inx;
-
-	
+	matrix_t matAs[4];
+	matrix_t matBs[4];
+	matrix_t matCs[4];
+	int matrix_sz[4] = {32, 64, 128, 256};
 
 	parse_args(argc, argv);
 
 	gtthread_app_init(lb_flag, priority_schedule);
 
-	init_matrices();
+	for(int i = 0; i < 4; i++){
+		init_matrices(&matAs[i],&matBs[i],&matCs[i], matrix_sz[i]);
+	}
 
+	int credits[4] =  {25, 50, 75, 100};
+	// int credits[4] = {25,25,25,25};
 	gettimeofday(&tv1,NULL);
+	int credit_inx = 0;
+	int uthread_tid = 0;
+	for(inx=0; inx<4; inx++)
+	{	
+		for(int k = 0; k < 4; k++)
+			for(int j=0; j<8; j++){
+				uarg = &uargs[uthread_tid];
+				uarg->_A = &matAs[inx];
+				uarg->_B = &matBs[inx];
+				uarg->_C = &matCs[inx];
 
-	for(inx=0; inx<8; inx++)
-	{
-		uarg = &uargs[inx];
-		uarg->_A = &A;
-		uarg->_B = &B;
-		uarg->_C = &C;
+				uarg->tid = uthread_tid;
 
-		uarg->tid = inx;
-		uarg->size = SIZE;
+				fprintf(stderr,"mat size :%d\n", matrix_sz[inx]);
+				uarg->size = matrix_sz[inx];
 
-		uarg->gid = 1;
-
-		// printf("Creating thread(id:%d, credit:%d, size:%d)...\n", uarg->tid, uarg->credit, uarg->size);
-
-		uthread_create(&utids[inx], uthread_mulmat, uarg, uarg->gid, CREDIT);
+				uarg->gid = 0;
+				fprintf(stderr, "credit:%d, credit_idx: %d\n", credits[k], k);
+				// printf("Creating thread(id:%d, credit:%d, size:%d)...\n", uarg->tid, uarg->credit, uarg->size);
+				uthread_create(&utids[inx], uthread_mulmat, uarg, uarg->gid, credits[k]);
+				uthread_tid++;
+			}
+		// if(inx != 0 && inx % 4 == 0) credit_inx++;
 	}
 
 	gtthread_app_exit();
 	// print_matrix(&A);
 	// print_matrix(&B);
-	// print_matrix(&C);
+
 	fprintf(stderr, "********************************");
 	return(0);
 }

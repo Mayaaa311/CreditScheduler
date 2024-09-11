@@ -1,0 +1,62 @@
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+mat size :32
+credit:25, credit_idx: 0
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 0 is put to kthread 0 runq, kthread active q: (1), kthread expired q: (0)
+mat size :32
+credit:50, credit_idx: 1
+Thread 1 is put to kthread 0 runq, kthread active q: (1), kthread expired q: (0)
+mat size :32
+credit:75, credit_idx: 2
+Thread 2 is put to kthread 0 runq, kthread active q: (1), kthread expired q: (0)
+mat size :32
+credit:100, credit_idx: 3
+Thread 3 is put to kthread 0 runq, kthread active q: (1), kthread expired q: (0)
+mat size :64
+credit:25, credit_idx: 0
+Thread 4 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :64
+credit:50, credit_idx: 1
+Thread 5 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :64
+credit:75, credit_idx: 2
+Thread 6 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :64
+credit:100, credit_idx: 3
+Thread 2 in kthread 3 is put to run, kthread active q: (1), kthread expired q: (0)
+Thread 7 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+Thread 2 ran for 0.130154 ms on k 3, status: running, deducted 1.000000. Remaining: 74
+Thread 0 in kthread 1 is put to run, kthread active q: (1), kthread expired q: (0)
+mat size :128
+credit:25, credit_idx: 0
+Thread 1 in kthread 2 is put to run, kthread active q: (1), kthread expired q: (0)
+Thread 0 ran for 0.243856 ms on k 1, status: running, deducted 2.000000. Remaining: 23
+Thread 8 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :128
+Thread 1 ran for 0.125108 ms on k 2, status: running, deducted 1.000000. Remaining: 49
+credit:50, credit_idx: 1
+Thread 9 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :128
+credit:75, credit_idx: 2
+Thread 10 is put to kthread 0 runq, kthread active q: (2), kthread expired q: (0)
+mat size :128
+credit:100, credit_idx: 3
+Thread 11 is put to kthread 0 runq, kthread active q: (3), kthread expired q: (0)
+mat size :256
+credit:25, credit_idx: 0
+Thread 12 is put to kthread 0 runq, kthread active q: (3), kthread expired q: (0)
+mat size :256
+credit:50, credit_idx: 1
+Thread 13 is put to kthread 0 runq, kthread active q: (3), kthread expired q: (0)
+mat size :256
+credit:75, credit_idx: 2
+Thread 2 in kthread 3 is done, kthread active q: (2), kthread expired q: (0)
+Thread 14 is put to kthread 0 runq, kthread active q: (3), kthread expired q: (0)
+mat size :256
+Thread 6 in kthread 3 is put to run, kthread active q: (2), kthread expired q: (0)
+credit:100, credit_idx: 3
+Thread 0 in kthread 1 is done, kthread active q: (3), kthread expired q: (0)
+Thread 4 in kthread 1 is put to run, kthread active q: (2), kthread expired q: (0)
+Thread 15 is put to kthread 0 runq, kthread active q: (4), kthread expired q: (0)
+********************************Thread 1 in kthread 2 is done, kthread active q: (3), kthread expired q: (0)
+Thread 6 ran for 0.887599 ms on k 3, status: running, deducted 8.000000. Remaining: 67

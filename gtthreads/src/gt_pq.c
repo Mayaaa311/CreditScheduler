@@ -19,11 +19,11 @@ static void __add_to_runqueue(runqueue_t *runq, uthread_struct_t *u_elm);
 static void __rem_from_runqueue(runqueue_t *runq, uthread_struct_t *u_elm);
 
 void print_credit_in_pq(){
-	for(int i = 0; i < 2; i++){
+	for(int i = 0; i < 4; i++){
 		fprintf(stderr, "______________PRINTING INFO ON CPU %d AT PQ FILE!!!_____________________________\n", i);
 		kthread_context_t *k_ctx = kthread_cpu_map[i];
 		uthread_struct_t *u_obj;
-
+		gt_spin_lock(&(k_ctx->krunqueue.kthread_runqlock));
 		uthread_head_t *uthread_head = (k_ctx->krunqueue.active_credit_tracker);
 		fprintf(stderr, "active q: %d[", k_ctx->krunqueue.active_runq->uthread_tot);
 		TAILQ_FOREACH(u_obj, uthread_head, uthread_creditq) {
@@ -39,7 +39,9 @@ void print_credit_in_pq(){
             
 		}
 		fprintf(stderr, "] \n");
+		gt_spin_unlock(&(k_ctx->krunqueue.kthread_runqlock));
 	}
+
 }
 /**********************************************************************/
 /* runqueue operations */
@@ -99,6 +101,8 @@ static inline void __rem_from_runqueue(runqueue_t *runq, uthread_struct_t *u_ele
 
 	if(!(--(runq->uthread_group_tot[ugroup])))
 	{
+		fprintf(stderr, "Thread %d is put to kthread %d runq, with totoal of %d \n", 
+	u_elem->uthread_tid, u_elem->cpu_id,  runq->uthread_group_tot[ugroup]);
 		assert(TAILQ_EMPTY(uhead));
 		RESET_BIT(runq->uthread_group_mask[ugroup], uprio);
 	}
@@ -335,8 +339,9 @@ extern uthread_struct_t *credit_find_best_uthread(kthread_runqueue_t *kthread_ru
 						TAILQ_REMOVE(kthread_runq->expired_credit_tracker, u_obj, uthread_creditq);
 					}
 					// swich in main queue
-					__rem_from_runqueue(kthread_runq->expires_runq, u_obj);
 					__add_to_runqueue( kthread_runq->active_runq, u_obj);
+					__rem_from_runqueue(kthread_runq->expires_runq, u_obj);
+					// __add_to_runqueue( kthread_runq->active_runq, u_obj);
 
 				};
 			}
