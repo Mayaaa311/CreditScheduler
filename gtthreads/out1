@@ -10,23 +10,8 @@ no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
 no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
 no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
 no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
 no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
 no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
 no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
 no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
 no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
@@ -41,44 +26,44 @@ no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
 no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
 no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
 no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
 no uthread in kthread 1 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 1 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
 no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
 no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
 no uthread in kthread 1 to be run, kthread active q: (0), kthread expired q: (0)
 no uthread in kthread 1 to be run, kthread active q: (0), kthread expired q: (0)
 mat size :32
 credit:25, credit_idx: 0
-no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
 no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
 no uthread in kthread 1 to be run, kthread active q: (0), kthread expired q: (0)
-Thread 0 is put to kthread 1 runq, with totoal of 0 
 Thread 0 is put to kthread 1 runq, kthread active q: (1), kthread expired q: (0)
 mat size :32
-no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
 no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 0 is put to kthread 1 runq, with totoal of 0 
 Thread 0 in kthread 1 is put to run, kthread active q: (0), kthread expired q: (0)
 credit:25, credit_idx: 0
-no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
-Thread 1 is put to kthread 2 runq, with totoal of 0 
-no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
 Thread 1 is put to kthread 2 runq, kthread active q: (1), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+no uthread in kthread 2 to be run, kthread active q: (0), kthread expired q: (0)
 mat size :32
-Thread 1 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
-no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
 credit:25, credit_idx: 0
 no uthread in kthread 3 to be run, kthread active q: (0), kthread expired q: (0)
+Thread 2 is put to kthread 3 runq, with totoal of 0 
+Thread 1 is put to kthread 2 runq, with totoal of 0 
+Thread 1 in kthread 2 is put to run, kthread active q: (0), kthread expired q: (0)
 Thread 2 is put to kthread 3 runq, kthread active q: (1), kthread expired q: (0)
 mat size :32
-Thread 2 is put to kthread 3 runq, with totoal of 0 
 Thread 2 in kthread 3 is put to run, kthread active q: (0), kthread expired q: (0)
 credit:25, credit_idx: 0
 Thread 3 is put to kthread 0 runq, kthread active q: (1), kthread expired q: (0)
@@ -98,17 +83,21 @@ mat size :32
 credit:50, credit_idx: 1
 Thread 8 is put to kthread 1 runq, kthread active q: (2), kthread expired q: (0)
 mat size :32
-credit:50, credit_idx: 1
+
+Thread(id:0, group:0) finished (TIME : 81073587659650793 s and 18446744073708996965 us)credit:50, credit_idx: 1
+Thread 0 ran for 0.996041 ms on k 1, status: running, deducted 9.000000. Remaining: 16
 Thread 9 is put to kthread 2 runq, kthread active q: (2), kthread expired q: (0)
 mat size :32
+into 16 /nThread 0 in kthread 1 is done, kthread active q: (2), kthread expired q: (0)
 credit:50, credit_idx: 1
+Thread 8 in kthread 1 is put to run, kthread active q: (1), kthread expired q: (0)
 Thread 10 is put to kthread 3 runq, kthread active q: (2), kthread expired q: (0)
 mat size :32
 credit:50, credit_idx: 1
 Thread 11 is put to kthread 0 runq, kthread active q: (3), kthread expired q: (0)
 mat size :32
 credit:50, credit_idx: 1
-Thread 12 is put to kthread 1 runq, kthread active q: (3), kthread expired q: (0)
+Thread 12 is put to kthread 1 runq, kthread active q: (2), kthread expired q: (0)
 mat size :32
 credit:50, credit_idx: 1
 Thread 13 is put to kthread 2 runq, kthread active q: (3), kthread expired q: (0)
@@ -117,13 +106,17 @@ credit:50, credit_idx: 1
 Thread 14 is put to kthread 3 runq, kthread active q: (3), kthread expired q: (0)
 mat size :32
 credit:50, credit_idx: 1
-Thread 15 is put to kthread 0 runq, kthread active q: (4), kthread expired q: (0)
+
+Thread(id:1, group:0) finished (TIME : 153131181697578729 s and 18446744073708996966 us)Thread 15 is put to kthread 0 runq, kthread active q: (4), kthread expired q: (0)
 mat size :32
-credit:75, credit_idx: 2
-Thread 16 is put to kthread 1 runq, kthread active q: (4), kthread expired q: (0)
+Thread 1 ran for 0.779179 ms on k 2, status: running, deducted 7.000000. Remaining: 18
+into 16 /ncredit:75, credit_idx: 2
+Thread 1 in kthread 2 is done, kthread active q: (3), kthread expired q: (0)
+Thread 16 is put to kthread 1 runq, kthread active q: (3), kthread expired q: (0)
 mat size :32
+Thread 9 in kthread 2 is put to run, kthread active q: (2), kthread expired q: (0)
 credit:75, credit_idx: 2
-Thread 17 is put to kthread 2 runq, kthread active q: (4), kthread expired q: (0)
+Thread 17 is put to kthread 2 runq, kthread active q: (3), kthread expired q: (0)
 mat size :32
 credit:75, credit_idx: 2
 Thread 18 is put to kthread 3 runq, kthread active q: (4), kthread expired q: (0)
@@ -131,39 +124,43 @@ mat size :32
 credit:75, credit_idx: 2
 Thread 19 is put to kthread 0 runq, kthread active q: (5), kthread expired q: (0)
 mat size :32
-
-Thread(id:0, group:0) finished (TIME : 81073587659655037 s and 18446744073708816439 us)credit:75, credit_idx: 2
-Thread 20 is put to kthread 1 runq, kthread active q: (5), kthread expired q: (0)
-Thread 0 ran for 0.481884 ms on k 1, status: running, deducted 4.000000. Remaining: 21
-into 16 /nmat size :32
 credit:75, credit_idx: 2
-Thread 0 in kthread 1 is done, kthread active q: (5), kthread expired q: (0)
-Thread 16 in kthread 1 is put to run, kthread active q: (4), kthread expired q: (0)
-Thread 21 is put to kthread 2 runq, kthread active q: (5), kthread expired q: (0)
+Thread 20 is put to kthread 1 runq, kthread active q: (4), kthread expired q: (0)
 mat size :32
 credit:75, credit_idx: 2
+Thread 21 is put to kthread 2 runq, kthread active q: (4), kthread expired q: (0)
+mat size :32
+
+Thread(id:8, group:0) finished (TIME : 81073587659650793 s and 18446744073708996966 us)Thread 8 ran for 0.848494 ms on k 1, status: running, deducted 8.000000. Remaining: 42
+credit:75, credit_idx: 2
+into 16 /nThread 8 in kthread 1 is done, kthread active q: (4), kthread expired q: (0)
 Thread 22 is put to kthread 3 runq, kthread active q: (5), kthread expired q: (0)
 mat size :32
+Thread 16 in kthread 1 is put to run, kthread active q: (3), kthread expired q: (0)
 credit:75, credit_idx: 2
 Thread 23 is put to kthread 0 runq, kthread active q: (6), kthread expired q: (0)
 mat size :32
 credit:100, credit_idx: 3
-Thread 24 is put to kthread 1 runq, kthread active q: (5), kthread expired q: (0)
+Thread 24 is put to kthread 1 runq, kthread active q: (4), kthread expired q: (0)
 mat size :32
 credit:100, credit_idx: 3
-Thread 25 is put to kthread 2 runq, kthread active q: (6), kthread expired q: (0)
+Thread 25 is put to kthread 2 runq, kthread active q: (5), kthread expired q: (0)
 mat size :32
 credit:100, credit_idx: 3
-Thread 26 is put to kthread 3 runq, kthread active q: (6), kthread expired q: (0)
+
+Thread(id:9, group:0) finished (TIME : 153131181697578729 s and 18446744073708996967 us)Thread 26 is put to kthread 3 runq, kthread active q: (6), kthread expired q: (0)
 mat size :32
+Thread 9 ran for 0.761775 ms on k 2, status: running, deducted 7.000000. Remaining: 43
 credit:100, credit_idx: 3
+into 16 /nThread 9 in kthread 2 is done, kthread active q: (5), kthread expired q: (0)
 Thread 27 is put to kthread 0 runq, kthread active q: (7), kthread expired q: (0)
 mat size :32
+Thread 25 in kthread 2 is put to run, kthread active q: (4), kthread expired q: (0)
 credit:100, credit_idx: 3
-Thread 28 is put to kthread 1 runq, kthread active q: (6), kthread expired q: (0)
+Thread 28 is put to kthread 1 runq, kthread active q: (5), kthread expired q: (0)
 mat size :32
 credit:100, credit_idx: 3
-Thread 29 is put to kthread 2 runq, kthread active q: (7), kthread expired q: (0)
+Thread 29 is put to kthread 2 runq, kthread active q: (5), kthread expired q: (0)
 mat size :32
 credit:100, credit_idx: 3
 Thread 30 is put to kthread 3 runq, kthread active q: (7), kthread expired q: (0)
@@ -172,569 +169,523 @@ credit:100, credit_idx: 3
 Thread 31 is put to kthread 0 runq, kthread active q: (8), kthread expired q: (0)
 mat size :64
 credit:25, credit_idx: 0
-Thread 32 is put to kthread 1 runq, kthread active q: (7), kthread expired q: (0)
+Thread 32 is put to kthread 1 runq, kthread active q: (6), kthread expired q: (0)
 mat size :64
 credit:25, credit_idx: 0
-Thread 33 is put to kthread 2 runq, kthread active q: (8), kthread expired q: (0)
+Thread 33 is put to kthread 2 runq, kthread active q: (6), kthread expired q: (0)
 mat size :64
-credit:25, credit_idx: 0
+
+Thread(id:2, group:0) finished (TIME : 225188775735506665 s and 18446744073708996967 us)credit:25, credit_idx: 0
 Thread 34 is put to kthread 3 runq, kthread active q: (8), kthread expired q: (0)
+Thread 2 ran for 0.628479 ms on k 3, status: running, deducted 6.000000. Remaining: 19
 mat size :64
 credit:25, credit_idx: 0
-Thread 35 is put to kthread 0 runq, kthread active q: (9), kthread expired q: (0)
+into 16 /nThread 35 is put to kthread 0 runq, kthread active q: (9), kthread expired q: (0)
+mat size :64
+Thread 2 in kthread 3 is done, kthread active q: (8), kthread expired q: (0)
+credit:25, credit_idx: 0
+Thread 36 is put to kthread 1 runq, kthread active q: (7), kthread expired q: (0)
+Thread 26 in kthread 3 is put to run, kthread active q: (7), kthread expired q: (0)
 mat size :64
 credit:25, credit_idx: 0
-Thread 36 is put to kthread 1 runq, kthread active q: (8), kthread expired q: (0)
+Thread 37 is put to kthread 2 runq, kthread active q: (7), kthread expired q: (0)
 mat size :64
 credit:25, credit_idx: 0
-Thread 37 is put to kthread 2 runq, kthread active q: (9), kthread expired q: (0)
-mat size :64
-credit:25, credit_idx: 0
-Thread 38 is put to kthread 3 runq, kthread active q: (9), kthread expired q: (0)
+Thread 38 is put to kthread 3 runq, kthread active q: (8), kthread expired q: (0)
 mat size :64
 credit:25, credit_idx: 0
 Thread 39 is put to kthread 0 runq, kthread active q: (10), kthread expired q: (0)
-mat size :64
-credit:50, credit_idx: 1
 
-Thread(id:1, group:0) finished (TIME : 153131181697582973 s and 18446744073708816440 us)Thread 1 ran for 0.656123 ms on k 2, status: running, deducted 6.000000. Remaining: 19
-Thread 40 is put to kthread 1 runq, kthread active q: (9), kthread expired q: (0)
+Thread(id:25, group:0) finished (TIME : 153131181697578729 s and 18446744073708996969 us)mat size :64
+credit:50, credit_idx: 1
+Thread 25 ran for 0.783670 ms on k 2, status: running, deducted 7.000000. Remaining: 93
+Thread 40 is put to kthread 1 runq, kthread active q: (8), kthread expired q: (0)
 mat size :64
-into 16 /ncredit:50, credit_idx: 1
-Thread 1 in kthread 2 is done, kthread active q: (9), kthread expired q: (0)
-Thread 25 in kthread 2 is put to run, kthread active q: (9), kthread expired q: (0)
-Thread 41 is put to kthread 2 runq, kthread active q: (10), kthread expired q: (0)
+into 16 /nThread 25 in kthread 2 is done, kthread active q: (7), kthread expired q: (0)
+credit:50, credit_idx: 1
+Thread 29 in kthread 2 is put to run, kthread active q: (6), kthread expired q: (0)
+Thread 41 is put to kthread 2 runq, kthread active q: (7), kthread expired q: (0)
 mat size :64
 credit:50, credit_idx: 1
-Thread 42 is put to kthread 3 runq, kthread active q: (10), kthread expired q: (0)
+Thread 42 is put to kthread 3 runq, kthread active q: (9), kthread expired q: (0)
 mat size :64
 credit:50, credit_idx: 1
 Thread 43 is put to kthread 0 runq, kthread active q: (11), kthread expired q: (0)
 mat size :64
 credit:50, credit_idx: 1
-Thread 44 is put to kthread 1 runq, kthread active q: (10), kthread expired q: (0)
+Thread 44 is put to kthread 1 runq, kthread active q: (9), kthread expired q: (0)
 mat size :64
 credit:50, credit_idx: 1
-Thread 45 is put to kthread 2 runq, kthread active q: (10), kthread expired q: (0)
+
+Thread(id:26, group:0) finished (TIME : 225188775735506665 s and 18446744073708996972 us)Thread 45 is put to kthread 2 runq, kthread active q: (8), kthread expired q: (0)
 mat size :64
-credit:50, credit_idx: 1
-Thread 46 is put to kthread 3 runq, kthread active q: (11), kthread expired q: (0)
+Thread 26 ran for 0.497273 ms on k 3, status: running, deducted 4.000000. Remaining: 96
+into 16 /ncredit:50, credit_idx: 1
+Thread 26 in kthread 3 is done, kthread active q: (9), kthread expired q: (0)
+Thread 30 in kthread 3 is put to run, kthread active q: (9), kthread expired q: (0)
+Thread 46 is put to kthread 3 runq, kthread active q: (10), kthread expired q: (0)
 mat size :64
 credit:50, credit_idx: 1
 Thread 47 is put to kthread 0 runq, kthread active q: (12), kthread expired q: (0)
 mat size :64
 credit:75, credit_idx: 2
-Thread 48 is put to kthread 1 runq, kthread active q: (11), kthread expired q: (0)
+Thread 48 is put to kthread 1 runq, kthread active q: (10), kthread expired q: (0)
 mat size :64
 credit:75, credit_idx: 2
-Thread 49 is put to kthread 2 runq, kthread active q: (11), kthread expired q: (0)
+Thread 49 is put to kthread 2 runq, kthread active q: (9), kthread expired q: (0)
 mat size :64
 credit:75, credit_idx: 2
-Thread 50 is put to kthread 3 runq, kthread active q: (12), kthread expired q: (0)
+Thread 50 is put to kthread 3 runq, kthread active q: (10), kthread expired q: (0)
 mat size :64
 credit:75, credit_idx: 2
 Thread 51 is put to kthread 0 runq, kthread active q: (13), kthread expired q: (0)
 mat size :64
 credit:75, credit_idx: 2
-Thread 52 is put to kthread 1 runq, kthread active q: (12), kthread expired q: (0)
-mat size :64
+Thread 52 is put to kthread 1 runq, kthread active q: (11), kthread expired q: (0)
+
+Thread(id:16, group:0) finished (TIME : 81073587659650793 s and 18446744073708996968 us)mat size :64
 credit:75, credit_idx: 2
-Thread 53 is put to kthread 2 runq, kthread active q: (12), kthread expired q: (0)
+Thread 16 ran for 0.610050 ms on k 1, status: running, deducted 6.000000. Remaining: 69
+Thread 53 is put to kthread 2 runq, kthread active q: (10), kthread expired q: (0)
 mat size :64
+into 16 /nThread 16 in kthread 1 is done, kthread active q: (11), kthread expired q: (0)
 credit:75, credit_idx: 2
-Thread 54 is put to kthread 3 runq, kthread active q: (13), kthread expired q: (0)
+Thread 24 in kthread 1 is put to run, kthread active q: (10), kthread expired q: (0)
+Thread 54 is put to kthread 3 runq, kthread active q: (11), kthread expired q: (0)
 mat size :64
 credit:75, credit_idx: 2
 Thread 55 is put to kthread 0 runq, kthread active q: (14), kthread expired q: (0)
 mat size :64
 credit:100, credit_idx: 3
-Thread 56 is put to kthread 1 runq, kthread active q: (13), kthread expired q: (0)
+Thread 56 is put to kthread 1 runq, kthread active q: (11), kthread expired q: (0)
 mat size :64
 credit:100, credit_idx: 3
-Thread 57 is put to kthread 2 runq, kthread active q: (13), kthread expired q: (0)
+Thread 57 is put to kthread 2 runq, kthread active q: (11), kthread expired q: (0)
 mat size :64
 credit:100, credit_idx: 3
-Thread 58 is put to kthread 3 runq, kthread active q: (14), kthread expired q: (0)
+Thread 58 is put to kthread 3 runq, kthread active q: (12), kthread expired q: (0)
 mat size :64
 credit:100, credit_idx: 3
 Thread 59 is put to kthread 0 runq, kthread active q: (15), kthread expired q: (0)
-mat size :64
-credit:100, credit_idx: 3
-Thread 60 is put to kthread 1 runq, kthread active q: (14), kthread expired q: (0)
-mat size :64
-credit:100, credit_idx: 3
 
-Thread(id:2, group:0) finished (TIME : 225188775735510909 s and 18446744073708816441 us)Thread 61 is put to kthread 2 runq, kthread active q: (14), kthread expired q: (0)
-mat size :64
-Thread 2 ran for 0.633439 ms on k 3, status: running, deducted 6.000000. Remaining: 19
+Thread(id:29, group:0) finished (TIME : 153131181697578729 s and 18446744073708996971 us)mat size :64
 credit:100, credit_idx: 3
-Thread 62 is put to kthread 3 runq, kthread active q: (15), kthread expired q: (0)
-into 16 /nThread 2 in kthread 3 is done, kthread active q: (15), kthread expired q: (0)
+Thread 29 ran for 0.768634 ms on k 2, status: running, deducted 7.000000. Remaining: 93
+Thread 60 is put to kthread 1 runq, kthread active q: (12), kthread expired q: (0)
+mat size :64
+into 16 /nThread 29 in kthread 2 is done, kthread active q: (11), kthread expired q: (0)
+credit:100, credit_idx: 3
+Thread 57 in kthread 2 is put to run, kthread active q: (10), kthread expired q: (0)
+Thread 61 is put to kthread 2 runq, kthread active q: (11), kthread expired q: (0)
 mat size :64
 credit:100, credit_idx: 3
-Thread 26 in kthread 3 is put to run, kthread active q: (14), kthread expired q: (0)
+Thread 62 is put to kthread 3 runq, kthread active q: (13), kthread expired q: (0)
+mat size :64
+credit:100, credit_idx: 3
 Thread 63 is put to kthread 0 runq, kthread active q: (16), kthread expired q: (0)
 mat size :128
 credit:25, credit_idx: 0
-Thread 64 is put to kthread 1 runq, kthread active q: (15), kthread expired q: (0)
+Thread 64 is put to kthread 1 runq, kthread active q: (13), kthread expired q: (0)
 mat size :128
 credit:25, credit_idx: 0
-Thread 65 is put to kthread 2 runq, kthread active q: (15), kthread expired q: (0)
+Thread 65 is put to kthread 2 runq, kthread active q: (12), kthread expired q: (0)
 mat size :128
 credit:25, credit_idx: 0
-Thread 66 is put to kthread 3 runq, kthread active q: (15), kthread expired q: (0)
+Thread 66 is put to kthread 3 runq, kthread active q: (14), kthread expired q: (0)
 mat size :128
 credit:25, credit_idx: 0
 Thread 67 is put to kthread 0 runq, kthread active q: (17), kthread expired q: (0)
 mat size :128
 credit:25, credit_idx: 0
-Thread 68 is put to kthread 1 runq, kthread active q: (16), kthread expired q: (0)
+Thread 68 is put to kthread 1 runq, kthread active q: (14), kthread expired q: (0)
 mat size :128
 credit:25, credit_idx: 0
-Thread 69 is put to kthread 2 runq, kthread active q: (16), kthread expired q: (0)
+Thread 69 is put to kthread 2 runq, kthread active q: (13), kthread expired q: (0)
 mat size :128
+
+Thread(id:24, group:0) finished (TIME : 81073587659650793 s and 18446744073708996975 us)Thread 24 ran for 0.570286 ms on k 1, status: running, deducted 5.000000. Remaining: 95
 credit:25, credit_idx: 0
-Thread 70 is put to kthread 3 runq, kthread active q: (16), kthread expired q: (0)
+into 16 /nThread 70 is put to kthread 3 runq, kthread active q: (15), kthread expired q: (0)
 mat size :128
+Thread 24 in kthread 1 is done, kthread active q: (14), kthread expired q: (0)
 credit:25, credit_idx: 0
 Thread 71 is put to kthread 0 runq, kthread active q: (18), kthread expired q: (0)
+Thread 28 in kthread 1 is put to run, kthread active q: (13), kthread expired q: (0)
 mat size :128
 credit:50, credit_idx: 1
-Thread 72 is put to kthread 1 runq, kthread active q: (17), kthread expired q: (0)
+Thread 72 is put to kthread 1 runq, kthread active q: (14), kthread expired q: (0)
 mat size :128
 credit:50, credit_idx: 1
-Thread 73 is put to kthread 2 runq, kthread active q: (17), kthread expired q: (0)
+Thread 73 is put to kthread 2 runq, kthread active q: (14), kthread expired q: (0)
 mat size :128
 credit:50, credit_idx: 1
-Thread 74 is put to kthread 3 runq, kthread active q: (17), kthread expired q: (0)
+Thread 74 is put to kthread 3 runq, kthread active q: (16), kthread expired q: (0)
 mat size :128
 credit:50, credit_idx: 1
 Thread 75 is put to kthread 0 runq, kthread active q: (19), kthread expired q: (0)
 mat size :128
 credit:50, credit_idx: 1
-Thread 76 is put to kthread 1 runq, kthread active q: (18), kthread expired q: (0)
+Thread 76 is put to kthread 1 runq, kthread active q: (15), kthread expired q: (0)
 mat size :128
 credit:50, credit_idx: 1
-Thread 77 is put to kthread 2 runq, kthread active q: (18), kthread expired q: (0)
+Thread 77 is put to kthread 2 runq, kthread active q: (15), kthread expired q: (0)
 mat size :128
 credit:50, credit_idx: 1
-Thread 78 is put to kthread 3 runq, kthread active q: (18), kthread expired q: (0)
+Thread 78 is put to kthread 3 runq, kthread active q: (17), kthread expired q: (0)
 mat size :128
 credit:50, credit_idx: 1
 Thread 79 is put to kthread 0 runq, kthread active q: (20), kthread expired q: (0)
 mat size :128
-credit:75, credit_idx: 2
 
-Thread(id:25, group:0) finished (TIME : 153131181697582973 s and 18446744073708816447 us)Thread 80 is put to kthread 1 runq, kthread active q: (19), kthread expired q: (0)
+Thread(id:57, group:0) finished (TIME : 153131181697578729 s and 18446744073708996975 us)credit:75, credit_idx: 2
+Thread 80 is put to kthread 1 runq, kthread active q: (16), kthread expired q: (0)
+Thread 57 ran for 1.344874 ms on k 2, status: running, deducted 13.000000. Remaining: 87
 mat size :128
-Thread 25 ran for 0.690409 ms on k 2, status: running, deducted 6.000000. Remaining: 94
 credit:75, credit_idx: 2
-into 16 /nThread 25 in kthread 2 is done, kthread active q: (19), kthread expired q: (0)
-Thread 81 is put to kthread 2 runq, kthread active q: (19), kthread expired q: (0)
+into 16 /nThread 57 in kthread 2 is done, kthread active q: (16), kthread expired q: (0)
+Thread 81 is put to kthread 2 runq, kthread active q: (16), kthread expired q: (0)
 mat size :128
-Thread 29 in kthread 2 is put to run, kthread active q: (18), kthread expired q: (0)
+Thread 61 in kthread 2 is put to run, kthread active q: (15), kthread expired q: (0)
 credit:75, credit_idx: 2
-Thread 82 is put to kthread 3 runq, kthread active q: (19), kthread expired q: (0)
+Thread 82 is put to kthread 3 runq, kthread active q: (18), kthread expired q: (0)
 mat size :128
 credit:75, credit_idx: 2
 Thread 83 is put to kthread 0 runq, kthread active q: (21), kthread expired q: (0)
 mat size :128
 credit:75, credit_idx: 2
-Thread 84 is put to kthread 1 runq, kthread active q: (20), kthread expired q: (0)
+Thread 84 is put to kthread 1 runq, kthread active q: (17), kthread expired q: (0)
 mat size :128
 credit:75, credit_idx: 2
-Thread 85 is put to kthread 2 runq, kthread active q: (19), kthread expired q: (0)
+Thread 85 is put to kthread 2 runq, kthread active q: (16), kthread expired q: (0)
 mat size :128
 credit:75, credit_idx: 2
-Thread 86 is put to kthread 3 runq, kthread active q: (20), kthread expired q: (0)
+Thread 86 is put to kthread 3 runq, kthread active q: (19), kthread expired q: (0)
 mat size :128
 credit:75, credit_idx: 2
-Thread 87 is put to kthread 0 runq, kthread active q: (22), kthread expired q: (0)
+
+Thread(id:28, group:0) finished (TIME : 81073587659650793 s and 18446744073708996978 us)Thread 87 is put to kthread 0 runq, kthread active q: (22), kthread expired q: (0)
+mat size :128
+Thread 28 ran for 0.604218 ms on k 1, status: running, deducted 6.000000. Remaining: 94
+credit:100, credit_idx: 3
+Thread 88 is put to kthread 1 runq, kthread active q: (18), kthread expired q: (0)
+into 16 /nThread 28 in kthread 1 is done, kthread active q: (18), kthread expired q: (0)
 mat size :128
 credit:100, credit_idx: 3
-Thread 88 is put to kthread 1 runq, kthread active q: (21), kthread expired q: (0)
+Thread 56 in kthread 1 is put to run, kthread active q: (17), kthread expired q: (0)
+Thread 89 is put to kthread 2 runq, kthread active q: (17), kthread expired q: (0)
 mat size :128
 credit:100, credit_idx: 3
-Thread 89 is put to kthread 2 runq, kthread active q: (20), kthread expired q: (0)
-mat size :128
-credit:100, credit_idx: 3
-Thread 90 is put to kthread 3 runq, kthread active q: (21), kthread expired q: (0)
+Thread 90 is put to kthread 3 runq, kthread active q: (20), kthread expired q: (0)
 mat size :128
 credit:100, credit_idx: 3
 Thread 91 is put to kthread 0 runq, kthread active q: (23), kthread expired q: (0)
 mat size :128
 credit:100, credit_idx: 3
-Thread 92 is put to kthread 1 runq, kthread active q: (22), kthread expired q: (0)
+Thread 92 is put to kthread 1 runq, kthread active q: (18), kthread expired q: (0)
 mat size :128
 credit:100, credit_idx: 3
-Thread 93 is put to kthread 2 runq, kthread active q: (21), kthread expired q: (0)
+Thread 93 is put to kthread 2 runq, kthread active q: (18), kthread expired q: (0)
 mat size :128
 credit:100, credit_idx: 3
-Thread 94 is put to kthread 3 runq, kthread active q: (22), kthread expired q: (0)
+Thread 94 is put to kthread 3 runq, kthread active q: (21), kthread expired q: (0)
 mat size :128
 credit:100, credit_idx: 3
 Thread 95 is put to kthread 0 runq, kthread active q: (24), kthread expired q: (0)
 mat size :256
 credit:25, credit_idx: 0
-Thread 96 is put to kthread 1 runq, kthread active q: (23), kthread expired q: (0)
+Thread 96 is put to kthread 1 runq, kthread active q: (19), kthread expired q: (0)
 mat size :256
 credit:25, credit_idx: 0
-Thread 97 is put to kthread 2 runq, kthread active q: (22), kthread expired q: (0)
+Thread 97 is put to kthread 2 runq, kthread active q: (19), kthread expired q: (0)
 mat size :256
 credit:25, credit_idx: 0
-
-Thread(id:26, group:0) finished (TIME : 225188775735510909 s and 18446744073708816453 us)Thread 98 is put to kthread 3 runq, kthread active q: (23), kthread expired q: (0)
+Thread 98 is put to kthread 3 runq, kthread active q: (22), kthread expired q: (0)
 mat size :256
-Thread 26 ran for 0.290469 ms on k 3, status: running, deducted 2.000000. Remaining: 98
-into 16 /ncredit:25, credit_idx: 0
-Thread 26 in kthread 3 is done, kthread active q: (23), kthread expired q: (0)
+credit:25, credit_idx: 0
 Thread 99 is put to kthread 0 runq, kthread active q: (25), kthread expired q: (0)
 mat size :256
-Thread 30 in kthread 3 is put to run, kthread active q: (22), kthread expired q: (0)
 credit:25, credit_idx: 0
-Thread 100 is put to kthread 1 runq, kthread active q: (24), kthread expired q: (0)
+Thread 100 is put to kthread 1 runq, kthread active q: (20), kthread expired q: (0)
+
+Thread(id:61, group:0) finished (TIME : 153131181697578729 s and 18446744073708996980 us)mat size :256
+credit:25, credit_idx: 0
+Thread 61 ran for 1.162382 ms on k 2, status: running, deducted 11.000000. Remaining: 89
+into 16 /nThread 101 is put to kthread 2 runq, kthread active q: (20), kthread expired q: (0)
+Thread 61 in kthread 2 is done, kthread active q: (20), kthread expired q: (0)
 mat size :256
 credit:25, credit_idx: 0
-Thread 101 is put to kthread 2 runq, kthread active q: (23), kthread expired q: (0)
-mat size :256
-credit:25, credit_idx: 0
+Thread 89 in kthread 2 is put to run, kthread active q: (19), kthread expired q: (0)
 Thread 102 is put to kthread 3 runq, kthread active q: (23), kthread expired q: (0)
 mat size :256
 credit:25, credit_idx: 0
 Thread 103 is put to kthread 0 runq, kthread active q: (26), kthread expired q: (0)
 mat size :256
 credit:50, credit_idx: 1
-Thread 104 is put to kthread 1 runq, kthread active q: (25), kthread expired q: (0)
+Thread 104 is put to kthread 1 runq, kthread active q: (21), kthread expired q: (0)
 mat size :256
 credit:50, credit_idx: 1
-Thread 105 is put to kthread 2 runq, kthread active q: (24), kthread expired q: (0)
+Thread 105 is put to kthread 2 runq, kthread active q: (20), kthread expired q: (0)
 mat size :256
 credit:50, credit_idx: 1
 Thread 106 is put to kthread 3 runq, kthread active q: (24), kthread expired q: (0)
+
+Thread(id:30, group:0) finished (TIME : 225188775735506665 s and 18446744073708996973 us)mat size :256
+credit:50, credit_idx: 1
+Thread 30 ran for 0.371513 ms on k 3, status: running, deducted 3.000000. Remaining: 97
+into 16 /nThread 107 is put to kthread 0 runq, kthread active q: (27), kthread expired q: (0)
+mat size :256
+Thread 30 in kthread 3 is done, kthread active q: (24), kthread expired q: (0)
+credit:50, credit_idx: 1
+Thread 108 is put to kthread 1 runq, kthread active q: (22), kthread expired q: (0)
+Thread 58 in kthread 3 is put to run, kthread active q: (23), kthread expired q: (0)
 mat size :256
 credit:50, credit_idx: 1
-Thread 107 is put to kthread 0 runq, kthread active q: (27), kthread expired q: (0)
+Thread 109 is put to kthread 2 runq, kthread active q: (21), kthread expired q: (0)
 mat size :256
 credit:50, credit_idx: 1
-Thread 108 is put to kthread 1 runq, kthread active q: (26), kthread expired q: (0)
-mat size :256
-credit:50, credit_idx: 1
-Thread 109 is put to kthread 2 runq, kthread active q: (25), kthread expired q: (0)
-mat size :256
-credit:50, credit_idx: 1
-Thread 110 is put to kthread 3 runq, kthread active q: (25), kthread expired q: (0)
+Thread 110 is put to kthread 3 runq, kthread active q: (24), kthread expired q: (0)
 mat size :256
 credit:50, credit_idx: 1
 Thread 111 is put to kthread 0 runq, kthread active q: (28), kthread expired q: (0)
 mat size :256
 credit:75, credit_idx: 2
-Thread 112 is put to kthread 1 runq, kthread active q: (27), kthread expired q: (0)
+Thread 112 is put to kthread 1 runq, kthread active q: (23), kthread expired q: (0)
 mat size :256
 credit:75, credit_idx: 2
-Thread 113 is put to kthread 2 runq, kthread active q: (26), kthread expired q: (0)
+Thread 113 is put to kthread 2 runq, kthread active q: (22), kthread expired q: (0)
 mat size :256
 credit:75, credit_idx: 2
-Thread 114 is put to kthread 3 runq, kthread active q: (26), kthread expired q: (0)
+Thread 114 is put to kthread 3 runq, kthread active q: (25), kthread expired q: (0)
 mat size :256
 credit:75, credit_idx: 2
 Thread 115 is put to kthread 0 runq, kthread active q: (29), kthread expired q: (0)
 mat size :256
 credit:75, credit_idx: 2
-Thread 116 is put to kthread 1 runq, kthread active q: (28), kthread expired q: (0)
+Thread 116 is put to kthread 1 runq, kthread active q: (24), kthread expired q: (0)
 mat size :256
 credit:75, credit_idx: 2
-Thread 117 is put to kthread 2 runq, kthread active q: (27), kthread expired q: (0)
+Thread 117 is put to kthread 2 runq, kthread active q: (23), kthread expired q: (0)
 mat size :256
-
-Thread(id:29, group:0) finished (TIME : 153131181697582973 s and 18446744073708816457 us)credit:75, credit_idx: 2
-Thread 29 ran for 0.530414 ms on k 2, status: running, deducted 5.000000. Remaining: 95
-into 16 /nThread 118 is put to kthread 3 runq, kthread active q: (27), kthread expired q: (0)
+credit:75, credit_idx: 2
+Thread 118 is put to kthread 3 runq, kthread active q: (26), kthread expired q: (0)
 mat size :256
-Thread 29 in kthread 2 is done, kthread active q: (27), kthread expired q: (0)
 credit:75, credit_idx: 2
 Thread 119 is put to kthread 0 runq, kthread active q: (30), kthread expired q: (0)
-Thread 57 in kthread 2 is put to run, kthread active q: (26), kthread expired q: (0)
 mat size :256
 credit:100, credit_idx: 3
-Thread 120 is put to kthread 1 runq, kthread active q: (29), kthread expired q: (0)
+Thread 120 is put to kthread 1 runq, kthread active q: (25), kthread expired q: (0)
 mat size :256
 credit:100, credit_idx: 3
-Thread 121 is put to kthread 2 runq, kthread active q: (27), kthread expired q: (0)
+Thread 121 is put to kthread 2 runq, kthread active q: (24), kthread expired q: (0)
 mat size :256
 credit:100, credit_idx: 3
-Thread 122 is put to kthread 3 runq, kthread active q: (28), kthread expired q: (0)
+Thread 122 is put to kthread 3 runq, kthread active q: (27), kthread expired q: (0)
 mat size :256
 credit:100, credit_idx: 3
 Thread 123 is put to kthread 0 runq, kthread active q: (31), kthread expired q: (0)
 mat size :256
 credit:100, credit_idx: 3
-Thread 124 is put to kthread 1 runq, kthread active q: (30), kthread expired q: (0)
+Thread 124 is put to kthread 1 runq, kthread active q: (26), kthread expired q: (0)
 mat size :256
 credit:100, credit_idx: 3
-Thread 125 is put to kthread 2 runq, kthread active q: (28), kthread expired q: (0)
+Thread 125 is put to kthread 2 runq, kthread active q: (25), kthread expired q: (0)
 mat size :256
 credit:100, credit_idx: 3
-Thread 126 is put to kthread 3 runq, kthread active q: (29), kthread expired q: (0)
+Thread 126 is put to kthread 3 runq, kthread active q: (28), kthread expired q: (0)
 mat size :256
 credit:100, credit_idx: 3
-Thread 127 is put to kthread 0 runq, kthread active q: (32), kthread expired q: (0)
+
+Thread(id:58, group:0) finished (TIME : 225188775735506665 s and 18446744073708996988 us)Thread 127 is put to kthread 0 runq, kthread active q: (32), kthread expired q: (0)
+Thread 58 ran for 1.387940 ms on k 3, status: running, deducted 13.000000. Remaining: 87
 Thread 27 in kthread 0 is put to run, kthread active q: (31), kthread expired q: (0)
 
-Thread(id:30, group:0) finished (TIME : 225188775735510909 s and 18446744073708816461 us)Thread 30 ran for 0.672382 ms on k 3, status: running, deducted 6.000000. Remaining: 94
-into 16 /nThread 30 in kthread 3 is done, kthread active q: (29), kthread expired q: (0)
-Thread 58 in kthread 3 is put to run, kthread active q: (28), kthread expired q: (0)
-
-Thread(id:57, group:0) finished (TIME : 153131181697582973 s and 18446744073708816465 us)Thread 57 ran for 1.306512 ms on k 2, status: running, deducted 13.000000. Remaining: 87
-into 16 /nThread 57 in kthread 2 is done, kthread active q: (28), kthread expired q: (0)
-Thread 61 in kthread 2 is put to run, kthread active q: (27), kthread expired q: (0)
-
-Thread(id:16, group:0) finished (TIME : 81073587659655037 s and 18446744073708816443 us)Thread 16 ran for 0.598946 ms on k 1, status: running, deducted 5.000000. Remaining: 70
-into 16 /nThread 16 in kthread 1 is done, kthread active q: (30), kthread expired q: (0)
-Thread 24 in kthread 1 is put to run, kthread active q: (29), kthread expired q: (0)
-
-Thread(id:58, group:0) finished (TIME : 225188775735510909 s and 18446744073708816467 us)Thread 58 ran for 1.513054 ms on k 3, status: running, deducted 15.000000. Remaining: 85
-into 16 /nThread 58 in kthread 3 is done, kthread active q: (28), kthread expired q: (0)
+Thread(id:89, group:0) finished (TIME : 153131181697578729 s and 18446744073708996984 us)into 16 /nThread 58 in kthread 3 is done, kthread active q: (28), kthread expired q: (0)
+Thread 89 ran for 7.142374 ms on k 2, status: running, deducted 71.000000. Remaining: 29
 Thread 62 in kthread 3 is put to run, kthread active q: (27), kthread expired q: (0)
+into 16 /nThread 89 in kthread 2 is done, kthread active q: (25), kthread expired q: (0)
+Thread 93 in kthread 2 is put to run, kthread active q: (24), kthread expired q: (0)
 
-Thread(id:61, group:0) finished (TIME : 153131181697582973 s and 18446744073708816466 us)Thread 61 ran for 1.207099 ms on k 2, status: running, deducted 12.000000. Remaining: 88
-into 16 /nThread 61 in kthread 2 is done, kthread active q: (27), kthread expired q: (0)
-Thread 89 in kthread 2 is put to run, kthread active q: (26), kthread expired q: (0)
-into 4 /ninto this weird se/nThread 27 ran for 0.688688 ms on k 0, status: running, deducted 6.000000. Remaining: 94
+Thread(id:56, group:0) finished (TIME : 81073587659650793 s and 18446744073708996982 us)Thread 56 ran for 1.160830 ms on k 1, status: running, deducted 11.000000. Remaining: 89
+into 16 /nThread 56 in kthread 1 is done, kthread active q: (26), kthread expired q: (0)
+Thread 60 in kthread 1 is put to run, kthread active q: (25), kthread expired q: (0)
 
-Thread(id:27, group:0) finished (TIME : 9015993621727101 s and 18446744073708816438 us)Thread 27 ran for 0.501253 ms on k 0, status: running, deducted 5.000000. Remaining: 89
+Thread(id:27, group:0) finished (TIME : 9015993621722857 s and 18446744073708996964 us)Thread 27 ran for 0.358319 ms on k 0, status: running, deducted 3.000000. Remaining: 97
 into 16 /nThread 27 in kthread 0 is done, kthread active q: (31), kthread expired q: (0)
 Thread 31 in kthread 0 is put to run, kthread active q: (30), kthread expired q: (0)
-into 4 /ninto this weird se/nThread 89 ran for 0.408394 ms on k 2, status: running, deducted 4.000000. Remaining: 96
 
-Thread(id:89, group:0) finished (TIME : 153131181697582973 s and 18446744073708816465 us)Thread 89 ran for 7.157628 ms on k 2, status: running, deducted 71.000000. Remaining: 25
-into 16 /nThread 89 in kthread 2 is done, kthread active q: (26), kthread expired q: (0)
-Thread 93 in kthread 2 is put to run, kthread active q: (25), kthread expired q: (0)
-into 4 /ninto this weird se/nThread 24 ran for 0.675035 ms on k 1, status: running, deducted 6.000000. Remaining: 94
-
-Thread(id:24, group:0) finished (TIME : 81073587659655037 s and 18446744073708816468 us)Thread 24 ran for 0.264422 ms on k 1, status: running, deducted 2.000000. Remaining: 92
-into 16 /nThread 24 in kthread 1 is done, kthread active q: (29), kthread expired q: (0)
-Thread 28 in kthread 1 is put to run, kthread active q: (28), kthread expired q: (0)
-into 4 /ninto this weird se/nThread 62 ran for 0.390103 ms on k 3, status: running, deducted 3.000000. Remaining: 97
-
-Thread(id:62, group:0) finished (TIME : 225188775735510909 s and 18446744073708816466 us)Thread 62 ran for 1.162626 ms on k 3, status: running, deducted 11.000000. Remaining: 86
+Thread(id:62, group:0) finished (TIME : 225188775735506665 s and 18446744073708996992 us)Thread 62 ran for 1.226334 ms on k 3, status: running, deducted 12.000000. Remaining: 88
 into 16 /nThread 62 in kthread 3 is done, kthread active q: (27), kthread expired q: (0)
 Thread 90 in kthread 3 is put to run, kthread active q: (26), kthread expired q: (0)
 
-Thread(id:28, group:0) finished (TIME : 81073587659655037 s and 18446744073708816467 us)Thread 28 ran for 0.435428 ms on k 1, status: running, deducted 4.000000. Remaining: 96
-into 16 /nThread 28 in kthread 1 is done, kthread active q: (28), kthread expired q: (0)
-Thread 56 in kthread 1 is put to run, kthread active q: (27), kthread expired q: (0)
+Thread(id:93, group:0) finished (TIME : 153131181697578729 s and 18446744073708996989 us)Thread 93 ran for 7.265867 ms on k 2, status: running, deducted 72.000000. Remaining: 28
+into 16 /nThread 93 in kthread 2 is done, kthread active q: (24), kthread expired q: (0)
+Thread 121 in kthread 2 is put to run, kthread active q: (23), kthread expired q: (0)
 
-Thread(id:93, group:0) finished (TIME : 153131181697582973 s and 18446744073708816464 us)Thread 93 ran for 7.603204 ms on k 2, status: running, deducted 76.000000. Remaining: 24
-into 16 /nThread 93 in kthread 2 is done, kthread active q: (25), kthread expired q: (0)
-Thread 121 in kthread 2 is put to run, kthread active q: (24), kthread expired q: (0)
-
-Thread(id:56, group:0) finished (TIME : 81073587659655037 s and 18446744073708816466 us)Thread 56 ran for 1.385929 ms on k 1, status: running, deducted 13.000000. Remaining: 87
-into 16 /nThread 56 in kthread 1 is done, kthread active q: (27), kthread expired q: (0)
-Thread 60 in kthread 1 is put to run, kthread active q: (26), kthread expired q: (0)
-into 4 /ninto this weird se/nThread 31 ran for 0.610045 ms on k 0, status: running, deducted 6.000000. Remaining: 94
-
-Thread(id:31, group:0) finished (TIME : 9015993621727101 s and 18446744073708816469 us)Thread 31 ran for 0.412902 ms on k 0, status: running, deducted 4.000000. Remaining: 90
+Thread(id:31, group:0) finished (TIME : 9015993621722857 s and 18446744073708996995 us)Thread 31 ran for 0.435735 ms on k 0, status: running, deducted 4.000000. Remaining: 96
 into 16 /nThread 31 in kthread 0 is done, kthread active q: (30), kthread expired q: (0)
 Thread 59 in kthread 0 is put to run, kthread active q: (29), kthread expired q: (0)
-into 4 /ninto this weird se/nThread 90 ran for 0.421379 ms on k 3, status: running, deducted 4.000000. Remaining: 96
 
-Thread(id:90, group:0) finished (TIME : 225188775735510909 s and 18446744073708816465 us)Thread 90 ran for 7.931242 ms on k 3, status: running, deducted 79.000000. Remaining: 17
+Thread(id:60, group:0) finished (TIME : 81073587659650793 s and 18446744073708996990 us)Thread 60 ran for 1.191515 ms on k 1, status: running, deducted 11.000000. Remaining: 89
+into 16 /nThread 60 in kthread 1 is done, kthread active q: (25), kthread expired q: (0)
+Thread 88 in kthread 1 is put to run, kthread active q: (24), kthread expired q: (0)
+
+Thread(id:90, group:0) finished (TIME : 225188775735506665 s and 18446744073708996991 us)Thread 90 ran for 7.286253 ms on k 3, status: running, deducted 72.000000. Remaining: 28
 into 16 /nThread 90 in kthread 3 is done, kthread active q: (26), kthread expired q: (0)
 Thread 94 in kthread 3 is put to run, kthread active q: (25), kthread expired q: (0)
-into 4 /ninto this weird se/nThread 60 ran for 0.510975 ms on k 1, status: running, deducted 5.000000. Remaining: 95
 
-Thread(id:60, group:0) finished (TIME : 81073587659655037 s and 18446744073708816465 us)Thread 60 ran for 1.109889 ms on k 1, status: running, deducted 11.000000. Remaining: 84
-into 16 /nThread 60 in kthread 1 is done, kthread active q: (26), kthread expired q: (0)
-Thread 88 in kthread 1 is put to run, kthread active q: (25), kthread expired q: (0)
-into 4 /ninto this weird se/nThread 59 ran for 0.755966 ms on k 0, status: running, deducted 7.000000. Remaining: 93
+Thread(id:88, group:0) finished (TIME : 81073587659650793 s and 18446744073708996989 us)Thread 88 ran for 7.361246 ms on k 1, status: running, deducted 73.000000. Remaining: 27
+into 16 /nThread 88 in kthread 1 is done, kthread active q: (24), kthread expired q: (0)
+Thread 92 in kthread 1 is put to run, kthread active q: (23), kthread expired q: (0)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 59 ran for 0.645574 ms on k 0, status: running, deducted 6.000000. Remaining: 94
+Thread 121 ran for 16.542186 ms on k 2, status: running, deducted 165.000000. Remaining: -65
+Thread 121 in kthread 2 moved to expired, kthread active q: (23), kthread expired q: (1)
+Thread 94 ran for 6.583553 ms on k 3, status: running, deducted 65.000000. Remaining: 35
+Thread 125 in kthread 2 is put to run, kthread active q: (22), kthread expired q: (1)
 
-Thread(id:59, group:0) finished (TIME : 9015993621727101 s and 18446744073708816468 us)Thread 59 ran for 0.984543 ms on k 0, status: running, deducted 9.000000. Remaining: 84
+Thread(id:59, group:0) finished (TIME : 9015993621722857 s and 18446744073708996994 us)Thread 59 ran for 1.144996 ms on k 0, status: running, deducted 11.000000. Remaining: 83
 into 16 /nThread 59 in kthread 0 is done, kthread active q: (29), kthread expired q: (0)
 Thread 63 in kthread 0 is put to run, kthread active q: (28), kthread expired q: (0)
-into 4 /ninto this weird se/nThread 88 ran for 0.596322 ms on k 1, status: running, deducted 5.000000. Remaining: 95
 
-Thread(id:88, group:0) finished (TIME : 81073587659655037 s and 18446744073708816464 us)Thread 88 ran for 7.369433 ms on k 1, status: running, deducted 73.000000. Remaining: 22
-into 16 /nThread 88 in kthread 1 is done, kthread active q: (25), kthread expired q: (0)
-Thread 92 in kthread 1 is put to run, kthread active q: (24), kthread expired q: (0)
-into 4 /ninto this weird se/nThread 63 ran for 0.421343 ms on k 0, status: running, deducted 4.000000. Remaining: 96
-
-Thread(id:63, group:0) finished (TIME : 9015993621727101 s and 18446744073708816467 us)Thread 63 ran for 1.041195 ms on k 0, status: running, deducted 10.000000. Remaining: 86
-into 16 /nThread 63 in kthread 0 is done, kthread active q: (28), kthread expired q: (0)
-Thread 91 in kthread 0 is put to run, kthread active q: (27), kthread expired q: (0)
-into 4 /ninto this weird se/nThread 92 ran for 0.406877 ms on k 1, status: running, deducted 4.000000. Remaining: 96
-
-Thread(id:92, group:0) finished (TIME : 81073587659655037 s and 18446744073708816463 us)Thread 92 ran for 7.110707 ms on k 1, status: running, deducted 71.000000. Remaining: 25
-into 16 /nThread 92 in kthread 1 is done, kthread active q: (24), kthread expired q: (0)
-Thread 120 in kthread 1 is put to run, kthread active q: (23), kthread expired q: (0)
-into 4 /ninto this weird se/nThread 121 ran for 0.269870 ms on k 2, status: running, deducted 2.000000. Remaining: 98
-into 4 /ninto this weird se/ninto 4 /ninto this weird se/ninto 4 /ninto this weird se/nThread 91 ran for 0.484057 ms on k 0, status: running, deducted 4.000000. Remaining: 96
-Thread 121 ran for 20.697756 ms on k 2, status: running, deducted 206.000000. Remaining: -108
-Thread 121 in kthread 2 moved to expired, kthread active q: (24), kthread expired q: (1)
-Thread 120 ran for 11.554578 ms on k 1, status: running, deducted 115.000000. Remaining: -15
-Thread 120 in kthread 1 moved to expired, kthread active q: (23), kthread expired q: (1)
-Thread 125 in kthread 2 is put to run, kthread active q: (23), kthread expired q: (1)
-Thread 124 in kthread 1 is put to run, kthread active q: (22), kthread expired q: (1)
-
-Thread(id:91, group:0) finished (TIME : 9015993621727101 s and 18446744073708816466 us)Thread 91 ran for 7.205055 ms on k 0, status: running, deducted 72.000000. Remaining: 24
-into 16 /nThread 91 in kthread 0 is done, kthread active q: (27), kthread expired q: (0)
-Thread 95 in kthread 0 is put to run, kthread active q: (26), kthread expired q: (0)
-into 4 /ninto this weird se/nThread 94 ran for 0.459099 ms on k 3, status: running, deducted 4.000000. Remaining: 96
-
-Thread(id:94, group:0) finished (TIME : 225188775735510909 s and 18446744073708816464 us)Thread 94 ran for 6.905176 ms on k 3, status: running, deducted 69.000000. Remaining: 27
+Thread(id:94, group:0) finished (TIME : 225188775735506665 s and 18446744073708996990 us)Thread 94 ran for 2.100307 ms on k 3, status: running, deducted 21.000000. Remaining: 14
 into 16 /nThread 94 in kthread 3 is done, kthread active q: (25), kthread expired q: (0)
 Thread 122 in kthread 3 is put to run, kthread active q: (24), kthread expired q: (0)
-into 4 /ninto this weird se/ninto 4 /ninto this weird se/ninto 4 /ninto this weird se/ninto 4 /ninto this weird se/nThread 95 ran for 0.500128 ms on k 0, status: running, deducted 5.000000. Remaining: 95
-Thread 122 ran for 21.252236 ms on k 3, status: running, deducted 212.000000. Remaining: -112
-Thread 122 in kthread 3 moved to expired, kthread active q: (24), kthread expired q: (1)
-Thread 124 ran for 31.756715 ms on k 1, status: running, deducted 317.000000. Remaining: -217
-Thread 124 in kthread 1 moved to expired, kthread active q: (22), kthread expired q: (2)
-Thread 125 ran for 12.059823 ms on k 2, status: running, deducted 120.000000. Remaining: -20
-Thread 125 in kthread 2 moved to expired, kthread active q: (23), kthread expired q: (2)
-Thread 126 in kthread 3 is put to run, kthread active q: (23), kthread expired q: (1)
-Thread 20 in kthread 1 is put to run, kthread active q: (21), kthread expired q: (2)
-Thread 17 in kthread 2 is put to run, kthread active q: (22), kthread expired q: (2)
-into 4 /ninto this weird se/nThread 95 ran for 7.237354 ms on k 0, status: running, deducted 72.000000. Remaining: 23
+into 4 /ninto this weird se
+Thread 92 ran for 0.401532 ms on k 1, status: running, deducted 4.000000. Remaining: 96
 
-Thread(id:95, group:0) finished (TIME : 9015993621727101 s and 18446744073708816465 us)Thread 95 ran for 0.564940 ms on k 0, status: running, deducted 5.000000. Remaining: 18
+Thread(id:63, group:0) finished (TIME : 9015993621722857 s and 18446744073708996993 us)Thread 63 ran for 1.173579 ms on k 0, status: running, deducted 11.000000. Remaining: 89
+into 16 /nThread 63 in kthread 0 is done, kthread active q: (28), kthread expired q: (0)
+Thread 91 in kthread 0 is put to run, kthread active q: (27), kthread expired q: (0)
+
+Thread(id:92, group:0) finished (TIME : 81073587659650793 s and 18446744073708996988 us)Thread 92 ran for 7.624222 ms on k 1, status: running, deducted 76.000000. Remaining: 20
+into 16 /nThread 92 in kthread 1 is done, kthread active q: (23), kthread expired q: (0)
+Thread 120 in kthread 1 is put to run, kthread active q: (22), kthread expired q: (0)
+
+Thread(id:91, group:0) finished (TIME : 9015993621722857 s and 18446744073708996992 us)Thread 91 ran for 6.945980 ms on k 0, status: running, deducted 69.000000. Remaining: 31
+into 16 /nThread 91 in kthread 0 is done, kthread active q: (27), kthread expired q: (0)
+Thread 95 in kthread 0 is put to run, kthread active q: (26), kthread expired q: (0)
+
+Thread(id:95, group:0) finished (TIME : 9015993621722857 s and 18446744073708996991 us)Thread 95 ran for 8.204917 ms on k 0, status: running, deducted 82.000000. Remaining: 18
 into 16 /nThread 95 in kthread 0 is done, kthread active q: (26), kthread expired q: (0)
 Thread 123 in kthread 0 is put to run, kthread active q: (25), kthread expired q: (0)
-into 4 /ninto this weird se/nThread 126 ran for 0.440858 ms on k 3, status: running, deducted 4.000000. Remaining: 96
-into 4 /ninto this weird se/nThread 17 ran for 0.591857 ms on k 2, status: running, deducted 5.000000. Remaining: 70
+into 4 /ninto this weird se
+into 4 /ninto 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 120 ran for 26.921384 ms on k 1, status: running, deducted 269.000000. Remaining: -169
+Thread 120 in kthread 1 moved to expired, kthread active q: (22), kthread expired q: (1)
+into this weird se
+Thread 123 ran for 4.890061 ms on k 0, status: running, deducted 48.000000. Remaining: 52
+Thread 125 ran for 38.377976 ms on k 2, status: running, deducted 383.000000. Remaining: -283
+Thread 125 in kthread 2 moved to expired, kthread active q: (22), kthread expired q: (2)
+Thread 124 in kthread 1 is put to run, kthread active q: (21), kthread expired q: (1)
+Thread 122 ran for 44.694589 ms on k 3, status: running, deducted 446.000000. Remaining: -346
+Thread 122 in kthread 3 moved to expired, kthread active q: (24), kthread expired q: (1)
+Thread 17 in kthread 2 is put to run, kthread active q: (21), kthread expired q: (2)
+Thread 126 in kthread 3 is put to run, kthread active q: (23), kthread expired q: (1)
 
-Thread(id:17, group:0) finished (TIME : 153131181697582973 s and 18446744073708816463 us)Thread 17 ran for 0.305045 ms on k 2, status: running, deducted 3.000000. Remaining: 67
-into 16 /nThread 17 in kthread 2 is done, kthread active q: (22), kthread expired q: (2)
-Thread 21 in kthread 2 is put to run, kthread active q: (21), kthread expired q: (2)
-into 4 /ninto this weird se/ninto 4 /ninto this weird se/nThread 123 ran for 0.659329 ms on k 0, status: running, deducted 6.000000. Remaining: 94
-Thread 126 ran for 20.837612 ms on k 3, status: running, deducted 208.000000. Remaining: -112
-Thread 126 in kthread 3 moved to expired, kthread active q: (23), kthread expired q: (2)
-Thread 18 in kthread 3 is put to run, kthread active q: (22), kthread expired q: (2)
-into 4 /ninto this weird se/nThread 123 ran for 4.243577 ms on k 0, status: running, deducted 42.000000. Remaining: 52
-into 4 /ninto this weird se/nThread 21 ran for 0.493087 ms on k 2, status: running, deducted 4.000000. Remaining: 71
+Thread(id:17, group:0) finished (TIME : 153131181697578729 s and 18446744073708996988 us)Thread 17 ran for 0.462679 ms on k 2, status: running, deducted 4.000000. Remaining: 71
+into 16 /nThread 17 in kthread 2 is done, kthread active q: (21), kthread expired q: (2)
+Thread 21 in kthread 2 is put to run, kthread active q: (20), kthread expired q: (2)
 
-Thread(id:21, group:0) finished (TIME : 153131181697582973 s and 18446744073708816460 us)Thread 21 ran for 0.199363 ms on k 2, status: running, deducted 1.000000. Remaining: 70
-into 16 /nThread 21 in kthread 2 is done, kthread active q: (21), kthread expired q: (2)
-Thread 49 in kthread 2 is put to run, kthread active q: (20), kthread expired q: (2)
-into 4 /ninto this weird se/nThread 123 ran for 9.776852 ms on k 0, status: running, deducted 97.000000. Remaining: -45
+Thread(id:21, group:0) finished (TIME : 153131181697578729 s and 18446744073708996985 us)Thread 21 ran for 0.473725 ms on k 2, status: running, deducted 4.000000. Remaining: 71
+into 16 /nThread 21 in kthread 2 is done, kthread active q: (20), kthread expired q: (2)
+Thread 49 in kthread 2 is put to run, kthread active q: (19), kthread expired q: (2)
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /nThread 123 ran for 27.415302 ms on k 0, status: running, deducted 274.000000. Remaining: -222
 Thread 123 in kthread 0 moved to expired, kthread active q: (25), kthread expired q: (1)
+Thread 124 ran for 22.337193 ms on k 1, status: running, deducted 223.000000. Remaining: -123
+Thread 124 in kthread 1 moved to expired, kthread active q: (21), kthread expired q: (2)
+into this weird se
+Thread 126 ran for 18.577155 ms on k 3, status: running, deducted 185.000000. Remaining: -85
 Thread 127 in kthread 0 is put to run, kthread active q: (24), kthread expired q: (1)
-into 4 /ninto this weird se/nThread 18 ran for 0.426808 ms on k 3, status: running, deducted 4.000000. Remaining: 71
+Thread 20 in kthread 1 is put to run, kthread active q: (20), kthread expired q: (2)
+Thread 126 in kthread 3 moved to expired, kthread active q: (23), kthread expired q: (2)
+into 4 /ninto this weird se
+Thread 18 in kthread 3 is put to run, kthread active q: (22), kthread expired q: (2)
+Thread 49 ran for 1.568750 ms on k 2, status: running, deducted 15.000000. Remaining: 60
 
-Thread(id:18, group:0) finished (TIME : 225188775735510909 s and 18446744073708816463 us)Thread 18 ran for 0.250094 ms on k 3, status: running, deducted 2.000000. Remaining: 69
+Thread(id:49, group:0) finished (TIME : 153131181697578729 s and 18446744073708996984 us)Thread 49 ran for 1.888269 ms on k 2, status: running, deducted 18.000000. Remaining: 42
+into 16 /nThread 49 in kthread 2 is done, kthread active q: (19), kthread expired q: (2)
+Thread 53 in kthread 2 is put to run, kthread active q: (18), kthread expired q: (2)
+
+Thread(id:53, group:0) finished (TIME : 153131181697578729 s and 18446744073708996983 us)Thread 53 ran for 1.839148 ms on k 2, status: running, deducted 18.000000. Remaining: 57
+into 16 /nThread 53 in kthread 2 is done, kthread active q: (18), kthread expired q: (2)
+Thread 81 in kthread 2 is put to run, kthread active q: (17), kthread expired q: (2)
+
+Thread(id:20, group:0) finished (TIME : 81073587659650793 s and 18446744073708996987 us)Thread 20 ran for 0.576722 ms on k 1, status: running, deducted 5.000000. Remaining: 70
+into 16 /nThread 20 in kthread 1 is done, kthread active q: (20), kthread expired q: (2)
+Thread 48 in kthread 1 is put to run, kthread active q: (19), kthread expired q: (2)
+
+Thread(id:18, group:0) finished (TIME : 225188775735506665 s and 18446744073708996989 us)Thread 18 ran for 0.496622 ms on k 3, status: running, deducted 4.000000. Remaining: 71
 into 16 /nThread 18 in kthread 3 is done, kthread active q: (22), kthread expired q: (2)
 Thread 22 in kthread 3 is put to run, kthread active q: (21), kthread expired q: (2)
-into 4 /ninto this weird se/nThread 20 ran for 0.752149 ms on k 1, status: running, deducted 7.000000. Remaining: 68
-
-Thread(id:20, group:0) finished (TIME : 81073587659655037 s and 18446744073708816462 us)Thread 20 ran for 0.264929 ms on k 1, status: running, deducted 2.000000. Remaining: 66
-into 16 /nThread 20 in kthread 1 is done, kthread active q: (21), kthread expired q: (2)
-Thread 48 in kthread 1 is put to run, kthread active q: (20), kthread expired q: (2)
-
-Thread(id:22, group:0) finished (TIME : 225188775735510909 s and 18446744073708816460 us)Thread 22 ran for 0.510341 ms on k 3, status: running, deducted 5.000000. Remaining: 70
-into 16 /nThread 22 in kthread 3 is done, kthread active q: (21), kthread expired q: (2)
-Thread 50 in kthread 3 is put to run, kthread active q: (20), kthread expired q: (2)
-into 4 /ninto this weird se/nThread 127 ran for 0.791679 ms on k 0, status: running, deducted 7.000000. Remaining: 93
-into 4 /ninto this weird se/nThread 127 ran for 3.850511 ms on k 0, status: running, deducted 38.000000. Remaining: 55
-into 4 /ninto this weird se/nThread 49 ran for 0.723316 ms on k 2, status: running, deducted 7.000000. Remaining: 68
-
-Thread(id:49, group:0) finished (TIME : 153131181697582973 s and 18446744073708816459 us)Thread 49 ran for 1.381001 ms on k 2, status: running, deducted 13.000000. Remaining: 55
-into 16 /nThread 49 in kthread 2 is done, kthread active q: (20), kthread expired q: (2)
-Thread 53 in kthread 2 is put to run, kthread active q: (19), kthread expired q: (2)
-into 4 /ninto this weird se/nThread 127 ran for 9.502287 ms on k 0, status: running, deducted 95.000000. Remaining: -40
+into 4 /ninto this weird se
+into 4 /nThread 127 ran for 22.427608 ms on k 0, status: running, deducted 224.000000. Remaining: -124
 Thread 127 in kthread 0 moved to expired, kthread active q: (24), kthread expired q: (2)
+into this weird se
+Thread 81 ran for 3.032204 ms on k 2, status: running, deducted 30.000000. Remaining: 45
 Thread 19 in kthread 0 is put to run, kthread active q: (23), kthread expired q: (2)
-into 4 /ninto this weird se/nThread 50 ran for 0.741309 ms on k 3, status: running, deducted 7.000000. Remaining: 68
+into 4 /ninto this weird se
+Thread 48 ran for 0.596184 ms on k 1, status: running, deducted 5.000000. Remaining: 70
 
-Thread(id:50, group:0) finished (TIME : 225188775735510909 s and 18446744073708816459 us)Thread 50 ran for 1.208831 ms on k 3, status: running, deducted 12.000000. Remaining: 56
-into 16 /nThread 50 in kthread 3 is done, kthread active q: (20), kthread expired q: (2)
-Thread 54 in kthread 3 is put to run, kthread active q: (19), kthread expired q: (2)
-into 4 /ninto this weird se/nThread 48 ran for 0.643015 ms on k 1, status: running, deducted 6.000000. Remaining: 69
+Thread(id:48, group:0) finished (TIME : 81073587659650793 s and 18446744073708996984 us)Thread 48 ran for 1.620189 ms on k 1, status: running, deducted 16.000000. Remaining: 54
+into 16 /nThread 48 in kthread 1 is done, kthread active q: (19), kthread expired q: (2)
+Thread 52 in kthread 1 is put to run, kthread active q: (18), kthread expired q: (2)
 
-Thread(id:48, group:0) finished (TIME : 81073587659655037 s and 18446744073708816459 us)Thread 48 ran for 1.213115 ms on k 1, status: running, deducted 12.000000. Remaining: 57
-into 16 /nThread 48 in kthread 1 is done, kthread active q: (20), kthread expired q: (2)
-Thread 52 in kthread 1 is put to run, kthread active q: (19), kthread expired q: (2)
+Thread(id:81, group:0) finished (TIME : 153131181697578729 s and 18446744073708996982 us)Thread 81 ran for 6.414819 ms on k 2, status: running, deducted 64.000000. Remaining: -19
+into 16 /nThread 81 in kthread 2 is done, kthread active q: (17), kthread expired q: (2)
+Thread 85 in kthread 2 is put to run, kthread active q: (16), kthread expired q: (2)
 
-Thread(id:54, group:0) finished (TIME : 225188775735510909 s and 18446744073708816458 us)Thread 54 ran for 1.255276 ms on k 3, status: running, deducted 12.000000. Remaining: 63
-into 16 /nThread 54 in kthread 3 is done, kthread active q: (19), kthread expired q: (2)
-Thread 82 in kthread 3 is put to run, kthread active q: (18), kthread expired q: (2)
-into 4 /ninto this weird se/nThread 53 ran for 0.944302 ms on k 2, status: running, deducted 9.000000. Remaining: 66
-
-Thread(id:53, group:0) finished (TIME : 153131181697582973 s and 18446744073708816458 us)Thread 53 ran for 1.278703 ms on k 2, status: running, deducted 12.000000. Remaining: 54
-into 16 /nThread 53 in kthread 2 is done, kthread active q: (19), kthread expired q: (2)
-Thread 81 in kthread 2 is put to run, kthread active q: (18), kthread expired q: (2)
-
-Thread(id:82, group:0) finished (TIME : 225188775735510909 s and 18446744073708816457 us)Thread 82 ran for 7.549844 ms on k 3, status: running, deducted 75.000000. Remaining: 0
-into 16 /nThread 82 in kthread 3 is done, kthread active q: (18), kthread expired q: (2)
-Thread 86 in kthread 3 is put to run, kthread active q: (17), kthread expired q: (2)
-
-Thread(id:52, group:0) finished (TIME : 81073587659655037 s and 18446744073708816458 us)Thread 52 ran for 1.113493 ms on k 1, status: running, deducted 11.000000. Remaining: 64
-into 16 /nThread 52 in kthread 1 is done, kthread active q: (19), kthread expired q: (2)
-Thread 80 in kthread 1 is put to run, kthread active q: (18), kthread expired q: (2)
-
-Thread(id:86, group:0) finished (TIME : 225188775735510909 s and 18446744073708816456 us)Thread 86 ran for 7.240082 ms on k 3, status: running, deducted 72.000000. Remaining: 3
-into 16 /nThread 86 in kthread 3 is done, kthread active q: (17), kthread expired q: (2)
-Thread 114 in kthread 3 is put to run, kthread active q: (16), kthread expired q: (2)
-into 4 /ninto this weird se/nThread 19 ran for 0.410089 ms on k 0, status: running, deducted 4.000000. Remaining: 71
-
-Thread(id:19, group:0) finished (TIME : 9015993621727101 s and 18446744073708816464 us)Thread 19 ran for 0.371562 ms on k 0, status: running, deducted 3.000000. Remaining: 68
+Thread(id:19, group:0) finished (TIME : 9015993621722857 s and 18446744073708996990 us)Thread 19 ran for 0.735177 ms on k 0, status: running, deducted 7.000000. Remaining: 68
 into 16 /nThread 19 in kthread 0 is done, kthread active q: (23), kthread expired q: (2)
 Thread 23 in kthread 0 is put to run, kthread active q: (22), kthread expired q: (2)
-into 4 /ninto this weird se/nThread 81 ran for 0.782627 ms on k 2, status: running, deducted 7.000000. Remaining: 68
 
-Thread(id:81, group:0) finished (TIME : 153131181697582973 s and 18446744073708816457 us)Thread 81 ran for 7.167091 ms on k 2, status: running, deducted 71.000000. Remaining: -3
-into 16 /nThread 81 in kthread 2 is done, kthread active q: (18), kthread expired q: (2)
-Thread 85 in kthread 2 is put to run, kthread active q: (17), kthread expired q: (2)
-into 4 /ninto this weird se/nThread 114 ran for 0.811493 ms on k 3, status: running, deducted 8.000000. Remaining: 67
-into 4 /ninto this weird se/nThread 80 ran for 0.931363 ms on k 1, status: running, deducted 9.000000. Remaining: 66
+Thread(id:52, group:0) finished (TIME : 81073587659650793 s and 18446744073708996983 us)Thread 52 ran for 1.408531 ms on k 1, status: running, deducted 14.000000. Remaining: 61
+into 16 /nThread 52 in kthread 1 is done, kthread active q: (18), kthread expired q: (2)
+Thread 80 in kthread 1 is put to run, kthread active q: (17), kthread expired q: (2)
+into 4 /ninto this weird se
+Thread 22 ran for 0.672070 ms on k 3, status: running, deducted 6.000000. Remaining: 69
 
-Thread(id:80, group:0) finished (TIME : 81073587659655037 s and 18446744073708816457 us)Thread 80 ran for 7.507863 ms on k 1, status: running, deducted 75.000000. Remaining: -9
-into 16 /nThread 80 in kthread 1 is done, kthread active q: (18), kthread expired q: (2)
-Thread 84 in kthread 1 is put to run, kthread active q: (17), kthread expired q: (2)
-into 4 /ninto this weird se/ninto 4 /ninto this weird se/nThread 23 ran for 0.371377 ms on k 0, status: running, deducted 3.000000. Remaining: 72
-Thread 114 ran for 19.990783 ms on k 3, status: running, deducted 199.000000. Remaining: -132
+Thread(id:22, group:0) finished (TIME : 225188775735506665 s and 18446744073708996986 us)Thread 22 ran for 0.588946 ms on k 3, status: running, deducted 5.000000. Remaining: 64
+into 16 /nThread 22 in kthread 3 is done, kthread active q: (21), kthread expired q: (2)
+Thread 50 in kthread 3 is put to run, kthread active q: (20), kthread expired q: (2)
 
-Thread(id:23, group:0) finished (TIME : 9015993621727101 s and 18446744073708816461 us)Thread 23 ran for 0.417261 ms on k 0, status: running, deducted 4.000000. Remaining: 68
-Thread 114 in kthread 3 moved to expired, kthread active q: (16), kthread expired q: (3)
+Thread(id:80, group:0) finished (TIME : 81073587659650793 s and 18446744073708996982 us)Thread 80 ran for 7.430811 ms on k 1, status: running, deducted 74.000000. Remaining: 1
+into 16 /nThread 80 in kthread 1 is done, kthread active q: (17), kthread expired q: (2)
+Thread 84 in kthread 1 is put to run, kthread active q: (16), kthread expired q: (2)
+
+Thread(id:23, group:0) finished (TIME : 9015993621722857 s and 18446744073708996987 us)Thread 23 ran for 0.538371 ms on k 0, status: running, deducted 5.000000. Remaining: 70
 into 16 /nThread 23 in kthread 0 is done, kthread active q: (22), kthread expired q: (2)
-Thread 118 in kthread 3 is put to run, kthread active q: (15), kthread expired q: (3)
-Thread 51 in kthread 0 is put to run, kthread active q: (21), kthread expired q: (2)
-into 4 /ninto this weird se/nThread 85 ran for 0.816518 ms on k 2, status: running, deducted 8.000000. Remaining: 67
 
-Thread(id:85, group:0) finished (TIME : 153131181697582973 s and 18446744073708816456 us)Thread 85 ran for 7.206570 ms on k 2, status: running, deducted 72.000000. Remaining: -5
-into 16 /nThread 85 in kthread 2 is done, kthread active q: (17), kthread expired q: (2)
-Thread 113 in kthread 2 is put to run, kthread active q: (16), kthread expired q: (2)
-into 4 /ninto this weird se/nThread 84 ran for 0.741466 ms on k 1, status: running, deducted 7.000000. Remaining: 68
+Thread(id:85, group:0) finished (TIME : 153131181697578729 s and 18446744073708996981 us)Thread 51 in kthread 0 is put to run, kthread active q: (21), kthread expired q: (2)
+Thread 85 ran for 7.269104 ms on k 2, status: running, deducted 72.000000. Remaining: 3
+into 16 /nThread 85 in kthread 2 is done, kthread active q: (16), kthread expired q: (2)
+Thread 113 in kthread 2 is put to run, kthread active q: (15), kthread expired q: (2)
 
-Thread(id:84, group:0) finished (TIME : 81073587659655037 s and 18446744073708816456 us)Thread 84 ran for 6.971976 ms on k 1, status: running, deducted 69.000000. Remaining: -1
-into 16 /nThread 84 in kthread 1 is done, kthread active q: (17), kthread expired q: (2)
-Thread 112 in kthread 1 is put to run, kthread active q: (16), kthread expired q: (2)
-into 4 /ninto this weird se/ninto 4 /ninto this weird se/ninto 4 /ninto this weird se/nThread 51 ran for 0.536269 ms on k 0, status: running, deducted 5.000000. Remaining: 70
-Thread 113 ran for 21.336733 ms on k 2, status: running, deducted 213.000000. Remaining: -138
-Thread 118 ran for 31.938994 ms on k 3, status: running, deducted 319.000000. Remaining: -244
-Thread 113 in kthread 2 moved to expired, kthread active q: (16), kthread expired q: (3)
-Thread 118 in kthread 3 moved to expired, kthread active q: (15), kthread expired q: (4)
-Thread 117 in kthread 2 is put to run, kthread active q: (15), kthread expired q: (3)
-Thread 10 in kthread 3 is put to run, kthread active q: (14), kthread expired q: (4)
+Thread(id:50, group:0) finished (TIME : 225188775735506665 s and 18446744073708996985 us)Thread 50 ran for 1.487768 ms on k 3, status: running, deducted 14.000000. Remaining: 61
+into 16 /n
+Thread(id:84, group:0) finished (TIME : 81073587659650793 s and 18446744073708996981 us)Thread 84 ran for 8.478309 ms on k 1, status: running, deducted 84.000000. Remaining: -9
+Thread 50 in kthread 3 is done, kthread active q: (20), kthread expired q: (2)
+into 16 /nThread 84 in kthread 1 is done, kthread active q: (16), kthread expired q: (2)
+Thread 112 in kthread 1 is put to run, kthread active q: (15), kthread expired q: (2)
 
-Thread(id:51, group:0) finished (TIME : 9015993621727101 s and 18446744073708816460 us)Thread 51 ran for 1.194969 ms on k 0, status: running, deducted 11.000000. Remaining: 59
+Thread(id:51, group:0) finished (TIME : 9015993621722857 s and 18446744073708996986 us)Thread 51 ran for 1.251282 ms on k 0, status: running, deducted 12.000000. Remaining: 63
 into 16 /nThread 51 in kthread 0 is done, kthread active q: (21), kthread expired q: (2)
 Thread 55 in kthread 0 is put to run, kthread active q: (20), kthread expired q: (2)
-into 4 /ninto this weird se/nThread 112 ran for 0.714299 ms on k 1, status: running, deducted 7.000000. Remaining: 68
 
-Thread(id:55, group:0) finished (TIME : 9015993621727101 s and 18446744073708816459 us)Thread 55 ran for 1.362832 ms on k 0, status: running, deducted 13.000000. Remaining: 62
+Thread(id:55, group:0) finished (TIME : 9015993621722857 s and 18446744073708996985 us)Thread 55 ran for 1.216713 ms on k 0, status: running, deducted 12.000000. Remaining: 63
 into 16 /nThread 55 in kthread 0 is done, kthread active q: (20), kthread expired q: (2)
 Thread 83 in kthread 0 is put to run, kthread active q: (19), kthread expired q: (2)
 
-Thread(id:10, group:0) finished (TIME : 225188775735510909 s and 18446744073708816455 us)Thread 10 ran for 0.678363 ms on k 3, status: running, deducted 6.000000. Remaining: 44
-into 16 /nThread 10 in kthread 3 is done, kthread active q: (14), kthread expired q: (4)
-Thread 14 in kthread 3 is put to run, kthread active q: (13), kthread expired q: (4)
-into 4 /ninto 4 /ninto this weird se/ninto this weird se/nThread 112 ran for 31.678057 ms on k 1, status: running, deducted 316.000000. Remaining: -248
-Thread 112 in kthread 1 moved to expired, kthread active q: (16), kthread expired q: (3)
-Thread 83 ran for 2.360765 ms on k 0, status: running, deducted 23.000000. Remaining: 52
-Thread 116 in kthread 1 is put to run, kthread active q: (15), kthread expired q: (3)
-
-Thread(id:83, group:0) finished (TIME : 9015993621727101 s and 18446744073708816458 us)Thread 83 ran for 6.096828 ms on k 0, status: running, deducted 60.000000. Remaining: -8
+Thread(id:83, group:0) finished (TIME : 9015993621722857 s and 18446744073708996984 us)Thread 83 ran for 7.269479 ms on k 0, status: running, deducted 72.000000. Remaining: 3
 into 16 /nThread 83 in kthread 0 is done, kthread active q: (19), kthread expired q: (2)
 Thread 87 in kthread 0 is put to run, kthread active q: (18), kthread expired q: (2)
-into 4 /ninto this weird se/nThread 117 ran for 0.381339 ms on k 2, status: running, deducted 3.000000. Remaining: 72
-into 4 /ninto this weird se/ninto 4 /ninto this weird se/ninto 4 /ninto this weird se/nThread 87 ran for 0.748083 ms on k 0, status: running, deducted 7.000000. Remaining: 68
-Thread 116 ran for 11.374498 ms on k 1, status: running, deducted 113.000000. Remaining: -38
-Thread 117 ran for 21.370182 ms on k 2, status: running, deducted 213.000000. Remaining: -141
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+into 4 /ninto this weird se
+Thread 112 ran for 24.568520 ms on k 1, status: running, deducted 245.000000. Remaining: -170
+Thread 87 ran for 6.146131 ms on k 0, status: running, deducted 61.000000. Remaining: 14
+Thread 113 ran for 35.480237 ms on k 2, status: running, deducted 354.000000. Remaining: -279

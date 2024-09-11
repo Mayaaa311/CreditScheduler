@@ -208,6 +208,7 @@ void gt_yield(){
 		// fprintf(stderr, "No next best thread to get, total %d\n",ksched_shared_info.kthread_cur_uthreads);
 		/* Done executing all uthreads. Return to main */
 		/* XXX: We can actually get rid of KTHREAD_DONE flag */
+		// if(ksched_shared_info.kthread_tot_uthreads && !ksched_shared_info.kthread_cur_uthreads)
 		if(ksched_shared_info.kthread_tot_uthreads && !ksched_shared_info.kthread_cur_uthreads)
 		{
 			fprintf(stderr, "Quitting kthread (%d)\n", k_ctx->cpuid);

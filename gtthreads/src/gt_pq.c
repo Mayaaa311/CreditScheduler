@@ -11,6 +11,7 @@
 #include <assert.h>
 #include <time.h>
 #include "gt_include.h"
+#include <stdbool.h>
 #define NUM_CREDITS_PER_MS 2.0
 #define PRINTFROM_CPU 0
 /**********************************************************************/
@@ -257,12 +258,13 @@ extern uthread_struct_t *credit_find_best_uthread(kthread_runqueue_t *kthread_ru
 	uthread_head_t *u_head;
 	uthread_struct_t *u_obj;
 	uthread_struct_t *result;
+	bool found_active= kthread_runq->num_in_active != 0;
 	
 	gt_spin_lock(&(kthread_runq->kthread_runqlock));
 	runq = kthread_runq->active_runq;
 	kthread_runq->kthread_runqlock.holder = 0x04;
 
-	if(!(runq->uthread_mask))
+	if(!found_active)
 	{ /* No jobs in active. switch runqueue */
 		assert(!runq->uthread_tot);
 		
@@ -329,6 +331,7 @@ extern uthread_struct_t *credit_find_best_uthread(kthread_runqueue_t *kthread_ru
                 }
 				if (u_obj->credit > 0) {
 					TAILQ_INSERT_TAIL(kthread_runq->active_credit_tracker, u_obj, uthread_creditq);
+					kthread_runq->num_in_active++;
 					if(u_obj == u_head->tqh_first){
 						u_head->tqh_first = TAILQ_NEXT(u_head->tqh_first, uthread_creditq);
                         if (u_head->tqh_first == NULL)
@@ -339,8 +342,8 @@ extern uthread_struct_t *credit_find_best_uthread(kthread_runqueue_t *kthread_ru
 						TAILQ_REMOVE(kthread_runq->expired_credit_tracker, u_obj, uthread_creditq);
 					}
 					// swich in main queue
-					__add_to_runqueue( kthread_runq->active_runq, u_obj);
-					__rem_from_runqueue(kthread_runq->expires_runq, u_obj);
+					// __add_to_runqueue( kthread_runq->active_runq, u_obj);
+					// __rem_from_runqueue(kthread_runq->expires_runq, u_obj);
 					// __add_to_runqueue( kthread_runq->active_runq, u_obj);
 
 				};
@@ -369,6 +372,7 @@ extern uthread_struct_t *credit_find_best_uthread(kthread_runqueue_t *kthread_ru
 	u_head = (kthread_runq->active_credit_tracker);
 	if(result){
 		TAILQ_REMOVE(u_head, result, uthread_creditq);
+		kthread_runq->num_in_active--;
 		__rem_from_runqueue(runq, result);
 	}
 

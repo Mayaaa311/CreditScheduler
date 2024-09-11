@@ -63,6 +63,8 @@ typedef struct __kthread_runqueue
 	uthread_head_t *expired_credit_tracker;
 	uthread_head_t credit_queues[2];
 	runqueue_t runqueues[2];
+	int num_in_active;
+	int tot;
 } kthread_runqueue_t;
 
 /* only lock protected versions are exported */

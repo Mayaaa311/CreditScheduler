@@ -219,7 +219,7 @@ extern void credit_scheduler(uthread_struct_t * (*credit_find_best_uthread)(kthr
 		// if current trhead is still runnable */
 		else
 		{
-			fprintf(stderr,"into this weird se/n");
+			fprintf(stderr,"into this weird se\n");
 			uthread_stop_timer(u_obj);
 			// if credit is still over 0, return current thread to keep running, start timer when keep running
 			if(u_obj->credit > 0){
@@ -329,6 +329,7 @@ extern void uthread_schedule(uthread_struct_t * (*kthread_best_sched_uthread)(kt
 			gt_spin_lock(&(kthread_runq->kthread_runqlock));
 			kthread_runq->kthread_runqlock.holder = 0x01;
 			TAILQ_INSERT_TAIL(kthread_zhead, u_obj, uthread_runq);
+			kthread_runq->tot--;
 			gt_spin_unlock(&(kthread_runq->kthread_runqlock));
 
 			{
@@ -391,7 +392,7 @@ extern void uthread_schedule(uthread_struct_t * (*kthread_best_sched_uthread)(kt
  * into a regular stack for uthread (by using SS_DISABLE). */
 static void uthread_context_func(int signo)
 {
-	usleep(10000);
+	usleep(5000);
 	uthread_struct_t *cur_uthread;
 	kthread_runqueue_t *kthread_runq;
 
@@ -489,6 +490,8 @@ extern int uthread_create(uthread_t *u_tid, int (*u_func)(void *), void *u_arg, 
 	if(TAILQ_EMPTY((kthread_runq->active_credit_tracker)))
 		TAILQ_INIT((kthread_runq->active_credit_tracker));
 	TAILQ_INSERT_TAIL((kthread_runq->active_credit_tracker), u_new, uthread_creditq);
+	kthread_runq->num_in_active++;
+	kthread_runq->tot++;
 	
 	gt_spin_unlock(runq_lock);
 
