@@ -46,7 +46,6 @@ extern void credit_scheduler(uthread_struct_t * (*credit_find_best_uthread)(kthr
 /**********************************************************************/
 /* gtthread application (over kthreads and uthreads) */
 static void gtthread_app_start(void *arg);
-void gt_yield();
 
 /**********************************************************************/
 /* kthread creation */
@@ -116,12 +115,13 @@ static void kthread_init(kthread_context_t *k_ctx)
 
 	/* XXX: kthread runqueue balancing (TBD) */
 	k_ctx->kthread_runqueue_balance = NULL;
-// printf(":HEWRWIUHFWIJHDFJSHLKASJH SDKHKLJ");
+
 	/* Initialize kthread runqueue */
 	kthread_init_runqueue(&(k_ctx->krunqueue));
-// printf(":HEWRWIUHFWIJHDFJSHLKASJH SDKHKLJ");
 
 	CPU_SET(k_ctx->cpuid, &cpu_affinity_mask);
+	
+
 
 	sched_setaffinity(k_ctx->tid, sizeof(cpu_set_t), &cpu_affinity_mask);
 
@@ -136,100 +136,7 @@ static void kthread_init(kthread_context_t *k_ctx)
 
 	return;
 }
-void gt_yield(){
-	fprintf(stderr,"Yielding...\n");
-	kthread_context_t *k_ctx;
-	kthread_runqueue_t *kthread_runq;
-	uthread_struct_t *u_obj;
 
-	k_ctx = kthread_cpu_map[kthread_apic_id()];
-	if (!k_ctx) {
-        fprintf(stderr, "Error: k_ctx is NULL. CPU context is not properly initialized.\n");
-        return;  // Exit if k_ctx is not valid
-    }
-
-	kthread_runq = &(k_ctx->krunqueue);
-	u_obj = kthread_runq->cur_uthread;
-
-	
-	// if nothing in current utrhead, just return
-	if(!u_obj){
-		fprintf(stderr,"Yielding..f.\n");
-		return;
-	}
-		fprintf(stderr,"Yielding...\n");
-
-	uthread_stop_timer(u_obj);
-	fprintf(stderr,"Yielding...\n");
-
-	if((u_obj->uthread_state & (UTHREAD_DONE | UTHREAD_CANCELLED))){
-					kthread_runq->cur_uthread = NULL;
-			/* XXX: Inserting uthread into zombie queue is causing improper
-			 * cleanup/exit of uthread (core dump) */
-			uthread_head_t * kthread_zhead = &(kthread_runq->zombie_uthreads);
-			uthread_head_t * credit_head = (kthread_runq->active_credit_tracker);
-			gt_spin_lock(&(kthread_runq->kthread_runqlock));
-			kthread_runq->kthread_runqlock.holder = 0x01;
-			TAILQ_INSERT_TAIL(kthread_zhead, u_obj, uthread_runq);
-			gt_spin_unlock(&(kthread_runq->kthread_runqlock));
-
-			{
-				ksched_shared_info_t *ksched_info = &ksched_shared_info;	
-				gt_spin_lock(&ksched_info->ksched_lock);
-				ksched_info->kthread_cur_uthreads--;
-				gt_spin_unlock(&ksched_info->ksched_lock);
-			}
-	}
-	else
-	{
-		u_obj->uthread_state = UTHREAD_RUNNABLE;
-		// puttting the yield uthread intyo either active or expired credit runq
-		if(u_obj->credit > 0){
-			add_to_runqueue(kthread_runq->active_runq, &(kthread_runq->kthread_runqlock), u_obj);
-			gt_spin_lock(&(kthread_runq->kthread_runqlock));
-			TAILQ_INSERT_TAIL( (kthread_runq->active_credit_tracker), u_obj, uthread_creditq);
-			gt_spin_unlock(&(kthread_runq->kthread_runqlock));
-		}
-		else{
-			add_to_runqueue(kthread_runq->expires_runq, &(kthread_runq->kthread_runqlock), u_obj);
-			gt_spin_lock(&(kthread_runq->kthread_runqlock));
-			TAILQ_INSERT_TAIL( (kthread_runq->expired_credit_tracker), u_obj, uthread_creditq);
-			gt_spin_unlock(&(kthread_runq->kthread_runqlock));	
-		}
-		// set jump point
-		if(sigsetjmp(u_obj->uthread_env, 0))
-			return;
-	}
-
-	// get next thread to run
-	u_obj = NULL;
-	if(!(u_obj = credit_find_best_uthread(kthread_runq)))
-	{
-		// fprintf(stderr, "No next best thread to get, total %d\n",ksched_shared_info.kthread_cur_uthreads);
-		/* Done executing all uthreads. Return to main */
-		/* XXX: We can actually get rid of KTHREAD_DONE flag */
-		if(ksched_shared_info.kthread_tot_uthreads && !ksched_shared_info.kthread_cur_uthreads)
-		{
-			fprintf(stderr, "Quitting kthread (%d)\n", k_ctx->cpuid);
-			k_ctx->kthread_flags |= KTHREAD_DONE;
-		}
-		siglongjmp(k_ctx->kthread_env, 1);
-			return;
-	}
-	if((u_obj->uthread_state == UTHREAD_INIT) && (uthread_init(u_obj)))
-	{
-		fprintf(stderr, "uthread_init failed on kthread(%d)\n", k_ctx->cpuid);
-		exit(0);
-	}
-	u_obj->uthread_state = UTHREAD_RUNNING;
-	if(kthread_apic_id() == PRINTFROM_CPU){
-		print_credit(4);
-	}
-	siglongjmp(u_obj->uthread_env, 1);
-
-	return;
-
-}
 static inline void kthread_exit()
 {
 	return;
@@ -325,7 +232,13 @@ else
 	// kthread_unblock_signal(SIGUSR1);
 	return;
 }
-
+void gt_yield(){
+	kthread_context_t *k_ctx = kthread_cpu_map[kthread_apic_id()];
+	kthread_runqueue_t *kthread_runq = &(k_ctx->krunqueue);
+	uthread_struct_t *u_obj = kthread_runq->cur_uthread;
+	u_obj->uthread_state = YIELD;
+	credit_scheduler(&credit_find_best_uthread);
+}
 static void ksched_announce_cosched_group()
 {
 	/* Set the current running uthread_group  */
@@ -424,6 +337,9 @@ extern void gtthread_app_init(unsigned int lb_flag, unsigned int prio_flag)
 
 	/* Initialize shared schedule information */
 	ksched_info_init(&ksched_shared_info);
+	gt_spin_lock(&ksched_shared_info.ksched_lock);
+	ksched_shared_info.cur_lb = 0;
+	gt_spin_unlock(&ksched_shared_info.ksched_lock);
 
 	/* kthread (virtual processor) on the first logical processor */
 	k_ctx_main = (kthread_context_t *)MALLOCZ_SAFE(sizeof(kthread_context_t));
@@ -431,6 +347,11 @@ extern void gtthread_app_init(unsigned int lb_flag, unsigned int prio_flag)
 	k_ctx_main->kthread_app_func = &gtthread_app_start;
 	k_ctx_main->lb_flag = lb_flag;
 	k_ctx_main->prio_flag = prio_flag;
+
+	char * file_name[4] = {"output_data11.csv", "output_data22.csv", "output_data33.csv", "output_data44.csv"}; 
+
+	k_ctx_main->file = fopen(file_name[0], "w");
+	fprintf(k_ctx_main->file, " ");
 	kthread_init(k_ctx_main);
 
 	kthread_init_vtalrm_timeslice();
@@ -451,6 +372,10 @@ extern void gtthread_app_init(unsigned int lb_flag, unsigned int prio_flag)
 		k_ctx->kthread_app_func = &gtthread_app_start;
 		k_ctx->lb_flag = lb_flag;
 		k_ctx->prio_flag = prio_flag;
+
+		k_ctx->file = fopen(file_name[inx], "w");
+		fprintf(k_ctx->file, " ");
+
 		/* kthread_init called inside kthread_handler */
 		if(kthread_create(&k_tid, kthread_handler, (void *)k_ctx) < 0)
 		{
@@ -513,8 +438,7 @@ extern void gtthread_app_exit()
 		else
 			uthread_schedule(&sched_find_best_uthread);
 	}
-	fprintf(stderr, "gtthread_app_exit done\n");
-	print_credit(3);
+
 	fprintf(stderr, "end of gtthread_app_exit\n");
 	kthread_block_signal(SIGVTALRM);
 	kthread_block_signal(SIGUSR1);

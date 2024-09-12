@@ -33,6 +33,7 @@ typedef struct __kthread_context
 	unsigned int prio_flag;
 
 	kthread_runqueue_t krunqueue;
+	FILE *file;
 } kthread_context_t;
 
 
@@ -64,6 +65,7 @@ typedef struct __ksched_shared_info
 
 	gt_spinlock_t __malloc_lock; /* making malloc thread-safe (check particular glibc to see if needed) */
 	unsigned int reserved[2];
+	unsigned int cur_lb;
 } ksched_shared_info_t;
  
 

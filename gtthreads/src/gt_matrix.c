@@ -28,7 +28,6 @@ unsigned int priority_schedule;
  * Let T(g, t) be thread 't' in group 'g'. 
  * T(g, t) is responsible for multiplication : 
  * A(rows)[(t-1)*SIZE -> (t*SIZE - 1)] X B(cols)[(g-1)*SIZE -> (g*SIZE - 1)] */
-
 typedef struct matrix
 {
 	int size;
@@ -80,16 +79,21 @@ static void print_matrix(matrix_t *mat)
 	return;
 }
 
-extern int uthread_create(uthread_t *, void *, void *, uthread_group_t, int);
-
+extern int uthread_create(uthread_t *, void *, void *, uthread_group_t, int, int);
+static void init_matrices(matrix_t *A, matrix_t *B, matrix_t *C, int size) {
+    generate_matrix(A, size, 1);
+    generate_matrix(B, size, 1);
+    generate_matrix(C, size, 0);
+}
 static void * uthread_mulmat(void *p)
 {
+	
 	int i, j, k;
 	unsigned int cpuid;
 	struct timeval tv2;
 
 #define ptr ((uthread_arg_t *)p)
-
+	// init_matrices(ptr->_A,ptr->_B,ptr->_C, ptr->size);
 	i=0; j= 0; k=0;
 
 	// cpuid = kthread_cpu_map[kthread_apic_id()]->cpuid;
@@ -100,13 +104,13 @@ static void * uthread_mulmat(void *p)
 		for(j = 0; j < ptr->size; j++)
 			for(k = 0; k < ptr->size; k++){
 				// printf("MULPSHAUIHDUI");
-				ptr->_C->m[i][j] += ptr->_A->m[i][k] * ptr->_B->m[k][j];
+				// ptr->_C->m[i][j] += ptr->_A->m[i][k] * ptr->_B->m[k][j];
 				// printf("abababab");
 			}
 // printf("I GOT HEafdsfdRE!!!");
-	// gettimeofday(&tv2,NULL);
-	// fprintf(stderr, "\nThread(id:%d, group:%d) finished (TIME : %lu s and %lu us)",
-	// 		ptr->tid, ptr->gid, (tv2.tv_sec - tv1.tv_sec), (tv2.tv_usec - tv1.tv_usec));
+	gettimeofday(&tv2,NULL);
+	fprintf(stderr, "\nThread(id:%d, group:%d) finished (TIME : %lu s and %lu us)",
+			ptr->tid, ptr->gid, (tv2.tv_sec - tv1.tv_sec), (tv2.tv_usec - tv1.tv_usec));
 	// print_matrix(ptr->_C);
 
 #undef ptr
@@ -115,11 +119,7 @@ static void * uthread_mulmat(void *p)
 
 
 
-static void init_matrices(matrix_t *A, matrix_t *B, matrix_t *C, int size) {
-    generate_matrix(A, size, 1);
-    generate_matrix(B, size, 1);
-    generate_matrix(C, size, 0);
-}
+
 
 void parse_args(int argc, char* argv[])
 {
@@ -174,9 +174,9 @@ int main(int argc, char *argv[])
 
 	gtthread_app_init(lb_flag, priority_schedule);
 
-	for(int i = 0; i < 4; i++){
-		init_matrices(&matAs[i],&matBs[i],&matCs[i], matrix_sz[i]);
-	}
+	// for(int i = 0; i < 4; i++){
+	// 	init_matrices(&matAs[i],&matBs[i],&matCs[i], matrix_sz[i]);
+	// }
 
 	int credits[4] =  {25, 50, 75, 100};
 	// int credits[4] = {25,25,25,25};
@@ -193,14 +193,17 @@ int main(int argc, char *argv[])
 				uarg->_C = &matCs[inx];
 
 				uarg->tid = uthread_tid;
-
+				#ifdef DEBUG
 				fprintf(stderr,"mat size :%d\n", matrix_sz[inx]);
+				#endif
 				uarg->size = matrix_sz[inx];
 
 				uarg->gid = 0;
+				#ifdef DEBUG
 				fprintf(stderr, "credit:%d, credit_idx: %d\n", credits[k], k);
+				#endif
 				// printf("Creating thread(id:%d, credit:%d, size:%d)...\n", uarg->tid, uarg->credit, uarg->size);
-				uthread_create(&utids[inx], uthread_mulmat, uarg, uarg->gid, credits[k]);
+				uthread_create(&utids[inx], uthread_mulmat, uarg, uarg->gid, credits[k],matrix_sz[inx]);
 				uthread_tid++;
 			}
 		// if(inx != 0 && inx % 4 == 0) credit_inx++;
