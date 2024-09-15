@@ -97,7 +97,7 @@ static inline unsigned char kthread_apic_id(void)
 #undef INITIAL_APIC_ID_BITS
 }
 
-
+void gt_yield();
 /**********************************************************************/
 /* Thread-safe malloc */
 static inline void *MALLOC_SAFE(unsigned int size)

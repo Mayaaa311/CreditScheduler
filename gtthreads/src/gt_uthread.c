@@ -42,32 +42,32 @@ extern int uthread_create(uthread_t *u_tid, int (*u_func)(void *), void *u_arg, 
 /**********************************************************************/
 /* uthread scheduling */
 void print_credit(){
-for(int i = 0; i < 4; i++){
-		fprintf(stderr, "\n______________PRINTING INFO ON CPU %d!_____________________________\n", i);
-		kthread_context_t *k_ctx = kthread_cpu_map[i];
+// for(int i = 0; i < 4; i++){
+		fprintf(stderr, "\n______________PRINTING INFO ON CPU 0!_____________________________\n");
+		kthread_context_t *k_ctx = kthread_cpu_map[0];
 		uthread_struct_t *u_obj;
 		gt_spin_lock(&(k_ctx->krunqueue.kthread_runqlock));
-		uthread_head_t *uthread_head = (k_ctx->krunqueue.active_credit_tracker);
 
-		fprintf(stderr, "active q: %d[", k_ctx->krunqueue.num_in_active);
+		uthread_head_t *uthread_head = (k_ctx->krunqueue.active_credit_tracker);
+		fprintf(stderr, "active q:[");
+		int ct = 0;
 		TAILQ_FOREACH(u_obj, uthread_head, uthread_creditq) {
-			fprintf(stderr, "A%d(c=%d), ", u_obj->uthread_tid,u_obj->credit);
-			
+			   fprintf(stderr, "A%d(c=%d), ", u_obj->uthread_tid,u_obj->credit);
+			   ct ++;
 		}
-		fprintf(stderr, "] \n");
-		
+		fprintf(stderr, "]\n");
 
 		uthread_head = (k_ctx->krunqueue.expired_credit_tracker);
-
-		fprintf(stderr, "expired q: %d[", k_ctx->krunqueue.tot - k_ctx->krunqueue.num_in_active);
+		int ct1 = 0;
+		fprintf(stderr, "expired q: [");
 		TAILQ_FOREACH(u_obj, uthread_head, uthread_creditq) {
-			fprintf(stderr, "E%d(c=%d), ", u_obj->uthread_tid,u_obj->credit);
-			
+			   fprintf(stderr, "E%d(c=%d), ", u_obj->uthread_tid,u_obj->credit);
+            ct1++;
 		}
-		fprintf(stderr, "] \n");
+		fprintf(stderr, "]\n");
 		
 		gt_spin_unlock(&(k_ctx->krunqueue.kthread_runqlock));
-	}
+	// }
 }
 /* Assumes that the caller has disabled vtalrm and sigusr1 signals */
 /* uthread_init will be using */
@@ -144,9 +144,10 @@ void end_profiler_timer(record *start_time){
 	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end_time);
 
     // Calculate the elapsed time in milliseconds
-    double elapsed_ms = (end_time.tv_sec - start_time->timer.tv_sec) * 1000.0 + 
-                        (end_time.tv_nsec - start_time->timer.tv_nsec) / 1000000.0;
-	start_time->total_time += elapsed_ms;
+	double elapsed_us = (end_time.tv_sec - start_time->timer.tv_sec) * 1000000.0 + 
+						(end_time.tv_nsec - start_time->timer.tv_nsec) / 1000.0;
+
+	start_time->total_time += elapsed_us;
 	
 	
 }
@@ -160,13 +161,12 @@ int uthread_stop_timer(uthread_struct_t *u_obj) {
 	int val = u_obj->credit;
     // Calculate the elapsed time in milliseconds
     double elapsed_ms = ((end_time.tv_sec - u_obj->start_time.tv_sec) * 1000.0 + 
-                        (end_time.tv_nsec - u_obj->start_time.tv_nsec) / 1000000.0)*100.0;
+                        (end_time.tv_nsec - u_obj->start_time.tv_nsec) / 1000000.0);
 
-    // Deduct credit: 1 credit for every 10 ms
-	double credits_used = (int)((double)(elapsed_ms));
+	double credits_used = ((double)(elapsed_ms))*2;
     val -= (int)(credits_used);
 	#ifdef DEBUG
-	fprintf(stderr, "uthread %d deduced %f, etime %f,  remaining: %d\n", u_obj->uthread_tid,elapsed_ms, credits_used, val);
+	fprintf(stderr, "uthread %d deduced %f, etime %f,  remaining: %d\n", u_obj->uthread_tid, credits_used, elapsed_ms, val);
     #endif
 	
 	// fprintf(stderr, "stop thread timer: Thread %d mat size %d ran for %f ms on k %d, deducted %f. Remaining: %d\n",
@@ -227,6 +227,7 @@ extern void credit_scheduler(uthread_struct_t * (*credit_find_best_uthread)(kthr
 			fprintf(stderr, "Thread %d in kthread %d is done with %d credit, kthread active q: (%d), kthread expired q: (%d)\n", 
 			    u_obj->uthread_tid, kthread_apic_id(), u_obj->credit, kthread_runq->num_in_active , kthread_runq->tot-kthread_runq->num_in_active);
 			#endif
+			
 			{
 				ksched_shared_info_t *ksched_info = &ksched_shared_info;	
 				gt_spin_lock(&ksched_info->ksched_lock);
@@ -238,39 +239,34 @@ extern void credit_scheduler(uthread_struct_t * (*credit_find_best_uthread)(kthr
 		else
 		{
 			uthread_stop_timer(u_obj);
-
+			start_profiler_tmr(&u_obj->wait_time);
+			kthread_runq->cur_uthread = NULL;
 			// if credit is still over 0, return current thread to keep running, start timer when keep running
-			if(u_obj->credit > 0){
-				uthread_start_timer(u_obj);
-				#ifdef DEBUG
-				fprintf(stderr, "trhead %d can continue running with remaining credit: %d\n", u_obj->uthread_tid, u_obj->credit);
-                #endif
-				return;
+			if(u_obj->credit > 0 ){
+				// uthread_start_timer(u_obj);
+				gt_spin_lock(&(kthread_runq->kthread_runqlock));
+				TAILQ_INSERT_TAIL( (kthread_runq->active_credit_tracker), u_obj, uthread_creditq);
+				kthread_runq->num_in_active++;
+				gt_spin_unlock(&(kthread_runq->kthread_runqlock));
 			}
 			// if credit is less = than 0, run state as runnable and move it to expired runq, 
 			// move from active credit tracker to exired credit tracker
 			else{
-				#ifdef DEBUG
-				fprintf(stderr, "START WAIT TIMER for utrhead %d!!\n", u_obj->uthread_tid);
-				#endif
-				kthread_runq->cur_uthread = NULL;
-				u_obj->uthread_state = UTHREAD_RUNNABLE;
-				start_profiler_tmr(&u_obj->wait_time);
-				// add_to_runqueue(kthread_runq->expires_runq, &(kthread_runq->kthread_runqlock), u_obj);
-			
-				// move current obj to expied credit tracker
+				// move to expire/active queue
 				gt_spin_lock(&(kthread_runq->kthread_runqlock));
 				TAILQ_INSERT_TAIL( (kthread_runq->expired_credit_tracker), u_obj, uthread_creditq);
-				#ifdef DEBUG
-				fprintf(stderr, "Thread %d in kthread %d moved to expired, with %d credit, kthread active q: (%d), kthread expired q: (%d)\n", 
-					u_obj->uthread_tid, u_obj->cpu_id,u_obj->credit, kthread_runq->num_in_active , kthread_runq->tot-kthread_runq->num_in_active);
-				#endif
+				kthread_runq->tot++;
 				gt_spin_unlock(&(kthread_runq->kthread_runqlock));
-
-				/* XXX: Save the context (signal mask not saved) */
-				if(sigsetjmp(u_obj->uthread_env, 0))
-					return;
+				
 			}
+			if(u_obj->uthread_state == YIELD){
+				fprintf(stderr,"AFTER uthread %d YIELD, credit = %d____________________\n", u_obj->uthread_tid, u_obj->credit);
+				print_credit_in_pq(kthread_apic_id());
+			}
+			u_obj->uthread_state = UTHREAD_RUNNABLE;
+			/* XXX: Save the context (signal mask not saved) */
+			if(sigsetjmp(u_obj->uthread_env, 0))
+				return;
 		}
 	}
 	/* kthread_best_sched_uthread acquires kthread_runqlock. Dont lock it up when calling the function. */
@@ -439,7 +435,7 @@ static void uthread_context_func(int signo)
 	cur_uthread = kthread_runq->cur_uthread;
 	assert(cur_uthread->uthread_state == UTHREAD_RUNNING);
 	/* Execute the uthread task */
-	start_profiler_tmr(&cur_uthread->exec_time);
+	
 
 	cur_uthread->uthread_func(cur_uthread->uthread_arg);
 
@@ -450,7 +446,7 @@ static void uthread_context_func(int signo)
 	cur_uthread->uthread_state = UTHREAD_DONE;
 
 	// fprintf(kthread_cpu_map[cur_uthread->cpu_id]->file,"HI!!!");
-	fprintf(kthread_cpu_map[cur_uthread->cpu_id]->file, "t_%d, c_%d, s_%d, %f, %f, %f\n", cur_uthread->uthread_tid, cur_uthread->init_credit, cur_uthread->size,
+	fprintf(kthread_cpu_map[cur_uthread->cpu_id]->file, "c_%d_m_%d, %d, %f, %f, %f\n", cur_uthread->init_credit, cur_uthread->size,cur_uthread->uthread_tid, 
 	cur_uthread->cpu_time.total_time, cur_uthread->wait_time.total_time, cur_uthread->exec_time.total_time);
 	
 	// uthread_schedule(&sched_find_best_uthread);

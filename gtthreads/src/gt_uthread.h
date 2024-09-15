@@ -12,7 +12,7 @@ typedef unsigned int uthread_group_t;
 #define UTHREAD_RUNNING 0x04
 #define UTHREAD_CANCELLED 0x08
 #define UTHREAD_DONE 0x10
-#define YIELD 0x12
+#define YIELD 0x200
 typedef struct data_record
 {
 	struct timespec timer;
@@ -45,6 +45,12 @@ typedef struct uthread_struct
 	TAILQ_ENTRY(uthread_struct) uthread_creditq;
 	TAILQ_ENTRY(uthread_struct) uthread_lbq;
 	struct timespec start_time;
+	record cpu_time;
+	record wait_time;
+	record exec_time;
+	int size;
+
+	
 	record cpu_time;
 	record wait_time;
 	record exec_time;

@@ -19,32 +19,32 @@
 static void __add_to_runqueue(runqueue_t *runq, uthread_struct_t *u_elm);
 static void __rem_from_runqueue(runqueue_t *runq, uthread_struct_t *u_elm);
 
-void print_credit_in_pq(){
-	for(int i = 0; i < 4; i++){
-		fprintf(stderr, "______________PRINTING INFO ON CPU %d AT PQ FILE!!!_____________________________\n", i);
-		kthread_context_t *k_ctx = kthread_cpu_map[i];
+void print_credit_in_pq(int cpuid){
+
+		kthread_context_t *k_ctx = kthread_cpu_map[cpuid];
 		uthread_struct_t *u_obj;
 
 
+
+
 		uthread_head_t *uthread_head = (k_ctx->krunqueue.active_credit_tracker);
-		fprintf(stderr, "active q: %d[", k_ctx->krunqueue.num_in_active);
+		fprintf(stderr, "active q: [");
 		int ct = 0;
 		TAILQ_FOREACH(u_obj, uthread_head, uthread_creditq) {
 			   fprintf(stderr, "A%d(c=%d), ", u_obj->uthread_tid,u_obj->credit);
 			   ct ++;
 		}
-		fprintf(stderr, "]%d \n", ct);
+		fprintf(stderr, "] \n");
 
 		uthread_head = (k_ctx->krunqueue.expired_credit_tracker);
 		int ct1 = 0;
-		fprintf(stderr, "expired q: %d[", k_ctx->krunqueue.tot - k_ctx->krunqueue.num_in_active);
+		fprintf(stderr, "expired q: [");
 		TAILQ_FOREACH(u_obj, uthread_head, uthread_creditq) {
 			   fprintf(stderr, "E%d(c=%d), ", u_obj->uthread_tid,u_obj->credit);
             ct1++;
 		}
-		fprintf(stderr, "]%d \n",ct1);
+		fprintf(stderr, "] \n");
 
-	}
 
 }
 /**********************************************************************/
@@ -174,6 +174,8 @@ extern void kthread_init_runqueue(kthread_runqueue_t *kthread_runq)
 	init_runqueue(kthread_runq->expires_runq);
 	kthread_runq->num_in_active = 0;
 	kthread_runq->tot = 0;
+	kthread_runq->num_in_active = 0;
+	kthread_runq->tot = 0;
 	TAILQ_INIT(&(kthread_runq->zombie_uthreads));
 	TAILQ_INIT((kthread_runq->active_credit_tracker));
 	TAILQ_INIT((kthread_runq->expired_credit_tracker));
@@ -254,6 +256,7 @@ extern uthread_struct_t *sched_find_best_uthread(kthread_runqueue_t *kthread_run
 }
 
 void Load_balance(){
+void Load_balance(){
 		kthread_context_t *k_ctx;
 		uthread_head_t *u_head;
 		uthread_struct_t *u_obj;
@@ -269,24 +272,23 @@ void Load_balance(){
 			if(ksched_info->cur_lb == 1){
 				return;
 			}
-
+			fprintf(stderr, "\nkthread %d BEFORE LOAD BALANCE___________________\n",k_ctx->cpuid);
+			print_credit_in_pq(k_ctx->cpuid);
 			gt_spin_lock(&ksched_info->ksched_lock);
-
 			ksched_info->cur_lb == 1;
-			#ifdef DEBUG
-			fprintf(stderr, "total num ut %d", ksched_shared_info.kthread_tot_uthreads);
-			fprintf(stderr,"before load balance, kthread %d contains %d active and %d tot uthreads\n", 
-			kthread_cpu_map[0]->cpuid, kthread_cpu_map[0]->krunqueue.num_in_active,( kthread_cpu_map[0]->krunqueue.tot));
+			// #ifdef DEBUG
+			// fprintf(stderr,"before load balance, kthread %d contains %d active\n", 
+			// kthread_cpu_map[0]->cpuid, kthread_cpu_map[0]->krunqueue.num_in_active);
 
-			fprintf(stderr,"before load balance, kthread %d contains %d active and %d tot uthreads\n",
-			 kthread_cpu_map[1]->cpuid, kthread_cpu_map[1]->krunqueue.num_in_active,( kthread_cpu_map[1]->krunqueue.tot));
+			// fprintf(stderr,"before load balance, kthread %d contains %d active\n",
+			//  kthread_cpu_map[1]->cpuid, kthread_cpu_map[1]->krunqueue.num_in_active);
 
-			fprintf(stderr,"before load balance, kthread %d contains %d active and %d tot uthreads\n", 
-			kthread_cpu_map[2]->cpuid, kthread_cpu_map[2]->krunqueue.num_in_active,( kthread_cpu_map[2]->krunqueue.tot));
+			// fprintf(stderr,"before load balance, kthread %d contains %d active\n", 
+			// kthread_cpu_map[2]->cpuid, kthread_cpu_map[2]->krunqueue.num_in_active);
 
-			fprintf(stderr,"before load balance, kthread %d contains %d active and %d tot uthreads\n",
-			 kthread_cpu_map[3]->cpuid, kthread_cpu_map[3]->krunqueue.num_in_active,( kthread_cpu_map[3]->krunqueue.tot));
-			#endif
+			// fprintf(stderr,"before load balance, kthread %d contains %d active\n",
+			//  kthread_cpu_map[3]->cpuid, kthread_cpu_map[3]->krunqueue.num_in_active);
+			// #endif
 
 			uthread_head_t lb_q;
 			TAILQ_INIT(&lb_q);
@@ -303,6 +305,8 @@ void Load_balance(){
 					TAILQ_REMOVE(u_head, u_obj, uthread_creditq);
 					k_ctx->krunqueue.num_in_active--;
 					k_ctx->krunqueue.tot--;
+					k_ctx->krunqueue.num_in_active--;
+					k_ctx->krunqueue.tot--;
 				}
 			}
 			int ctr = 0;
@@ -312,26 +316,29 @@ void Load_balance(){
 
 				TAILQ_INSERT_TAIL(kthread_cpu_map[ctr%num_cpus]->krunqueue.active_credit_tracker, u_obj, uthread_creditq);
 				TAILQ_REMOVE(&lb_q, u_obj, uthread_lbq);
+				TAILQ_REMOVE(&lb_q, u_obj, uthread_lbq);
 				kthread_cpu_map[ctr%num_cpus]->krunqueue.num_in_active++;
 				kthread_cpu_map[ctr%num_cpus]->krunqueue.tot++;
 				ctr++;
 			}
 
 			ksched_info->cur_lb = 0;
-			#ifdef DEBUG
-				fprintf(stderr, "LOAD BALANCING COMPLETED\n");
-				fprintf(stderr,"after load balance, kthread %d contains %d active and %d tot uthreads\n",
-				kthread_cpu_map[0]->cpuid, kthread_cpu_map[0]->krunqueue.num_in_active,( kthread_cpu_map[0]->krunqueue.tot));
+			k_ctx =  kthread_cpu_map[kthread_apic_id()];
+			// #ifdef DEBUG
+			fprintf(stderr, "\nkthread %d AFTER LOAD BALANCE___________________\n",k_ctx->cpuid);
+			print_credit_in_pq(k_ctx->cpuid);
+			// fprintf(stderr,"after load balance, kthread %d contains %d active \n",
+			// kthread_cpu_map[0]->cpuid, kthread_cpu_map[0]->krunqueue.num_in_active);
 
-				fprintf(stderr,"after load balance, kthread %d contains %d active and %d tot uthreads\n",
-				kthread_cpu_map[1]->cpuid, kthread_cpu_map[1]->krunqueue.num_in_active,( kthread_cpu_map[1]->krunqueue.tot));
+			// fprintf(stderr,"after load balance, kthread %d contains %d active\n",
+			// kthread_cpu_map[1]->cpuid, kthread_cpu_map[1]->krunqueue.num_in_active);
 
-				fprintf(stderr,"after load balance, kthread %d contains %d active and %d tot uthreads\n", 
-				kthread_cpu_map[2]->cpuid, kthread_cpu_map[2]->krunqueue.num_in_active,( kthread_cpu_map[2]->krunqueue.tot));
+			// fprintf(stderr,"after load balance, kthread %d contains %d active\n", 
+			// kthread_cpu_map[2]->cpuid, kthread_cpu_map[2]->krunqueue.num_in_active);
 
-				fprintf(stderr,"after load balance, kthread %d contains %d active and %d tot uthreads\n",
-				kthread_cpu_map[3]->cpuid, kthread_cpu_map[3]->krunqueue.num_in_active,( kthread_cpu_map[3]->krunqueue.tot));
-			#endif
+			// fprintf(stderr,"after load balance, kthread %d contains %d active\n",
+			// kthread_cpu_map[3]->cpuid, kthread_cpu_map[3]->krunqueue.num_in_active);
+
 			gt_spin_unlock(&ksched_info->ksched_lock);
 		}
 		return;
@@ -361,10 +368,11 @@ extern uthread_struct_t *credit_find_best_uthread(kthread_runqueue_t *kthread_ru
 			return NULL;
 		}
 
-		if(TAILQ_EMPTY(kthread_runq->expired_credit_tracker)){
+		if(TAILQ_EMPTY(kthread_runq->expired_credit_tracker) && ksched_shared_info.kthread_cur_uthreads > 8){
 			#ifdef DEBUG
 				fprintf(stderr, "cur active utrhead %d", ksched_shared_info.kthread_cur_uthreads);
 			#endif
+			
 			Load_balance();
 		}
 
@@ -396,15 +404,11 @@ extern uthread_struct_t *credit_find_best_uthread(kthread_runqueue_t *kthread_ru
 		uthread_struct_t *next;
 		if(!TAILQ_EMPTY(u_head)){
 
-			// if(kthread_apic_id()  == PRINTFROM_CPU){
-			// 	fprintf(stderr, "\n\nMOVING FROM EXPIRED TO ACTIVE CREDIT TRACKER********************************\n");
-			// 	print_credit_in_pq();
-			// 	fprintf(stderr, "\n\nMOVING FROM EXPIRED TO ACTIVE CREDIT TRACKER#######################################\n");
-			// }
+			// replenish credit
 			for (u_obj = TAILQ_FIRST(u_head); u_obj != NULL; u_obj = next) {
 				next = TAILQ_NEXT(u_obj, uthread_creditq); // Store next element before removal
 
-				int to_add = 10;
+				int to_add = 5;
 				if (u_obj->credit + to_add > u_obj->init_credit) {
 					u_obj->credit = u_obj->init_credit; // Reset credit to max credit if it exceeds max
 				} else {
@@ -445,7 +449,6 @@ extern uthread_struct_t *credit_find_best_uthread(kthread_runqueue_t *kthread_ru
 		kthread_runq->num_in_active--;
 		// __rem_from_runqueue(runq, result);
 	}
-
 	gt_spin_unlock(&(kthread_runq->kthread_runqlock));
 	// if(kthread_apic_id()  == PRINTFROM_CPU)
 	// 	print_credit_in_pq();

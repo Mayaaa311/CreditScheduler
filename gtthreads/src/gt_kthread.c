@@ -232,11 +232,16 @@ else
 	// kthread_unblock_signal(SIGUSR1);
 	return;
 }
-void gt_yield(){
+void gt_yield(int uid){
+
 	kthread_context_t *k_ctx = kthread_cpu_map[kthread_apic_id()];
 	kthread_runqueue_t *kthread_runq = &(k_ctx->krunqueue);
 	uthread_struct_t *u_obj = kthread_runq->cur_uthread;
+	// fprintf(stderr, "thread %d, %dyielded on kthread %d \n",u_obj->uthread_tid,uid, u_obj->cpu_id);
+
 	u_obj->uthread_state = YIELD;
+	fprintf(stderr,"BEFORE uthread %d YIELD, credit = %d____________________\n", uid, u_obj->credit);
+	print_credit_in_pq(kthread_apic_id());
 	credit_scheduler(&credit_find_best_uthread);
 }
 static void ksched_announce_cosched_group()
@@ -348,10 +353,13 @@ extern void gtthread_app_init(unsigned int lb_flag, unsigned int prio_flag)
 	k_ctx_main->lb_flag = lb_flag;
 	k_ctx_main->prio_flag = prio_flag;
 
-	char * file_name[4] = {"output_data11.csv", "output_data22.csv", "output_data33.csv", "output_data44.csv"}; 
+	char * file_name[16] = {"output_data11.csv", "output_data22.csv", "output_data33.csv", "output_data44.csv",
+	"output_data11.csv", "output_data22.csv", "output_data33.csv", "output_data44.csv",
+	"output_data11.csv", "output_data22.csv", "output_data33.csv", "output_data44.csv",
+	"output_data11.csv", "output_data22.csv", "output_data33.csv", "output_data44.csv"}; 
 
 	k_ctx_main->file = fopen(file_name[0], "w");
-	fprintf(k_ctx_main->file, " ");
+	fprintf(k_ctx_main->file, "\n");
 	kthread_init(k_ctx_main);
 
 	kthread_init_vtalrm_timeslice();
@@ -374,7 +382,7 @@ extern void gtthread_app_init(unsigned int lb_flag, unsigned int prio_flag)
 		k_ctx->prio_flag = prio_flag;
 
 		k_ctx->file = fopen(file_name[inx], "w");
-		fprintf(k_ctx->file, " ");
+		fprintf(k_ctx->file, "\n");
 
 		/* kthread_init called inside kthread_handler */
 		if(kthread_create(&k_tid, kthread_handler, (void *)k_ctx) < 0)
