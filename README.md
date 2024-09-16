@@ -39,3 +39,6 @@ Uthread 40, 60, 80, 100, 120 will yield once during their execution, yield is a 
 ## scheduler overview
 ![newly created uthread](https://github.com/user-attachments/assets/f4abc4c6-611f-4537-8d25-f2299e62db4b)
 
+## experiment result
+<img width="806" alt="Screenshot 2024-09-15 at 9 12 05 PM" src="https://github.com/user-attachments/assets/b96dda96-cdfa-49b1-b6f3-8799c8b9b45b">
+
