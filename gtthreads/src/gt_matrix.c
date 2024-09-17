@@ -85,22 +85,14 @@ static void init_matrices(matrix_t *A, matrix_t *B, matrix_t *C, int size) {
     generate_matrix(B, size, 1);
     generate_matrix(C, size, 0);
 }
-extern int uthread_create(uthread_t *, void *, void *, uthread_group_t, int, int);
-static void init_matrices(matrix_t *A, matrix_t *B, matrix_t *C, int size) {
-    generate_matrix(A, size, 1);
-    generate_matrix(B, size, 1);
-    generate_matrix(C, size, 0);
-}
 static void * uthread_mulmat(void *p)
 {
-	
 	
 	int i, j, k;
 	unsigned int cpuid;
 	struct timeval tv2;
 
 #define ptr ((uthread_arg_t *)p)
-	// init_matrices(ptr->_A,ptr->_B,ptr->_C, ptr->size);
 	// init_matrices(ptr->_A,ptr->_B,ptr->_C, ptr->size);
 	i=0; j= 0; k=0;
 
@@ -117,7 +109,7 @@ static void * uthread_mulmat(void *p)
 		for(j = 0; j < ptr->size; j++)
 			for(k = 0; k < ptr->size; k++){
 				// printf("MULPSHAUIHDUI");
-				// ptr->_C->m[i][j] += ptr->_A->m[i][k] * ptr->_B->m[k][j];
+				ptr->_C->m[i][j] += ptr->_A->m[i][k] * ptr->_B->m[k][j];
 				// printf("abababab");
 			}
 	}
@@ -130,7 +122,6 @@ static void * uthread_mulmat(void *p)
 #undef ptr
 	return 0;
 }
-
 
 
 
@@ -190,9 +181,9 @@ int main(int argc, char *argv[])
 
 	gtthread_app_init(lb_flag, priority_schedule);
 
-	// for(int i = 0; i < 4; i++){
-	// 	init_matrices(&matAs[i],&matBs[i],&matCs[i], matrix_sz[i]);
-	// }
+	for(int i = 0; i < 4; i++){
+		init_matrices(&matAs[i],&matBs[i],&matCs[i], matrix_sz[i]);
+	}
 
 	int credits[4] =  {25, 50, 75, 100};
 	// int credits[4] = {25,25,25,25};
@@ -204,9 +195,9 @@ int main(int argc, char *argv[])
 		for(int k = 0; k < 4; k++)
 			for(int j=0; j<8; j++){
 				uarg = &uargs[uthread_tid];
-				uarg->_A = &matAs[inx];
-				uarg->_B = &matBs[inx];
-				uarg->_C = &matCs[inx];
+				uarg->_A = &matAs[3-inx];
+				uarg->_B = &matBs[3-inx];
+				uarg->_C = &matCs[3-inx];
 				uarg->yield = 0;
 				if( uthread_tid % 20 == 0){
 					uarg->yield = 1;
@@ -214,21 +205,17 @@ int main(int argc, char *argv[])
 
 				uarg->tid = uthread_tid;
 				#ifdef DEBUG
-				#ifdef DEBUG
 				fprintf(stderr,"mat size :%d\n", matrix_sz[inx]);
 				#endif
-				#endif
-				uarg->size = matrix_sz[inx];
+				uarg->size = matrix_sz[3-inx];
 
 				uarg->gid = 0;
 				uarg->credit = credits[k];
 				#ifdef DEBUG
 				fprintf(stderr, "credit:%d, credit_idx: %d\n", credits[k], k);
 				#endif
-				#endif
 				// printf("Creating thread(id:%d, credit:%d, size:%d)...\n", uarg->tid, uarg->credit, uarg->size);
-				uthread_create(&utids[inx], uthread_mulmat, uarg, uarg->gid, credits[k],matrix_sz[inx]);
-				uthread_create(&utids[inx], uthread_mulmat, uarg, uarg->gid, credits[k],matrix_sz[inx]);
+				uthread_create(&utids[inx], uthread_mulmat, uarg, uarg->gid, credits[k],matrix_sz[3-inx]);
 				uthread_tid++;
 			}
 		// if(inx != 0 && inx % 4 == 0) credit_inx++;

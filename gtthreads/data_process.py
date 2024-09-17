@@ -2,17 +2,15 @@ import pandas as pd
 
 # Define the file paths
 files = [
-    "output_data1.csv",
-    "output_data2.csv",
-    "output_data3.csv",
-    "output_data4.csv"
+    "output_data11.csv",
+    "output_data22.csv",
+    "output_data33.csv",
+    "output_data44.csv"
 ]
 
 # Read and concatenate the files into a single DataFrame
-combined_df = pd.concat([pd.read_csv(file, header=None, names=[ 'thread_number', 'group_name','cpu_time(us)', 'wait_time(us)', 'exec_time(us)']) for file in files])
-combined_df['cpu_time(us)'] *= 1000
-combined_df['wait_time(us)'] *= 1000
-combined_df['exec_time(us)'] *= 1000
+combined_df = pd.concat([pd.read_csv(file, header=None, names=['group_name', 'thread_number', 'cpu_time(us)', 'wait_time(us)', 'exec_time(us)']) for file in files])
+
 # Save the combined DataFrame as Detailed_output.csv
 combined_df.to_csv('Detailed_output.csv', index=False)
 

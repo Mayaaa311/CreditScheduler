@@ -51,12 +51,6 @@ typedef struct uthread_struct
 	int size;
 
 	
-	record cpu_time;
-	record wait_time;
-	record exec_time;
-	int size;
-
-	
 } uthread_struct_t;
 
 struct __kthread_runqueue;

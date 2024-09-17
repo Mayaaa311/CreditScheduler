@@ -208,14 +208,21 @@ extern void credit_scheduler(uthread_struct_t * (*credit_find_best_uthread)(kthr
 		// check if the current one is cancelled or done, if so, put it into zombie queue and remove from credit queue */
 		if(state & (UTHREAD_DONE | UTHREAD_CANCELLED))
 		{
+			if(kthread_runq->cur_uthread->uthread_tid % 20 == 0)
+				print_credit();
+
+			end_profiler_timer(&u_obj->exec_time);
+			u_obj->cpu_time.total_time = u_obj->exec_time.total_time - u_obj->wait_time.total_time;
+			fprintf(kthread_cpu_map[u_obj->cpu_id]->file, "c_%d_m_%d, %d, %f, %f, %f\n", u_obj->init_credit, u_obj->size,u_obj->uthread_tid, 
+		u_obj->cpu_time.total_time, u_obj->wait_time.total_time, u_obj->exec_time.total_time);
+
 
 			kthread_runq->cur_uthread = NULL;
 			/* XXX: Inserting uthread into zombie queue is causing improper
 			 * cleanup/exit of uthread (core dump) */
 			uthread_head_t * kthread_zhead = &(kthread_runq->zombie_uthreads);
 			uthread_head_t * credit_head = (kthread_runq->active_credit_tracker);
-			if(kthread_apic_id() == 0)
-				print_credit();
+
 			gt_spin_lock(&(kthread_runq->kthread_runqlock));
 			
 			kthread_runq->kthread_runqlock.holder = 0x01;
@@ -240,18 +247,20 @@ extern void credit_scheduler(uthread_struct_t * (*credit_find_best_uthread)(kthr
 		{
 			uthread_stop_timer(u_obj);
 			start_profiler_tmr(&u_obj->wait_time);
-			kthread_runq->cur_uthread = NULL;
+			
 			// if credit is still over 0, return current thread to keep running, start timer when keep running
-			if(u_obj->credit > 0 ){
-				// uthread_start_timer(u_obj);
-				gt_spin_lock(&(kthread_runq->kthread_runqlock));
-				TAILQ_INSERT_TAIL( (kthread_runq->active_credit_tracker), u_obj, uthread_creditq);
-				kthread_runq->num_in_active++;
-				gt_spin_unlock(&(kthread_runq->kthread_runqlock));
+			if(u_obj->credit > 0 && u_obj->uthread_state != YIELD){
+				uthread_start_timer(u_obj);
+				return;
+				// gt_spin_lock(&(kthread_runq->kthread_runqlock));
+				// TAILQ_INSERT_TAIL( (kthread_runq->active_credit_tracker), u_obj, uthread_creditq);
+				// kthread_runq->num_in_active++;
+				// gt_spin_unlock(&(kthread_runq->kthread_runqlock));
 			}
 			// if credit is less = than 0, run state as runnable and move it to expired runq, 
 			// move from active credit tracker to exired credit tracker
 			else{
+				kthread_runq->cur_uthread = NULL;
 				// move to expire/active queue
 				gt_spin_lock(&(kthread_runq->kthread_runqlock));
 				TAILQ_INSERT_TAIL( (kthread_runq->expired_credit_tracker), u_obj, uthread_creditq);
@@ -298,6 +307,7 @@ extern void credit_scheduler(uthread_struct_t * (*credit_find_best_uthread)(kthr
 			fprintf(stderr, "uthread_init failed on kthread(%d)\n", k_ctx->cpuid);
 			exit(0);
 		}
+		start_profiler_tmr(&u_obj->exec_time);
 	}
 	else{
 		#ifdef DEBUG
@@ -440,14 +450,12 @@ static void uthread_context_func(int signo)
 	cur_uthread->uthread_func(cur_uthread->uthread_arg);
 
 	uthread_stop_timer(cur_uthread);
-	end_profiler_timer(&cur_uthread->exec_time);
 
-	cur_uthread->cpu_time.total_time = cur_uthread->exec_time.total_time - cur_uthread->wait_time.total_time;
+
 	cur_uthread->uthread_state = UTHREAD_DONE;
 
-	// fprintf(kthread_cpu_map[cur_uthread->cpu_id]->file,"HI!!!");
-	fprintf(kthread_cpu_map[cur_uthread->cpu_id]->file, "c_%d_m_%d, %d, %f, %f, %f\n", cur_uthread->init_credit, cur_uthread->size,cur_uthread->uthread_tid, 
-	cur_uthread->cpu_time.total_time, cur_uthread->wait_time.total_time, cur_uthread->exec_time.total_time);
+
+
 	
 	// uthread_schedule(&sched_find_best_uthread);
 	#ifdef CREDIT_SCHED
@@ -529,6 +537,7 @@ extern int uthread_create(uthread_t *u_tid, int (*u_func)(void *), void *u_arg, 
 
 	kthread_runq->num_in_active++;
 	kthread_runq->tot++;
+
 	
 	gt_spin_unlock(runq_lock);
 	#ifdef DEBUG

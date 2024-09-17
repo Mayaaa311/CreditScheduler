@@ -1,0 +1,30 @@
+
+Thread(id:35, credit:25, size: 128) finished (TIME : 5 s and 323223 us)
+Thread(id:39, credit:25, size: 128) finished (TIME : 5 s and 404440 us)
+Thread(id:43, credit:50, size: 128) finished (TIME : 6 s and 18446744073709074709 us)
+Thread(id:47, credit:50, size: 128) finished (TIME : 6 s and 18446744073709164146 us)
+Thread(id:51, credit:75, size: 128) finished (TIME : 6 s and 18446744073709264583 us)
+Thread(id:55, credit:75, size: 128) finished (TIME : 6 s and 18446744073709392682 us)
+Thread(id:33, credit:25, size: 128) finished (TIME : 6 s and 18446744073709437113 us)
+Thread(id:34, credit:25, size: 128) finished (TIME : 6 s and 18446744073709449315 us)
+Thread(id:32, credit:25, size: 128) finished (TIME : 6 s and 18446744073709464526 us)
+Thread(id:59, credit:100, size: 128) finished (TIME : 6 s and 18446744073709539517 us)
+Thread(id:37, credit:25, size: 128) finished (TIME : 6 s and 41360 us)
+Thread(id:38, credit:25, size: 128) finished (TIME : 6 s and 82049 us)
+Thread(id:36, credit:25, size: 128) finished (TIME : 6 s and 111145 us)
+Thread(id:63, credit:100, size: 128) finished (TIME : 6 s and 172822 us)
+Thread(id:41, credit:50, size: 128) finished (TIME : 6 s and 185446 us)
+Thread(id:67, credit:25, size: 64) finished (TIME : 6 s and 218049 us)
+Thread(id:71, credit:25, size: 64) finished (TIME : 6 s and 224276 us)
+Thread(id:42, credit:50, size: 128) finished (TIME : 6 s and 250117 us)
+Thread(id:75, credit:50, size: 64) finished (TIME : 6 s and 252256 us)
+Thread(id:79, credit:50, size: 64) finished (TIME : 6 s and 276435 us)
+Thread(id:83, credit:75, size: 64) finished (TIME : 6 s and 290143 us)
+Thread(id:40, credit:50, size: 128) finished (TIME : 6 s and 303266 us)
+______________PRINTING INFO ON CPU 0!_____________________________
+active q:[A91(c=100), A95(c=100), A99(c=25), A103(c=25), A107(c=50), A111(c=50), A115(c=75), A119(c=75), A123(c=100), A127(c=100), A19(c=6), A27(c=18), A31(c=9), A23(c=5), A11(c=2), A15(c=3), ]
+expired q: [E3(c=-96), E7(c=-69), ]
+
+Thread(id:87, credit:75, size: 64) finished (TIME : 6 s and 311007 us)
+Thread(id:91, credit:100, size: 64) finished (TIME : 6 s and 328275 us)
+Thread(id:95, credit:100, size: 64) finished (TIME : 6 s and 340514 us)
